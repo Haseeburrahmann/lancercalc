@@ -144,9 +144,12 @@ export default function FreelanceTaxCalculatorPage() {
             >
               ⏱️ Hourly Rate Calculator
             </Link>
-            <span className="inline-flex items-center gap-2 bg-white border border-slate-100 text-slate-400 font-medium text-sm px-4 py-2.5 rounded-xl cursor-not-allowed">
-              ⚖️ 1099 vs W-2 Comparison <span className="text-xs">— coming soon</span>
-            </span>
+            <Link
+              href="/1099-vs-w2-calculator"
+              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+            >
+              ⚖️ 1099 vs W-2 Calculator
+            </Link>
           </div>
         </div>
       </section>

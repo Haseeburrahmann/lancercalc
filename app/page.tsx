@@ -29,14 +29,14 @@ const tools = [
     ready: true,
   },
   {
-    href: "#",
+    href: "/1099-vs-w2-calculator",
     emoji: "⚖️",
-    title: "1099 vs W-2 Comparison",
+    title: "1099 vs W-2 Calculator",
     description:
-      "Is that freelance contract actually worth more than your full-time job? Factor in taxes, benefits, and hidden costs.",
-    tags: ["Coming Soon"],
-    tagColors: ["bg-amber-100 text-amber-700"],
-    ready: false,
+      "Is that freelance contract actually worth more than your full-time offer? Compare after-tax take-home, benefits value, and find your break-even rate.",
+    tags: ["New", "US"],
+    tagColors: ["bg-emerald-500 text-white", "bg-slate-100 text-slate-600"],
+    ready: true,
   },
   {
     href: "#",
