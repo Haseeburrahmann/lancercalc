@@ -1,8 +1,24 @@
 import { MetadataRoute } from "next";
+import { posts } from "./blog/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://lancercalc.com";
   const now  = new Date();
+
+  const blogEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...posts.map((post) => ({
+      url: `${base}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 
   return [
     {
@@ -35,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    ...blogEntries,
     {
       url: `${base}/privacy`,
       lastModified: now,

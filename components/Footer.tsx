@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
 
           {/* Brand */}
           <div>
@@ -43,6 +43,28 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-3">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/blog" className="text-sm hover:text-brand-400 transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-sm hover:text-brand-400 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-sm hover:text-brand-400 transition-colors">
+                  Terms of Use
+                </Link>
+              </li>
             </ul>
           </div>
 

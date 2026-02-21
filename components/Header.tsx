@@ -38,6 +38,12 @@ export default function Header() {
                 {t.label}
               </Link>
             ))}
+            <Link
+              href="/blog"
+              className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-all"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* CTA + mobile toggle */}
@@ -79,6 +85,13 @@ export default function Header() {
                 {t.label}
               </Link>
             ))}
+            <Link
+              href="/blog"
+              onClick={() => setOpen(false)}
+              className="block px-4 py-2.5 text-sm font-medium text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-all"
+            >
+              Blog
+            </Link>
           </div>
         )}
       </div>
