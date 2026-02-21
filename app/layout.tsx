@@ -54,6 +54,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="SC4nTGns8dCZ_jUEMjn9LuZUn6vip3Ybp8qXLa_PNMI" />
       </head>
       <body>
         {/* ── Google Analytics 4 ───────────────────────────────────────── */}
