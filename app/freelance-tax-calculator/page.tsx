@@ -150,6 +150,12 @@ export default function FreelanceTaxCalculatorPage() {
             >
               ⚖️ 1099 vs W-2 Calculator
             </Link>
+            <Link
+              href="/invoice-generator"
+              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+            >
+              📄 Invoice Generator
+            </Link>
           </div>
         </div>
       </section>

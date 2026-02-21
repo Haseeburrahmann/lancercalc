@@ -39,14 +39,14 @@ const tools = [
     ready: true,
   },
   {
-    href: "#",
+    href: "/invoice-generator",
     emoji: "📄",
     title: "Invoice Generator",
     description:
-      "Create a clean, professional invoice and download it as PDF — no account needed, no watermarks, completely free.",
-    tags: ["Coming Soon"],
-    tagColors: ["bg-amber-100 text-amber-700"],
-    ready: false,
+      "Create a professional invoice with logo, custom tax (VAT/GST), discount, and PAID stamp — download as PDF. No watermark, no sign-up.",
+    tags: ["New"],
+    tagColors: ["bg-emerald-500 text-white"],
+    ready: true,
   },
   {
     href: "#",
