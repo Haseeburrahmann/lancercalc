@@ -2,6 +2,37 @@
 
 import { useState, useMemo } from "react";
 
+// ── State income-tax rates (same as SETaxCalculator) ────────────────────────
+const STATE_RATES: Record<string, number> = {
+  AL: 0.05, AK: 0.00, AZ: 0.025, AR: 0.047, CA: 0.093,
+  CO: 0.044, CT: 0.065, DE: 0.066, FL: 0.00, GA: 0.055,
+  HI: 0.11, ID: 0.058, IL: 0.0495, IN: 0.0305, IA: 0.06,
+  KS: 0.057, KY: 0.04, LA: 0.06, ME: 0.075, MD: 0.0575,
+  MA: 0.09, MI: 0.0425, MN: 0.0985, MS: 0.05, MO: 0.047,
+  MT: 0.069, NE: 0.0684, NV: 0.00, NH: 0.00, NJ: 0.0637,
+  NM: 0.059, NY: 0.0685, NC: 0.0475, ND: 0.025, OH: 0.04,
+  OK: 0.05, OR: 0.099, PA: 0.0307, RI: 0.0599, SC: 0.07,
+  SD: 0.00, TN: 0.00, TX: 0.00, UT: 0.0485, VT: 0.0875,
+  VA: 0.0575, WA: 0.00, WV: 0.065, WI: 0.0765, WY: 0.00,
+  DC: 0.085,
+};
+const STATES = [
+  ["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],
+  ["CA","California"],["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],
+  ["FL","Florida"],["GA","Georgia"],["HI","Hawaii"],["ID","Idaho"],
+  ["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],["KS","Kansas"],
+  ["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],["MD","Maryland"],
+  ["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],["MS","Mississippi"],
+  ["MO","Missouri"],["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],
+  ["NH","New Hampshire"],["NJ","New Jersey"],["NM","New Mexico"],["NY","New York"],
+  ["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],["OK","Oklahoma"],
+  ["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],["SC","South Carolina"],
+  ["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UT","Utah"],
+  ["VT","Vermont"],["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],
+  ["WI","Wisconsin"],["WY","Wyoming"],["DC","Washington D.C."],
+];
+const NO_TAX_STATES = ["AK","FL","NV","NH","SD","TN","TX","WA","WY"];
+
 // ── 2025 IRS constants ──────────────────────────────────────────────────────
 const SS_WAGE_BASE       = 176100;
 const SS_RATE            = 0.124;
@@ -70,6 +101,11 @@ interface CalcResult {
   contractEffectiveRate: number;
   contractNetAfterExpenses: number; // after health + retirement self-funded
 
+  // State tax
+  w2StateTax: number;
+  contractStateTax: number;
+  stateRate: number;
+
   // Comparison
   annualDiff: number;           // 1099 take-home minus W-2 take-home (positive = 1099 wins)
   breakEvenRate: number;        // 1099 gross needed to match W-2 take-home
@@ -79,6 +115,7 @@ interface CalcResult {
 export default function W2vsContractCalculator() {
   // Shared
   const [filing, setFiling] = useState<"single" | "married">("single");
+  const [state,  setState]  = useState<string>("TX");
 
   // W-2 inputs
   const [w2Salary, setW2Salary]         = useState<string>("");
@@ -111,7 +148,9 @@ export default function W2vsContractCalculator() {
     // W-2 federal income tax (on gross minus standard deduction; simplified — no pre-tax 401k here)
     const w2Taxable     = Math.max(0, w2Gross - stdDeduct);
     const w2FederalTax  = calcFederalTax(w2Taxable, married);
-    const w2TotalTax    = w2FicaTax + w2FederalTax;
+    const stateRate     = STATE_RATES[state] ?? 0;
+    const w2StateTax    = w2Gross * stateRate;
+    const w2TotalTax    = w2FicaTax + w2FederalTax + w2StateTax;
     const w2TakeHome    = w2Gross - w2TotalTax;
     const w2EffRate     = w2TotalTax / w2Gross;
 
@@ -145,7 +184,8 @@ export default function W2vsContractCalculator() {
     // Federal income tax on 1099
     const contractTaxableInc = Math.max(0, contractGross - contractSeDeduct - stdDeduct);
     const contractFederalTax = calcFederalTax(contractTaxableInc, married);
-    const contractTotalTax   = contractSeTax + contractFederalTax;
+    const contractStateTax   = contractGross * stateRate;
+    const contractTotalTax   = contractSeTax + contractFederalTax + contractStateTax;
     const contractTakeHome   = contractGross - contractTotalTax;
     const contractEffRate    = contractTotalTax / contractGross;
 
@@ -164,7 +204,8 @@ export default function W2vsContractCalculator() {
       const beSE  = Math.min(beRate * SE_ADJUSTMENT, SS_WAGE_BASE) * SS_RATE
                   + beRate * SE_ADJUSTMENT * MEDICARE_RATE;
       const beDed = beSE * 0.5;
-      const beTax = beSE + calcFederalTax(Math.max(0, beRate - beDed - stdDeduct), married);
+      const beTax = beSE + calcFederalTax(Math.max(0, beRate - beDed - stdDeduct), married)
+                  + beRate * stateRate;
       const beNet = beRate - beTax - contractHealthCost - contractRetireCost;
       const err   = beNet - w2TakeHome;
       if (Math.abs(err) < 1) break;
@@ -172,15 +213,17 @@ export default function W2vsContractCalculator() {
     }
 
     return {
-      w2Gross, w2FicaTax, w2FederalTax, w2TotalTax, w2TakeHome,
+      w2Gross, w2FicaTax, w2FederalTax, w2StateTax, w2TotalTax, w2TakeHome,
       w2EffectiveRate: w2EffRate,
       w2BenefitsValue, w2TotalComp,
       contractGross, contractSeTax, contractSeDeduct, contractFederalTax,
-      contractTotalTax, contractTakeHome, contractEffectiveRate: contractEffRate,
+      contractStateTax, contractTotalTax, contractTakeHome,
+      contractEffectiveRate: contractEffRate,
       contractNetAfterExpenses: contractNetAfterExp,
+      stateRate,
       annualDiff, breakEvenRate: Math.max(0, beRate),
     };
-  }, [filing, w2Salary, w2Health, w2Retirement, w2PtoDays, contractRate, rateType, hoursPerWeek, weeksPerYear, contractHealth, contractRetire]);
+  }, [filing, state, w2Salary, w2Health, w2Retirement, w2PtoDays, contractRate, rateType, hoursPerWeek, weeksPerYear, contractHealth, contractRetire]);
 
   const handleCalc = () => {
     const w2 = parseFloat(w2Salary.replace(/,/g, ""));
@@ -220,23 +263,42 @@ export default function W2vsContractCalculator() {
   return (
     <div className="space-y-8">
 
-      {/* ── Filing status ────────────────────────────────────────────── */}
+      {/* ── Filing status + State ────────────────────────────────────── */}
       <div className="calc-card">
-        <h2 className="text-base font-bold text-slate-900 mb-4">Filing Status</h2>
-        <div className="flex gap-3">
-          {(["single", "married"] as const).map((f) => (
-            <button
-              key={f}
-              onClick={() => { setFiling(f); setCalc(false); }}
-              className={`flex-1 py-2.5 rounded-xl border font-medium text-sm transition-all ${
-                filing === f
-                  ? "bg-brand-600 border-brand-600 text-white shadow-sm"
-                  : "bg-white border-slate-200 text-slate-600 hover:border-brand-300"
-              }`}
+        <h2 className="text-base font-bold text-slate-900 mb-4">Your Tax Situation</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="label">Filing status</label>
+            <div className="flex gap-2">
+              {(["single", "married"] as const).map((f) => (
+                <button
+                  key={f}
+                  onClick={() => { setFiling(f); setCalc(false); }}
+                  className={`flex-1 py-2.5 rounded-xl border font-medium text-sm transition-all ${
+                    filing === f
+                      ? "bg-brand-600 border-brand-600 text-white shadow-sm"
+                      : "bg-white border-slate-200 text-slate-600 hover:border-brand-300"
+                  }`}
+                >
+                  {f === "single" ? "Single" : "Married"}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="label">State</label>
+            <select
+              value={state}
+              onChange={e => { setState(e.target.value); setCalc(false); }}
+              className="select-field"
             >
-              {f === "single" ? "Single" : "Married Filing Jointly"}
-            </button>
-          ))}
+              {STATES.map(([code, name]) => (
+                <option key={code} value={code}>
+                  {name}{NO_TAX_STATES.includes(code) ? " (no income tax)" : ""}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
 
@@ -400,6 +462,15 @@ export default function W2vsContractCalculator() {
                   <span className="result-label">Federal income tax</span>
                   <span className="result-value text-red-500">−{fmt(results.w2FederalTax)}</span>
                 </div>
+                <div className="result-row">
+                  <span className="result-label">
+                    {state} state income tax
+                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax 🎉</span>}
+                  </span>
+                  <span className="result-value text-red-500">
+                    {results.stateRate === 0 ? "—" : `−${fmt(results.w2StateTax)}`}
+                  </span>
+                </div>
                 <div className="result-row font-semibold">
                   <span className="result-label text-slate-700">Take-home pay</span>
                   <span className="result-value text-slate-900 text-base">{fmt(results.w2TakeHome)}</span>
@@ -457,6 +528,15 @@ export default function W2vsContractCalculator() {
                 <div className="result-row">
                   <span className="result-label">Federal income tax</span>
                   <span className="result-value text-red-500">−{fmt(results.contractFederalTax)}</span>
+                </div>
+                <div className="result-row">
+                  <span className="result-label">
+                    {state} state income tax
+                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax 🎉</span>}
+                  </span>
+                  <span className="result-value text-red-500">
+                    {results.stateRate === 0 ? "—" : `−${fmt(results.contractStateTax)}`}
+                  </span>
                 </div>
                 <div className="result-row font-semibold">
                   <span className="result-label text-slate-700">Take-home (before self-funding)</span>

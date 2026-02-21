@@ -3,6 +3,8 @@ import Link from "next/link";
 const tools = [
   { href: "/freelance-tax-calculator", label: "Freelance Tax Calculator" },
   { href: "/hourly-rate-calculator",   label: "Hourly Rate Calculator" },
+  { href: "/1099-vs-w2-calculator",    label: "1099 vs W-2 Calculator" },
+  { href: "/invoice-generator",        label: "Invoice Generator" },
 ];
 
 export default function Footer() {
@@ -55,14 +57,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between gap-3">
+        <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between gap-3 items-start sm:items-center">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} LancerCalc. Free forever.
           </p>
-          <p className="text-xs text-slate-500">
-            Disclaimer: These calculators are for estimation purposes only and
-            do not constitute tax advice. Consult a tax professional for your situation.
-          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/privacy" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms"   className="text-xs text-slate-500 hover:text-slate-300 transition-colors">Terms of Use</Link>
+            <p className="text-xs text-slate-500">
+              Estimates only — not tax advice.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

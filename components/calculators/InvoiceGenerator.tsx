@@ -146,22 +146,42 @@ export default function InvoiceGenerator() {
   // ─────────────────────────────────────────────────────────────────────────
   return (
     <>
-      {/* ── Print styles (injected into <head> via style tag) ────────────── */}
+      {/* ── Print styles ─────────────────────────────────────────────────── */}
       <style>{`
         @media print {
+          @page { size: A4 portrait; margin: 10mm; }
+          /* Collapse body height to kill blank pages caused by min-h-screen */
+          html, body {
+            height: 1px !important;
+            min-height: 0 !important;
+            overflow: hidden !important;
+          }
           body * { visibility: hidden !important; }
           #invoice-preview, #invoice-preview * { visibility: visible !important; }
           #invoice-preview {
             position: fixed !important;
-            top: 0 !important; left: 0 !important;
+            top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
             width: 100% !important;
             margin: 0 !important;
-            padding: 40px !important;
+            padding: 8mm !important;
             background: white !important;
             box-shadow: none !important;
             border-radius: 0 !important;
+            border: none !important;
+            overflow: hidden !important;
+            font-size: 11px !important;
           }
+          #invoice-preview .text-5xl,
+          #invoice-preview .text-4xl { font-size: 18px !important; }
+          #invoice-preview .text-2xl { font-size: 15px !important; }
+          #invoice-preview .text-xl  { font-size: 13px !important; }
+          #invoice-preview .text-lg  { font-size: 12px !important; }
+          #invoice-preview .mb-8     { margin-bottom: 12px !important; }
+          #invoice-preview .mb-6     { margin-bottom: 8px !important; }
+          #invoice-preview .p-8      { padding: 0 !important; }
+          #invoice-preview .py-2\\.5 { padding-top: 4px !important; padding-bottom: 4px !important; }
           .no-print { display: none !important; }
+          * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
       `}</style>
 
