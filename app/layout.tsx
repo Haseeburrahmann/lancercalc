@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 const GA_ID = "G-C9E0KPBWME";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lancercalc.com"),
   title: {
     default: "LancerCalc — Free Financial Calculators for Freelancers",
     template: "%s | LancerCalc",
@@ -16,14 +17,21 @@ export const metadata: Metadata = {
     "Free, fast financial tools built for freelancers. Calculate self-employment tax, find your ideal hourly rate, compare 1099 vs W-2, and generate invoices — no sign-up required.",
   keywords: [
     "freelance tax calculator",
-    "self employment tax calculator",
-    "freelancer hourly rate calculator",
+    "self employment tax calculator 2025",
     "1099 tax calculator",
+    "freelancer hourly rate calculator",
+    "1099 vs w2 calculator",
+    "free invoice generator no watermark",
     "freelance finance tools",
-    "quarterly tax estimator",
+    "quarterly tax estimator freelancer",
+    "how much tax do freelancers pay",
+    "self employed tax calculator",
   ],
   authors: [{ name: "LancerCalc" }],
   creator: "LancerCalc",
+  alternates: {
+    canonical: "https://lancercalc.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -41,7 +49,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   },
 };
 

@@ -43,9 +43,9 @@ export default function HourlyRateCalculator() {
     const baseHourly    = billableHrs > 0 ? withRetire / billableHrs : 0;
     // Add profit margin
     const finalHourly   = baseHourly / (1 - margin);
-    // Daily / weekly / monthly
-    const daily         = finalHourly * hours;
-    const weekly        = daily * 5;
+    // Daily / weekly / monthly  (assume 5-day work week)
+    const daily         = finalHourly * (hours / 5);   // hours per day = hoursPerWeek ÷ 5
+    const weekly        = finalHourly * hours;          // full week of billable hours
     const monthly       = finalHourly * billableHrs / 12;
 
     return {

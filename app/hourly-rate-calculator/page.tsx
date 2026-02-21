@@ -3,16 +3,24 @@ import HourlyRateCalculator from "@/components/calculators/HourlyRateCalculator"
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Freelance Hourly Rate Calculator 2026 — What Should I Charge?",
+  title: "Freelance Hourly Rate Calculator 2025–2026 — What Should I Charge?",
   description:
     "Find your minimum hourly rate as a freelancer. Enter your target salary, hours, tax rate, and expenses — we calculate the exact rate you need to charge. Free, no sign-up.",
   keywords: [
     "freelance hourly rate calculator",
     "what hourly rate should I charge as a freelancer",
-    "freelancer rate calculator 2026",
+    "freelancer rate calculator 2025 2026",
     "how to set freelance rates",
     "minimum freelance hourly rate",
+    "how much should I charge as a freelancer",
+    "freelance rate calculator",
+    "consultant hourly rate calculator",
+    "self employed hourly rate calculator",
+    "freelance pricing calculator",
   ],
+  alternates: {
+    canonical: "https://lancercalc.com/hourly-rate-calculator",
+  },
   openGraph: {
     title: "Freelance Hourly Rate Calculator — What Should I Charge?",
     description:
@@ -44,9 +52,23 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+
 export default function HourlyRateCalculatorPage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* ── Page header ──────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900 text-white">
@@ -58,7 +80,7 @@ export default function HourlyRateCalculatorPage() {
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
             Freelance Hourly Rate
-            <span className="block text-emerald-400 text-2xl sm:text-3xl font-semibold mt-1">Calculator 2026</span>
+            <span className="block text-emerald-400 text-2xl sm:text-3xl font-semibold mt-1">Calculator 2025–2026</span>
           </h1>
           <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
             What hourly rate do you need to charge to actually hit your income goals?

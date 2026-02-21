@@ -14,11 +14,11 @@ export default function PrivacyPage() {
     },
     {
       title: "Analytics",
-      body: `We may use privacy-respecting, cookie-free analytics (such as Plausible Analytics) to understand aggregate traffic patterns — for example, which tools are most used, which countries visitors come from, and which pages are most popular. This data is anonymised and never tied to individuals. No personal data is collected for analytics purposes.`,
+      body: `We use Google Analytics 4 (GA4) to understand aggregate traffic patterns — for example, which tools are most used, which countries visitors come from, and which pages are most popular. GA4 may collect anonymised usage data (page views, session duration, general location at country/region level) and sets cookies to distinguish unique visitors. This helps us improve LancerCalc. This data is governed by Google's privacy policy (policies.google.com/privacy). We do not share this data with advertisers or third parties for targeting purposes, and we do not use it to identify individual users.`,
     },
     {
       title: "Cookies",
-      body: `LancerCalc does not use advertising cookies, tracking cookies, or any third-party cookies that follow you across the web. Any cookies set are strictly functional (e.g., remembering a theme preference) and contain no personal information.`,
+      body: `LancerCalc uses Google Analytics 4 cookies (_ga, _ga_*) to track aggregate site usage statistics. These are analytics cookies — not advertising or retargeting cookies — and do not follow you across unrelated websites for marketing purposes. We do not use any other advertising or cross-site tracking cookies. You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on (tools.google.com/dlpage/gaoptout).`,
     },
     {
       title: "Invoice Generator",

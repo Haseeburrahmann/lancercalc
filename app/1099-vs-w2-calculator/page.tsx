@@ -5,16 +5,22 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "1099 vs W-2 Calculator 2025 — Is Freelancing Worth It? | LancerCalc",
   description:
-    "Compare a 1099 contract vs W-2 job offer side by side. See the real difference after self-employment tax, health insurance, retirement, and benefits. Free, no sign-up.",
+    "Compare a 1099 contract vs W-2 job offer side by side. See the real after-tax difference including self-employment tax, health insurance, retirement, and state taxes. Free, no sign-up.",
   keywords: [
     "1099 vs w2 calculator",
-    "1099 vs w2 comparison",
+    "1099 vs w2 comparison 2025",
     "freelance vs full time salary comparison",
     "is freelancing worth it financially",
     "1099 contractor vs employee calculator",
     "self employment tax vs w2",
     "how much should i charge as 1099 contractor",
+    "contract vs salary calculator",
+    "should i take 1099 or w2",
+    "1099 break even calculator",
   ],
+  alternates: {
+    canonical: "https://lancercalc.com/1099-vs-w2-calculator",
+  },
   openGraph: {
     title: "1099 vs W-2 Calculator 2025 — See the Real Difference | LancerCalc",
     description:
@@ -42,13 +48,27 @@ const faqs = [
   },
   {
     q: "What isn't included in this comparison?",
-    a: "This calculator focuses on the major financial factors: SE tax, federal income tax, health insurance, and retirement. It does not include state income tax, local taxes, business expense deductions (home office, equipment), pre-tax 401(k) contribution effects, non-billable contractor hours, gaps between contracts, or professional liability insurance. These can all affect the real-world comparison — use this as a starting point, not a final answer.",
+    a: "This calculator includes SE tax, federal income tax, state income tax (all 50 states + DC), health insurance, and retirement. It does not account for local city/county taxes, business expense deductions (home office, equipment), pre-tax 401(k) contribution effects, non-billable contractor hours, gaps between contracts, or professional liability insurance. These can all affect the real-world comparison — use this as a starting point, not a final answer.",
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
 
 export default function ContractVsW2Page() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* ── Page header ──────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">

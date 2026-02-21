@@ -600,8 +600,8 @@ export default function W2vsContractCalculator() {
             <div>
               <p className="text-xs font-semibold text-slate-600 mb-1">What this calculator includes — and what it doesn&apos;t</p>
               <p className="text-xs text-slate-500 leading-relaxed">
-                <strong>Included:</strong> SE tax (both employer/employee FICA shares), 50% SE tax deduction, 2025 federal income tax brackets, employer vs self-funded health insurance and retirement.{" "}
-                <strong>Not included:</strong> State income tax, local taxes, business expenses/deductions beyond retirement, pre-tax 401(k) contributions, contractor&apos;s non-billable time, unpaid time between contracts, or professional liability insurance.{" "}
+                <strong>Included:</strong> SE tax (both employer/employee FICA shares), 50% SE tax deduction, 2025 federal income tax brackets, state income tax (all 50 states + DC), employer vs self-funded health insurance and retirement.{" "}
+                <strong>Not included:</strong> Local city/county taxes, business expense deductions beyond retirement, pre-tax 401(k) contribution effects, contractor&apos;s non-billable time, unpaid time between contracts, or professional liability insurance.{" "}
                 Federal brackets sourced from{" "}
                 <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline hover:text-brand-700">
                   IRS Rev. Proc. 2024-40

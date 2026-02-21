@@ -13,7 +13,14 @@ export const metadata: Metadata = {
     "quarterly tax estimator freelancer",
     "how much tax do freelancers pay",
     "self employed tax by state",
+    "freelance income tax calculator",
+    "self employment tax rate 2025",
+    "how to calculate self employment tax",
+    "freelancer quarterly taxes",
   ],
+  alternates: {
+    canonical: "https://lancercalc.com/freelance-tax-calculator",
+  },
   openGraph: {
     title: "Freelance Tax Calculator 2025 — Free Self-Employment Tax Estimator",
     description:
@@ -45,9 +52,23 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+
 export default function FreelanceTaxCalculatorPage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* ── Page header ──────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">

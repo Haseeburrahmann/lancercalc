@@ -15,7 +15,14 @@ export const metadata: Metadata = {
     "simple invoice generator",
     "freelance invoice template",
     "create invoice free download pdf",
+    "free online invoice maker",
+    "invoice generator no account",
+    "free invoice template pdf",
+    "make invoice online free",
   ],
+  alternates: {
+    canonical: "https://lancercalc.com/invoice-generator",
+  },
   openGraph: {
     title: "Free Invoice Generator — No Sign-Up, No Watermark | LancerCalc",
     description:
@@ -47,9 +54,23 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+
 export default function InvoiceGeneratorPage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
 
       {/* ── Page header ───────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">

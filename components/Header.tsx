@@ -5,6 +5,8 @@ import { useState } from "react";
 const tools = [
   { href: "/freelance-tax-calculator", label: "Tax Calculator" },
   { href: "/hourly-rate-calculator",   label: "Hourly Rate" },
+  { href: "/1099-vs-w2-calculator",    label: "1099 vs W-2" },
+  { href: "/invoice-generator",        label: "Invoice Generator" },
 ];
 
 export default function Header() {

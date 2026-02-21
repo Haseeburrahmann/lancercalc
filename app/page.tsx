@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "LancerCalc — Free Financial Calculators for Freelancers",
   description:
     "Free, fast financial calculators for freelancers. Self-employment tax, hourly rate, 1099 vs W-2, invoice generator — no sign-up, no paywalls.",
+  alternates: {
+    canonical: "https://lancercalc.com",
+  },
 };
 
 const tools = [
@@ -77,9 +80,26 @@ const stats = [
   { value: "0", label: "Dark patterns" },
 ];
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LancerCalc",
+  "url": "https://lancercalc.com",
+  "description": "Free financial calculators for freelancers — self-employment tax, hourly rate, 1099 vs W-2, invoice generator.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://lancercalc.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-brand-900 to-slate-900 text-white">
