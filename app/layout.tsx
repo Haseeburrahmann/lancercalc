@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 // ── Replace with your GA4 Measurement ID from analytics.google.com ──────────
-const GA_ID = "G-XXXXXXXXXX";
+const GA_ID = "G-C9E0KPBWME";
 
 export const metadata: Metadata = {
   title: {
