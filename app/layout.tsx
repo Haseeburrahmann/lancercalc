@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+// ── Replace with your GA4 Measurement ID from analytics.google.com ──────────
+const GA_ID = "G-XXXXXXXXXX";
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +56,18 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
+        {/* ── Google Analytics 4 ───────────────────────────────────────── */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+        `}</Script>
+
         <Header />
         <main>{children}</main>
         <Footer />
