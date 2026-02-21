@@ -51,6 +51,19 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico",        sizes: "any" },
+      { url: "/favicon-16x16.png",  sizes: "16x16",  type: "image/png" },
+      { url: "/favicon-32x32.png",  sizes: "32x32",  type: "image/png" },
+      { url: "/icon-192.png",       sizes: "192x192",type: "image/png" },
+      { url: "/icon-512.png",       sizes: "512x512",type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -61,7 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon"             href="/favicon.ico" sizes="any" />
+        <link rel="icon"             href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon"             href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <meta name="theme-color"     content="#4f46e5" />
         <meta name="google-site-verification" content="SC4nTGns8dCZ_jUEMjn9LuZUn6vip3Ybp8qXLa_PNMI" />
       </head>
       <body>
