@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How is self-employment tax calculated?",
-    a: "Self-employment tax is 15.3% of 92.35% of your net self-employment income. It covers Social Security (12.4%) and Medicare (2.9%). As a freelancer, you pay both the employee and employer share. The good news: you can deduct 50% of SE tax from your adjusted gross income.",
+    a: "Self-employment tax is calculated on 92.35% of your net income. Social Security (12.4%) applies up to the $176,100 wage base in 2025 — income above that is not subject to SS tax. Medicare (2.9%) has no cap. An additional 0.9% Medicare applies above $200K (single) or $250K (married). You pay both the employee and employer share, but can deduct 50% of SE tax from your AGI. Source: IRS Schedule SE and Topic 554.",
   },
   {
     q: "How much should I set aside for taxes as a freelancer?",
@@ -66,12 +66,20 @@ export default function FreelanceTaxCalculatorPage() {
             tax breakdown, quarterly payment amounts, and exactly how much to set aside.
           </p>
           <div className="flex flex-wrap gap-2 mt-5">
-            {["Free","No sign-up","All 50 states","2025 tax brackets","Updated quarterly"].map((tag) => (
+            {["Free","No sign-up","All 50 states","2025 IRS brackets","SS wage base capped","Updated Jan 2025"].map((tag) => (
               <span key={tag} className="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">
                 {tag}
               </span>
             ))}
           </div>
+          <p className="text-xs text-slate-400 mt-4">
+            Data sources:{" "}
+            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Rev. Proc. 2024-40</a>
+            {" · "}
+            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Topic 554</a>
+            {" · "}
+            <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">SSA 2025 COLA</a>
+          </p>
         </div>
       </section>
 
@@ -89,7 +97,7 @@ export default function FreelanceTaxCalculatorPage() {
               {
                 step: "01",
                 title: "Self-employment tax",
-                body: "15.3% of 92.35% of your net income. This covers Social Security (12.4%) and Medicare (2.9%). You pay both halves as a freelancer, but half is deductible.",
+                body: "Social Security (12.4%) applies up to the $176,100 wage base. Medicare (2.9%) has no cap. An extra 0.9% Medicare applies above $200K. Multiply net income by 92.35% first — then apply rates. 50% of SE tax is deductible from your AGI.",
               },
               {
                 step: "02",

@@ -2,6 +2,14 @@
 
 import { useState, useMemo } from "react";
 
+// ── 2025 IRS constants (Source: IRS Rev. Proc. 2024-40) ───────────────────
+const SS_WAGE_BASE       = 176100;  // Social Security tax stops here
+const SS_RATE            = 0.124;   // 12.4% Social Security
+const MEDICARE_RATE      = 0.029;   // 2.9% Medicare (no wage base limit)
+const SE_ADJUSTMENT      = 0.9235;  // IRS: multiply net SE income by 92.35%
+const ADDL_MEDICARE_RATE = 0.009;   // 0.9% extra Medicare above $200K single / $250K married
+const ADDL_MEDICARE_THRESHOLD = { single: 200000, married: 250000 };
+
 // ── 2025 Federal income-tax brackets ──────────────────────────────────────
 const BRACKETS_SINGLE = [
   { min: 0,       max: 11925,   rate: 0.10 },
@@ -86,11 +94,25 @@ export default function SETaxCalculator() {
     const extraDeduct= parseFloat(deduct.replace(/,/g, "")) || 0;
     if (gross <= 0) return null;
 
-    // SE tax: 15.3% on 92.35% of net self-employment income
-    const netSE      = gross * 0.9235;
-    const seTax      = netSE * 0.153;
-    // Deduction: 50% of SE tax is deductible
-    const seDeduct   = seTax * 0.5;
+    // ── Self-employment tax (IRS Schedule SE) ──────────────────────────
+    // Step 1: Net SE income = gross × 92.35% (IRS SE_ADJUSTMENT)
+    const netSE = gross * SE_ADJUSTMENT;
+
+    // Step 2: Social Security tax — capped at $176,100 wage base (2025)
+    const ssTaxableAmt = Math.min(netSE, SS_WAGE_BASE);
+    const ssTax        = ssTaxableAmt * SS_RATE;
+
+    // Step 3: Medicare tax — no wage base limit
+    const medicareTax  = netSE * MEDICARE_RATE;
+
+    // Step 4: Additional Medicare (0.9%) on income above threshold
+    const addlMedicareBase      = ADDL_MEDICARE_THRESHOLD[filing];
+    const addlMedicareTaxableAmt= Math.max(0, gross - addlMedicareBase);
+    const addlMedicareTax       = addlMedicareTaxableAmt * ADDL_MEDICARE_RATE;
+
+    const seTax    = ssTax + medicareTax + addlMedicareTax;
+    // Deduction: 50% of SE tax is deductible from AGI
+    const seDeduct = seTax * 0.5;
 
     const stdDeduct  = STANDARD_DEDUCTION[filing];
     const federalAGI = Math.max(0, gross - seDeduct - extraDeduct);
@@ -109,6 +131,8 @@ export default function SETaxCalculator() {
       gross, seTax, seDeduct, federalTax, stateTax,
       totalTax, effectiveRate, quarterly, savePct,
       stateRate, netSE, taxableInc,
+      ssTax, medicareTax, addlMedicareTax,
+      ssCapped: gross * SE_ADJUSTMENT > SS_WAGE_BASE,
     };
   }, [income, state, filing, deduct]);
 
@@ -253,7 +277,13 @@ export default function SETaxCalculator() {
                   <span className="result-value">{fmt(results.gross)}</span>
                 </div>
                 <div className="result-row">
-                  <span className="result-label">Self-employment tax (15.3%)</span>
+                  <span className="result-label">
+                    Self-employment tax
+                    <span className="block text-xs text-slate-400">
+                      SS {results.ssCapped ? `(capped at $176,100 wage base)` : `(12.4%)`} + Medicare (2.9%)
+                      {results.addlMedicareTax > 0 && " + 0.9% additional Medicare"}
+                    </span>
+                  </span>
                   <span className="result-value text-red-500">−{fmt(results.seTax)}</span>
                 </div>
                 <div className="result-row">
@@ -307,6 +337,47 @@ export default function SETaxCalculator() {
                   Open a separate bank account and move{" "}
                   <strong>{pct(results.savePct)}</strong> every time a client pays you.
                   Treat it as untouchable. Quarterly tax time becomes stress-free.
+                </p>
+              </div>
+            </div>
+
+            {/* Inline disclaimer + IRS citation */}
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex gap-3">
+              <span className="text-base mt-0.5">ℹ️</span>
+              <div>
+                <p className="text-xs font-semibold text-slate-600 mb-1">Accuracy & Sources</p>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Federal brackets and SE tax rates sourced from{" "}
+                  <a
+                    href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-600 underline hover:text-brand-700"
+                  >
+                    IRS Rev. Proc. 2024-40
+                  </a>
+                  {" "}and{" "}
+                  <a
+                    href="https://www.irs.gov/taxtopics/tc554"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-600 underline hover:text-brand-700"
+                  >
+                    IRS Topic 554 (Self-Employment Tax)
+                  </a>
+                  . Social Security wage base ($176,100) per{" "}
+                  <a
+                    href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-600 underline hover:text-brand-700"
+                  >
+                    SSA 2025 COLA fact sheet
+                  </a>
+                  . State rates from state revenue department schedules.{" "}
+                  <strong>These are estimates for planning purposes only</strong> and do not
+                  account for all credits, deductions, or local taxes. Consult a qualified
+                  tax professional for advice specific to your situation.
                 </p>
               </div>
             </div>
