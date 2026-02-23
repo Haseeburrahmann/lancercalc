@@ -46,23 +46,8 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* CTAs + mobile toggle */}
+          {/* Mobile toggle */}
           <div className="flex items-center gap-2">
-            <Link
-              href="/#tools"
-              className="hidden sm:inline-flex text-sm font-semibold text-gray-600 hover:text-brand-600 px-3 py-2 rounded-lg transition-colors"
-            >
-              Sign in
-            </Link>
-            <Link
-              href="/#tools"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm"
-            >
-              Start free
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
             <button
               className="md:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors"
               onClick={() => setOpen(!open)}
@@ -101,15 +86,6 @@ export default function Header() {
             >
               Blog
             </Link>
-            <div className="pt-2 pb-1 px-4">
-              <Link
-                href="/#tools"
-                onClick={() => setOpen(false)}
-                className="block text-center bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
-              >
-                Start free
-              </Link>
-            </div>
           </div>
         )}
       </div>

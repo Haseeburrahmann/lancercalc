@@ -43,14 +43,14 @@ export default function TermsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-20">
         <div className="flex items-center gap-2 text-brand-600 text-sm font-medium mb-6">
           <Link href="/" className="hover:text-brand-700 transition-colors">← Back to LancerCalc</Link>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Terms of Use</h1>
-        <p className="text-slate-500 text-sm mb-10">Effective date: January 1, 2025 · Last updated: February 2026</p>
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Terms of Use</h1>
+        <p className="text-gray-500 text-sm mb-10">Effective date: January 1, 2025 · Last updated: February 2026</p>
 
         <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-10 flex gap-3">
           <span className="text-xl mt-0.5">⚠️</span>
@@ -64,9 +64,9 @@ export default function TermsPage() {
 
         <div className="space-y-8">
           {sections.map((s) => (
-            <div key={s.title} className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-              <h2 className="font-bold text-slate-900 text-lg mb-3">{s.title}</h2>
-              <p className="text-slate-600 text-sm leading-relaxed">{s.body}</p>
+            <div key={s.title} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <h2 className="font-bold text-gray-900 text-lg mb-3">{s.title}</h2>
+              <p className="text-gray-600 text-sm leading-relaxed">{s.body}</p>
             </div>
           ))}
         </div>

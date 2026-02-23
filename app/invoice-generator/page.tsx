@@ -73,7 +73,7 @@ export default function InvoiceGeneratorPage() {
       />
 
       {/* ── Page header ───────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">
+      <section className="bg-gradient-to-br from-gray-900 to-brand-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="flex items-center gap-2 text-brand-300 text-sm font-medium mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -84,7 +84,7 @@ export default function InvoiceGeneratorPage() {
             Free Invoice Generator
             <span className="block text-brand-400 text-2xl sm:text-3xl font-semibold mt-1">No sign-up · No watermark · Download PDF</span>
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
+          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
             Fill in your details, add line items, and download a professional
             PDF invoice — in under 60 seconds. Free forever.
           </p>
@@ -104,20 +104,20 @@ export default function InvoiceGeneratorPage() {
       </section>
 
       {/* ── Why this one ──────────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-y border-slate-200">
+      <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-8">Why LancerCalc Invoice Generator?</h2>
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Why LancerCalc Invoice Generator?</h2>
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-slate-50 border-b border-slate-200">
-                  <th className="text-left px-4 py-3 font-semibold text-slate-700">Feature</th>
-                  <th className="text-center px-4 py-3 font-semibold text-slate-700">LancerCalc</th>
-                  <th className="text-center px-4 py-3 font-semibold text-slate-700">InvoiceSimple Free</th>
-                  <th className="text-center px-4 py-3 font-semibold text-slate-700">invoice-generator.com</th>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="text-left px-4 py-3 font-semibold text-gray-700">Feature</th>
+                  <th className="text-center px-4 py-3 font-semibold text-gray-700">LancerCalc</th>
+                  <th className="text-center px-4 py-3 font-semibold text-gray-700">InvoiceSimple Free</th>
+                  <th className="text-center px-4 py-3 font-semibold text-gray-700">invoice-generator.com</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
+              <tbody className="divide-y divide-gray-100 bg-white">
                 {[
                   ["No sign-up required",        "✅","❌ (account needed)","✅"],
                   ["No watermark on PDF",         "✅","❌ (paid to remove)","✅"],
@@ -131,10 +131,10 @@ export default function InvoiceGeneratorPage() {
                   ["Always free, no limit",       "✅","❌ (50/mo cap)","✅"],
                 ].map(([feat, lc, is, ig]) => (
                   <tr key={feat}>
-                    <td className="px-4 py-3 text-slate-700">{feat}</td>
+                    <td className="px-4 py-3 text-gray-700">{feat}</td>
                     <td className="px-4 py-3 text-center font-semibold text-emerald-600">{lc}</td>
-                    <td className="px-4 py-3 text-center text-slate-500">{is}</td>
-                    <td className="px-4 py-3 text-center text-slate-500">{ig}</td>
+                    <td className="px-4 py-3 text-center text-gray-500">{is}</td>
+                    <td className="px-4 py-3 text-center text-gray-500">{ig}</td>
                   </tr>
                 ))}
               </tbody>
@@ -145,29 +145,29 @@ export default function InvoiceGeneratorPage() {
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <h2 className="text-2xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
         <div className="space-y-5">
           {faqs.map((faq) => (
-            <div key={faq.q} className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-900 mb-2">{faq.q}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{faq.a}</p>
+            <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Related tools ─────────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-t border-slate-200">
+      <section className="bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <h2 className="text-lg font-bold text-slate-900 mb-5">Related calculators</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-5">Related calculators</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href="/freelance-tax-calculator" className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
+            <Link href="/freelance-tax-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
               🧾 Freelance Tax Calculator
             </Link>
-            <Link href="/hourly-rate-calculator" className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
+            <Link href="/hourly-rate-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
               ⏱️ Hourly Rate Calculator
             </Link>
-            <Link href="/1099-vs-w2-calculator" className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
+            <Link href="/1099-vs-w2-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
               ⚖️ 1099 vs W-2 Calculator
             </Link>
           </div>

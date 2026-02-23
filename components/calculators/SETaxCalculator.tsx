@@ -149,13 +149,13 @@ export default function SETaxCalculator() {
       {/* ── Inputs ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 space-y-5">
         <div className="calc-card">
-          <h2 className="text-lg font-bold text-slate-900 mb-5">Your Details</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-5">Your Details</h2>
 
           {/* Income */}
           <div className="mb-4">
             <label className="label">Annual freelance income</label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -203,10 +203,10 @@ export default function SETaxCalculator() {
           {/* Business expenses */}
           <div className="mb-6">
             <label className="label">
-              Business deductions <span className="text-slate-400 font-normal">(optional)</span>
+              Business deductions <span className="text-gray-400 font-normal">(optional)</span>
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -220,7 +220,7 @@ export default function SETaxCalculator() {
                 className="input-field pl-8"
               />
             </div>
-            <p className="text-xs text-slate-400 mt-1.5">
+            <p className="text-xs text-gray-400 mt-1.5">
               Deductible expenses reduce your taxable income.
             </p>
           </div>
@@ -231,7 +231,7 @@ export default function SETaxCalculator() {
         </div>
 
         {/* Disclaimer */}
-        <p className="text-xs text-slate-400 leading-relaxed px-1">
+        <p className="text-xs text-gray-400 leading-relaxed px-1">
           Based on 2025 federal tax brackets and state rates. Figures are estimates for planning
           purposes only. Consult a tax professional for advice specific to your situation.
         </p>
@@ -242,8 +242,8 @@ export default function SETaxCalculator() {
         {!calculated || !results ? (
           <div className="calc-card flex flex-col items-center justify-center text-center py-16 h-full min-h-[340px]">
             <div className="text-5xl mb-4">🧾</div>
-            <p className="text-slate-500 font-medium text-lg mb-2">Enter your income to get started</p>
-            <p className="text-slate-400 text-sm max-w-xs">
+            <p className="text-gray-500 font-medium text-lg mb-2">Enter your income to get started</p>
+            <p className="text-gray-400 text-sm max-w-xs">
               Your results will show a full tax breakdown, quarterly payments, and how much to set aside.
             </p>
           </div>
@@ -261,16 +261,16 @@ export default function SETaxCalculator() {
 
             {/* Quarterly */}
             <div className="calc-card border-l-4 border-l-amber-400">
-              <p className="text-sm font-medium text-slate-500 mb-1">Pay the IRS every quarter</p>
-              <p className="text-4xl font-bold text-slate-900">{fmt(results.quarterly)}</p>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-sm font-medium text-gray-500 mb-1">Pay the IRS every quarter</p>
+              <p className="text-4xl font-bold text-gray-900">{fmt(results.quarterly)}</p>
+              <p className="text-xs text-gray-400 mt-1">
                 Due: April 15 · June 16 · Sep 15 · Jan 15 &apos;26
               </p>
             </div>
 
             {/* Full breakdown */}
             <div className="calc-card">
-              <h3 className="font-bold text-slate-900 mb-4">Full Tax Breakdown</h3>
+              <h3 className="font-bold text-gray-900 mb-4">Full Tax Breakdown</h3>
               <div className="space-y-0">
                 <div className="result-row">
                   <span className="result-label">Gross freelance income</span>
@@ -279,7 +279,7 @@ export default function SETaxCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Self-employment tax
-                    <span className="block text-xs text-slate-400">
+                    <span className="block text-xs text-gray-400">
                       SS {results.ssCapped ? `(capped at $176,100 wage base)` : `(12.4%)`} + Medicare (2.9%)
                       {results.addlMedicareTax > 0 && " + 0.9% additional Medicare"}
                     </span>
@@ -293,7 +293,7 @@ export default function SETaxCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Federal income tax
-                    <span className="block text-xs text-slate-400">
+                    <span className="block text-xs text-gray-400">
                       on {fmt(results.taxableInc)} taxable income
                     </span>
                   </span>
@@ -312,15 +312,15 @@ export default function SETaxCalculator() {
                 </div>
 
                 {/* Total */}
-                <div className="flex justify-between items-center pt-4 mt-2 border-t border-slate-200">
+                <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200">
                   <div>
-                    <p className="font-bold text-slate-900">Total estimated tax</p>
-                    <p className="text-xs text-slate-400">Effective rate: {pct(results.effectiveRate)}</p>
+                    <p className="font-bold text-gray-900">Total estimated tax</p>
+                    <p className="text-xs text-gray-400">Effective rate: {pct(results.effectiveRate)}</p>
                   </div>
-                  <p className="text-2xl font-bold text-slate-900">{fmt(results.totalTax)}</p>
+                  <p className="text-2xl font-bold text-gray-900">{fmt(results.totalTax)}</p>
                 </div>
                 <div className="flex justify-between items-center pt-3">
-                  <p className="font-semibold text-slate-700">Take-home pay</p>
+                  <p className="font-semibold text-gray-700">Take-home pay</p>
                   <p className="text-xl font-bold text-emerald-600">
                     {fmt(results.gross - results.totalTax)}
                   </p>
@@ -342,11 +342,11 @@ export default function SETaxCalculator() {
             </div>
 
             {/* Inline disclaimer + IRS citation */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex gap-3">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 flex gap-3">
               <span className="text-base mt-0.5">ℹ️</span>
               <div>
-                <p className="text-xs font-semibold text-slate-600 mb-1">Accuracy & Sources</p>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs font-semibold text-gray-600 mb-1">Accuracy & Sources</p>
+                <p className="text-xs text-gray-500 leading-relaxed">
                   Federal brackets and SE tax rates sourced from{" "}
                   <a
                     href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"

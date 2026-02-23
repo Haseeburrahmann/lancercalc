@@ -69,13 +69,13 @@ export default function HourlyRateCalculator() {
       {/* ── Inputs ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 space-y-5">
         <div className="calc-card">
-          <h2 className="text-lg font-bold text-slate-900 mb-5">Your Goals & Costs</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-5">Your Goals & Costs</h2>
 
           {/* Target take-home */}
           <div className="mb-4">
             <label className="label">Target take-home salary (per year)</label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -89,7 +89,7 @@ export default function HourlyRateCalculator() {
                 className="input-field pl-8"
               />
             </div>
-            <p className="text-xs text-slate-400 mt-1.5">The amount you want in your pocket after tax.</p>
+            <p className="text-xs text-gray-400 mt-1.5">The amount you want in your pocket after tax.</p>
           </div>
 
           {/* Hours per week */}
@@ -127,16 +127,16 @@ export default function HourlyRateCalculator() {
                 onChange={(e) => { setTaxRate(e.target.value); setCalc(false); }}
                 className="input-field pr-8"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">%</span>
             </div>
-            <p className="text-xs text-slate-400 mt-1.5">Use our Tax Calculator above for your exact rate.</p>
+            <p className="text-xs text-gray-400 mt-1.5">Use our Tax Calculator above for your exact rate.</p>
           </div>
 
           {/* Health insurance */}
           <div className="mb-4">
-            <label className="label">Health insurance (per month) <span className="text-slate-400 font-normal">optional</span></label>
+            <label className="label">Health insurance (per month) <span className="text-gray-400 font-normal">optional</span></label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -154,7 +154,7 @@ export default function HourlyRateCalculator() {
 
           {/* Retirement */}
           <div className="mb-4">
-            <label className="label">Retirement savings (% of take-home) <span className="text-slate-400 font-normal">optional</span></label>
+            <label className="label">Retirement savings (% of take-home) <span className="text-gray-400 font-normal">optional</span></label>
             <div className="relative">
               <input
                 type="number"
@@ -163,7 +163,7 @@ export default function HourlyRateCalculator() {
                 onChange={(e) => { setRetirePct(e.target.value); setCalc(false); }}
                 className="input-field pr-8"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">%</span>
             </div>
           </div>
 
@@ -178,9 +178,9 @@ export default function HourlyRateCalculator() {
                 onChange={(e) => { setProfitMargin(e.target.value); setCalc(false); }}
                 className="input-field pr-8"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">%</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">%</span>
             </div>
-            <p className="text-xs text-slate-400 mt-1.5">Buffer for slow months, non-billable work, and business growth.</p>
+            <p className="text-xs text-gray-400 mt-1.5">Buffer for slow months, non-billable work, and business growth.</p>
           </div>
 
           <button onClick={handleCalc} className="btn-primary">
@@ -188,7 +188,7 @@ export default function HourlyRateCalculator() {
           </button>
         </div>
 
-        <p className="text-xs text-slate-400 leading-relaxed px-1">
+        <p className="text-xs text-gray-400 leading-relaxed px-1">
           This calculator helps you find your minimum viable rate. Adjust upward based on your
           experience, niche, and market demand.
         </p>
@@ -199,8 +199,8 @@ export default function HourlyRateCalculator() {
         {!calculated || !results ? (
           <div className="calc-card flex flex-col items-center justify-center text-center py-16 h-full min-h-[340px]">
             <div className="text-5xl mb-4">⏱️</div>
-            <p className="text-slate-500 font-medium text-lg mb-2">Enter your target salary</p>
-            <p className="text-slate-400 text-sm max-w-xs">
+            <p className="text-gray-500 font-medium text-lg mb-2">Enter your target salary</p>
+            <p className="text-gray-400 text-sm max-w-xs">
               We&apos;ll calculate the exact hourly rate you need to charge to hit your goals after tax, health insurance, and retirement.
             </p>
           </div>
@@ -223,15 +223,15 @@ export default function HourlyRateCalculator() {
                 { label: "Per month", value: fmt(results.monthly) },
               ].map((r) => (
                 <div key={r.label} className="calc-card text-center py-4">
-                  <p className="text-slate-400 text-xs mb-1">{r.label}</p>
-                  <p className="font-bold text-slate-900 text-lg">{r.value}</p>
+                  <p className="text-gray-400 text-xs mb-1">{r.label}</p>
+                  <p className="font-bold text-gray-900 text-lg">{r.value}</p>
                 </div>
               ))}
             </div>
 
             {/* Cost breakdown */}
             <div className="calc-card">
-              <h3 className="font-bold text-slate-900 mb-4">What&apos;s built into your rate</h3>
+              <h3 className="font-bold text-gray-900 mb-4">What&apos;s built into your rate</h3>
               <div className="space-y-0">
                 <div className="result-row">
                   <span className="result-label">Your take-home salary goal</span>
@@ -260,16 +260,16 @@ export default function HourlyRateCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Billable hours/year
-                    <span className="block text-xs text-slate-400">
+                    <span className="block text-xs text-gray-400">
                       {hoursPerWeek} hrs × {52 - parseFloat(weeksVacation || "0")} weeks
                     </span>
                   </span>
                   <span className="result-value">{results.billableHrs.toLocaleString()} hrs</span>
                 </div>
-                <div className="flex justify-between items-center pt-4 mt-2 border-t border-slate-200">
+                <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200">
                   <div>
-                    <p className="font-bold text-slate-900">Minimum hourly rate</p>
-                    <p className="text-xs text-slate-400">With {profitMargin}% profit margin</p>
+                    <p className="font-bold text-gray-900">Minimum hourly rate</p>
+                    <p className="text-xs text-gray-400">With {profitMargin}% profit margin</p>
                   </div>
                   <p className="text-2xl font-bold text-emerald-600">{fmtDec(results.finalHourly)}</p>
                 </div>

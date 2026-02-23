@@ -192,7 +192,7 @@ export default function InvoiceGenerator() {
 
           {/* Currency */}
           <div className="calc-card">
-            <h2 className="text-base font-bold text-slate-900 mb-4">Invoice Settings</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-4">Invoice Settings</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="label">Currency</label>
@@ -253,7 +253,7 @@ export default function InvoiceGenerator() {
           {/* From */}
           <div className="calc-card">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-bold text-slate-900">From (You)</h2>
+              <h2 className="text-base font-bold text-gray-900">From (You)</h2>
               <button
                 onClick={() => fileRef.current?.click()}
                 className="text-xs text-brand-600 font-semibold hover:text-brand-700 flex items-center gap-1.5 border border-brand-200 rounded-lg px-3 py-1.5 hover:bg-brand-50 transition-all"
@@ -272,7 +272,7 @@ export default function InvoiceGenerator() {
 
           {/* To */}
           <div className="calc-card">
-            <h2 className="text-base font-bold text-slate-900 mb-4">Bill To (Client)</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-4">Bill To (Client)</h2>
             <div className="space-y-3">
               <input type="text" placeholder="Client name or company" value={toName} onChange={e => setToName(e.target.value)} className="input-field" />
               <input type="email" placeholder="Client email" value={toEmail} onChange={e => setToEmail(e.target.value)} className="input-field" />
@@ -282,7 +282,7 @@ export default function InvoiceGenerator() {
 
           {/* Line items */}
           <div className="calc-card">
-            <h2 className="text-base font-bold text-slate-900 mb-4">Line Items</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-4">Line Items</h2>
             <div className="space-y-3">
               {items.map((item, idx) => (
                 <div key={item.id} className="grid grid-cols-12 gap-2 items-start">
@@ -322,7 +322,7 @@ export default function InvoiceGenerator() {
                     {items.length > 1 && (
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-slate-300 hover:text-red-400 transition-colors text-lg font-bold w-full text-center"
+                        className="text-gray-300 hover:text-red-400 transition-colors text-lg font-bold w-full text-center"
                       >
                         ×
                       </button>
@@ -341,7 +341,7 @@ export default function InvoiceGenerator() {
 
           {/* Discount & Tax */}
           <div className="calc-card">
-            <h2 className="text-base font-bold text-slate-900 mb-4">Discount & Tax</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-4">Discount & Tax</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="label">Discount</label>
@@ -371,7 +371,7 @@ export default function InvoiceGenerator() {
                   <button
                     onClick={() => setTaxEnabled(v => !v)}
                     className={`text-xs font-semibold px-2 py-0.5 rounded-full transition-colors ${
-                      taxEnabled ? "bg-brand-100 text-brand-700" : "bg-slate-100 text-slate-500"
+                      taxEnabled ? "bg-brand-100 text-brand-700" : "bg-gray-100 text-gray-500"
                     }`}
                   >
                     {taxEnabled ? "On" : "Off"}
@@ -395,7 +395,7 @@ export default function InvoiceGenerator() {
                         onChange={e => setTaxRate(e.target.value)}
                         className="input-field pr-8"
                       />
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">%</span>
+                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">%</span>
                     </div>
                   </div>
                 )}
@@ -405,7 +405,7 @@ export default function InvoiceGenerator() {
 
           {/* Notes */}
           <div className="calc-card">
-            <h2 className="text-base font-bold text-slate-900 mb-4">Notes / Payment Instructions</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-4">Notes / Payment Instructions</h2>
             <textarea
               value={notes}
               onChange={e => setNotes(e.target.value)}
@@ -428,7 +428,7 @@ export default function InvoiceGenerator() {
               className={`flex items-center gap-2 font-semibold px-5 py-3 rounded-xl border transition-all text-sm ${
                 paid
                   ? "bg-emerald-50 border-emerald-400 text-emerald-700 hover:bg-emerald-100"
-                  : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
+                  : "bg-white border-gray-200 text-gray-600 hover:border-slate-300"
               }`}
             >
               {paid ? "✓ Remove PAID stamp" : "✓ Mark as PAID"}
@@ -439,11 +439,11 @@ export default function InvoiceGenerator() {
         {/* ═══════════════ RIGHT: LIVE PREVIEW ═══════════════ */}
         <div className="sticky top-4">
           <div className="no-print">
-            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Live Preview</p>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Live Preview</p>
           </div>
           <div
             id="invoice-preview"
-            className="bg-white rounded-2xl border border-slate-200 shadow-md p-8 relative overflow-hidden"
+            className="bg-white rounded-2xl border border-gray-200 shadow-md p-8 relative overflow-hidden"
             style={{ fontFamily: "Inter, system-ui, sans-serif" }}
           >
             {/* PAID stamp */}
@@ -483,22 +483,22 @@ export default function InvoiceGenerator() {
                       </span>
                     </div>
                 }
-                <div className="text-sm font-bold text-slate-900">{fromName || "Your Name"}</div>
-                {fromEmail && <div className="text-xs text-slate-500">{fromEmail}</div>}
-                {fromPhone && <div className="text-xs text-slate-500">{fromPhone}</div>}
+                <div className="text-sm font-bold text-gray-900">{fromName || "Your Name"}</div>
+                {fromEmail && <div className="text-xs text-gray-500">{fromEmail}</div>}
+                {fromPhone && <div className="text-xs text-gray-500">{fromPhone}</div>}
                 {fromAddress && (
-                  <div className="text-xs text-slate-500 whitespace-pre-line mt-0.5">{fromAddress}</div>
+                  <div className="text-xs text-gray-500 whitespace-pre-line mt-0.5">{fromAddress}</div>
                 )}
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-slate-900">INVOICE</div>
+                <div className="text-2xl font-bold text-gray-900">INVOICE</div>
                 <div className="text-sm font-semibold text-brand-600 mt-1">{invoiceNo}</div>
-                <div className="text-xs text-slate-500 mt-2">
-                  <span className="text-slate-400">Date: </span>{fmtDate(invoiceDate)}
+                <div className="text-xs text-gray-500 mt-2">
+                  <span className="text-gray-400">Date: </span>{fmtDate(invoiceDate)}
                 </div>
                 {dueDate && (
-                  <div className="text-xs text-slate-500">
-                    <span className="text-slate-400">Due: </span>
+                  <div className="text-xs text-gray-500">
+                    <span className="text-gray-400">Due: </span>
                     <span className={new Date(dueDate) < new Date() && !paid ? "text-red-500 font-semibold" : ""}>
                       {fmtDate(dueDate)}
                     </span>
@@ -508,21 +508,21 @@ export default function InvoiceGenerator() {
             </div>
 
             {/* Bill To */}
-            <div className="bg-slate-50 rounded-xl px-5 py-4 mb-6">
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Bill To</div>
-              <div className="font-bold text-slate-900 text-sm">{toName || "Client Name"}</div>
-              {toEmail && <div className="text-xs text-slate-500">{toEmail}</div>}
-              {toAddress && <div className="text-xs text-slate-500 whitespace-pre-line mt-0.5">{toAddress}</div>}
+            <div className="bg-gray-50 rounded-xl px-5 py-4 mb-6">
+              <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Bill To</div>
+              <div className="font-bold text-gray-900 text-sm">{toName || "Client Name"}</div>
+              {toEmail && <div className="text-xs text-gray-500">{toEmail}</div>}
+              {toAddress && <div className="text-xs text-gray-500 whitespace-pre-line mt-0.5">{toAddress}</div>}
             </div>
 
             {/* Line items table */}
             <table className="w-full text-sm mb-4">
               <thead>
-                <tr className="border-b-2 border-slate-200">
-                  <th className="text-left pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wide">Description</th>
-                  <th className="text-center pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wide w-12">Qty</th>
-                  <th className="text-right pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wide w-20">Rate</th>
-                  <th className="text-right pb-2 text-xs font-semibold text-slate-500 uppercase tracking-wide w-24">Amount</th>
+                <tr className="border-b-2 border-gray-200">
+                  <th className="text-left pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">Description</th>
+                  <th className="text-center pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide w-12">Qty</th>
+                  <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide w-20">Rate</th>
+                  <th className="text-right pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wide w-24">Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -531,11 +531,11 @@ export default function InvoiceGenerator() {
                   const r = parseFloat(item.rate) || 0;
                   const amt = q * r;
                   return (
-                    <tr key={item.id} className="border-b border-slate-100">
-                      <td className="py-2.5 text-slate-700 pr-4">{item.description || <span className="text-slate-300 italic">Description</span>}</td>
-                      <td className="py-2.5 text-center text-slate-500">{item.qty}</td>
-                      <td className="py-2.5 text-right text-slate-500">{fmt(r, sym)}</td>
-                      <td className="py-2.5 text-right font-medium text-slate-800">{fmt(amt, sym)}</td>
+                    <tr key={item.id} className="border-b border-gray-100">
+                      <td className="py-2.5 text-gray-700 pr-4">{item.description || <span className="text-gray-300 italic">Description</span>}</td>
+                      <td className="py-2.5 text-center text-gray-500">{item.qty}</td>
+                      <td className="py-2.5 text-right text-gray-500">{fmt(r, sym)}</td>
+                      <td className="py-2.5 text-right font-medium text-gray-800">{fmt(amt, sym)}</td>
                     </tr>
                   );
                 })}
@@ -545,12 +545,12 @@ export default function InvoiceGenerator() {
             {/* Totals */}
             <div className="ml-auto w-64 space-y-1.5 mb-6">
               <div className="flex justify-between text-sm">
-                <span className="text-slate-500">Subtotal</span>
-                <span className="font-medium text-slate-700">{fmt(subtotal, sym)}</span>
+                <span className="text-gray-500">Subtotal</span>
+                <span className="font-medium text-gray-700">{fmt(subtotal, sym)}</span>
               </div>
               {discountType !== "none" && discountAmt > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">
+                  <span className="text-gray-500">
                     Discount {discountType === "pct" ? `(${discountVal}%)` : ""}
                   </span>
                   <span className="text-red-500">−{fmt(discountAmt, sym)}</span>
@@ -558,32 +558,32 @@ export default function InvoiceGenerator() {
               )}
               {taxEnabled && parseFloat(taxRate) > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-500">{taxLabel || "Tax"} ({taxRate}%)</span>
-                  <span className="text-slate-700">{fmt(taxAmt, sym)}</span>
+                  <span className="text-gray-500">{taxLabel || "Tax"} ({taxRate}%)</span>
+                  <span className="text-gray-700">{fmt(taxAmt, sym)}</span>
                 </div>
               )}
-              <div className="flex justify-between items-center pt-2 border-t-2 border-slate-200 mt-2">
-                <span className="font-bold text-slate-900 text-base">Total</span>
+              <div className="flex justify-between items-center pt-2 border-t-2 border-gray-200 mt-2">
+                <span className="font-bold text-gray-900 text-base">Total</span>
                 <span className="font-bold text-brand-600 text-xl">{fmt(total, sym)}</span>
               </div>
             </div>
 
             {/* Notes */}
             {notes && (
-              <div className="border-t border-slate-100 pt-4">
-                <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">Notes</div>
-                <p className="text-xs text-slate-500 leading-relaxed whitespace-pre-line">{notes}</p>
+              <div className="border-t border-gray-100 pt-4">
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Notes</div>
+                <p className="text-xs text-gray-500 leading-relaxed whitespace-pre-line">{notes}</p>
               </div>
             )}
 
             {/* Footer */}
-            <div className="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center">
-              <span className="text-xs text-slate-300">Generated with LancerCalc.com · Free forever</span>
-              <span className="text-xs font-semibold text-slate-400">{currency.code}</span>
+            <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
+              <span className="text-xs text-gray-300">Generated with LancerCalc.com · Free forever</span>
+              <span className="text-xs font-semibold text-gray-400">{currency.code}</span>
             </div>
           </div>
 
-          <p className="text-xs text-slate-400 text-center mt-3 no-print">
+          <p className="text-xs text-gray-400 text-center mt-3 no-print">
             Click <strong>Download PDF</strong> → your browser&apos;s print dialog → Save as PDF.
             No watermarks. No sign-up.
           </p>

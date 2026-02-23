@@ -71,7 +71,7 @@ export default function ContractVsW2Page() {
       />
 
       {/* ── Page header ──────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">
+      <section className="bg-gradient-to-br from-gray-900 to-brand-900 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="flex items-center gap-2 text-brand-300 text-sm font-medium mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -82,7 +82,7 @@ export default function ContractVsW2Page() {
             1099 vs W-2 Calculator
             <span className="block text-brand-400 text-2xl sm:text-3xl font-semibold mt-1">2025 — Side-by-Side Comparison</span>
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
+          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
             A $130K contract isn&apos;t the same as a $130K salary. Enter both offers — see
             the real after-tax, after-benefits comparison in seconds.
           </p>
@@ -93,11 +93,11 @@ export default function ContractVsW2Page() {
               </span>
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-4">
+          <p className="text-xs text-gray-400 mt-4">
             Federal tax data:{" "}
-            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Rev. Proc. 2024-40</a>
+            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Rev. Proc. 2024-40</a>
             {" · "}
-            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Topic 554 (SE Tax)</a>
+            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Topic 554 (SE Tax)</a>
           </p>
         </div>
       </section>
@@ -108,9 +108,9 @@ export default function ContractVsW2Page() {
       </section>
 
       {/* ── How it works ─────────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-y border-slate-200">
+      <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-8">How the comparison works</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">How the comparison works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -129,10 +129,10 @@ export default function ContractVsW2Page() {
                 body: "We solve for the exact 1099 gross income needed for your net pay to match the W-2 offer. This is the number to take into your rate negotiation.",
               },
             ].map((s) => (
-              <div key={s.step} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <div key={s.step} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
                 <div className="text-brand-600 font-bold text-xs mb-3">STEP {s.step}</div>
-                <h3 className="font-bold text-slate-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{s.body}</p>
+                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
@@ -141,19 +141,19 @@ export default function ContractVsW2Page() {
 
       {/* ── The "real cost of freelancing" explainer ─────────────────── */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Why a $100K contract is worth less than a $100K salary
         </h2>
-        <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+        <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="text-left px-4 py-3 font-semibold text-slate-700">Cost</th>
-                <th className="text-right px-4 py-3 font-semibold text-slate-700">W-2 ($100K)</th>
+              <tr className="bg-gray-50 border-b border-gray-200">
+                <th className="text-left px-4 py-3 font-semibold text-gray-700">Cost</th>
+                <th className="text-right px-4 py-3 font-semibold text-gray-700">W-2 ($100K)</th>
                 <th className="text-right px-4 py-3 font-semibold text-brand-700">1099 ($100K)</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-gray-100">
               {[
                 ["Gross income",          "$100,000", "$100,000"],
                 ["FICA / SE tax",          "−$7,650 (7.65%)", "−$14,130 (15.3% on 92.35%)"],
@@ -165,28 +165,28 @@ export default function ContractVsW2Page() {
                 ["Difference",            "—", "−$11,680 vs W-2"],
               ].map(([label, w2, c1099], i) => (
                 <tr key={label} className={i === 7 ? "bg-amber-50 font-semibold" : "bg-white"}>
-                  <td className="px-4 py-3 text-slate-700">{label}</td>
-                  <td className="px-4 py-3 text-right text-slate-600">{w2}</td>
-                  <td className={`px-4 py-3 text-right font-medium ${i === 7 ? "text-red-600" : "text-slate-600"}`}>{c1099}</td>
+                  <td className="px-4 py-3 text-gray-700">{label}</td>
+                  <td className="px-4 py-3 text-right text-gray-600">{w2}</td>
+                  <td className={`px-4 py-3 text-right font-medium ${i === 7 ? "text-red-600" : "text-gray-600"}`}>{c1099}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-sm text-slate-500 mt-3 leading-relaxed">
+        <p className="text-sm text-gray-500 mt-3 leading-relaxed">
           * Illustrative figures. State taxes not included. Use the calculator above for your exact scenario.
         </p>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-t border-slate-200">
+      <section className="bg-gray-50 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
           <div className="space-y-5">
             {faqs.map((faq) => (
-              <div key={faq.q} className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-                <h3 className="font-semibold text-slate-900 mb-2">{faq.q}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+                <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -194,19 +194,19 @@ export default function ContractVsW2Page() {
       </section>
 
       {/* ── Related tools ────────────────────────────────────────────── */}
-      <section className="border-t border-slate-200">
+      <section className="border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <h2 className="text-lg font-bold text-slate-900 mb-5">Related calculators</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-5">Related calculators</h2>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/freelance-tax-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
             >
               🧾 Freelance Tax Calculator
             </Link>
             <Link
               href="/hourly-rate-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
             >
               ⏱️ Hourly Rate Calculator
             </Link>

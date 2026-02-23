@@ -71,7 +71,7 @@ export default function FreelanceTaxCalculatorPage() {
       />
 
       {/* ── Page header ──────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-900 text-white">
+      <section className="bg-gradient-to-br from-gray-900 to-brand-900 text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
           <div className="flex items-center gap-2 text-brand-300 text-sm font-medium mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -82,7 +82,7 @@ export default function FreelanceTaxCalculatorPage() {
             Freelance Tax Calculator
             <span className="block text-brand-400 text-2xl sm:text-3xl font-semibold mt-1">2025–2026</span>
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
+          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
             Enter your income, state, and filing status — instantly see your complete
             tax breakdown, quarterly payment amounts, and exactly how much to set aside.
           </p>
@@ -93,13 +93,13 @@ export default function FreelanceTaxCalculatorPage() {
               </span>
             ))}
           </div>
-          <p className="text-xs text-slate-400 mt-4">
+          <p className="text-xs text-gray-400 mt-4">
             Data sources:{" "}
-            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Rev. Proc. 2024-40</a>
+            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Rev. Proc. 2024-40</a>
             {" · "}
-            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">IRS Topic 554</a>
+            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Topic 554</a>
             {" · "}
-            <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-200">SSA 2025 COLA</a>
+            <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">SSA 2025 COLA</a>
           </p>
         </div>
       </section>
@@ -110,9 +110,9 @@ export default function FreelanceTaxCalculatorPage() {
       </section>
 
       {/* ── How it works ─────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-y border-slate-200">
+      <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-8">How we calculate your freelance tax</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">How we calculate your freelance tax</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -131,10 +131,10 @@ export default function FreelanceTaxCalculatorPage() {
                 body: "Applied based on your state's rate. Nine states charge zero income tax. California (9.3%) and Oregon (9.9%) are the highest. Enter your state to get the accurate rate.",
               },
             ].map((s) => (
-              <div key={s.step} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <div key={s.step} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
                 <div className="text-brand-600 font-bold text-xs mb-3">STEP {s.step}</div>
-                <h3 className="font-bold text-slate-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{s.body}</p>
+                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
               </div>
             ))}
           </div>
@@ -143,37 +143,37 @@ export default function FreelanceTaxCalculatorPage() {
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <h2 className="text-2xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
         <div className="space-y-5">
           {faqs.map((faq) => (
-            <div key={faq.q} className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-900 mb-2">{faq.q}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{faq.a}</p>
+            <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Related tools ────────────────────────────────────────── */}
-      <section className="bg-slate-50 border-t border-slate-200">
+      <section className="bg-gray-50 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <h2 className="text-lg font-bold text-slate-900 mb-5">Related calculators</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-5">Related calculators</h2>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/hourly-rate-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
             >
               ⏱️ Hourly Rate Calculator
             </Link>
             <Link
               href="/1099-vs-w2-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
             >
               ⚖️ 1099 vs W-2 Calculator
             </Link>
             <Link
               href="/invoice-generator"
-              className="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
             >
               📄 Invoice Generator
             </Link>
