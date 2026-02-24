@@ -158,24 +158,25 @@ export default function HourlyRateCalculatorPage() {
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           {/* Full-width heading */}
           <div className="mb-10">
+            <div className="section-label">Hidden Costs</div>
             <h2 className="text-[28px] md:text-[32px] font-extrabold tracking-tight" style={{ color: "#0A0F1E" }}>
               Why freelancers undercharge (and how to stop)
             </h2>
-            <p className="text-[15px] leading-relaxed mt-3 max-w-[560px]" style={{ color: "#8B90A0" }}>
+            <p className="text-[15px] leading-relaxed mt-3" style={{ color: "#8B90A0" }}>
               A $50/hr freelancer is not equal to a $50/hr employee. Here&apos;s what you&apos;re actually covering.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Left — 2×2 hidden-cost stat grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 auto-rows-fr">
               {[
                 { icon: "💸", label: "Payroll Tax", value: "+15.3%", desc: "You pay both the employer and employee share of Social Security & Medicare" },
-                { icon: "🏥", label: "Health Insurance", desc: "No employer contribution — the full premium comes out of your revenue", value: "+$6K/yr" },
+                { icon: "🏥", label: "Health Insurance", value: "+$6K/yr", desc: "No employer contribution — the full premium comes out of your revenue" },
                 { icon: "🏖️", label: "Unpaid Time Off", value: "2–4 wks", desc: "Every vacation or sick day is direct lost income with no safety net" },
                 { icon: "📋", label: "Non-Billable Work", value: "30–40%", desc: "Proposals, admin, and sales hours don't show up on any invoice" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-2xl p-5" style={{ background: "#F4F5FF", border: "1.5px solid #E6E9FF" }}>
+                <div key={stat.label} className="rounded-2xl p-5 flex flex-col" style={{ background: "#F4F5FF", border: "1.5px solid #E6E9FF" }}>
                   <div className="text-2xl mb-3">{stat.icon}</div>
                   <div className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: "#8B90A0" }}>{stat.label}</div>
                   <div className="text-[22px] font-extrabold leading-none mb-2" style={{ color: "#6B5CE7" }}>{stat.value}</div>
@@ -226,16 +227,14 @@ export default function HourlyRateCalculatorPage() {
         </div>
       </section>
 
-      {/* ── Merged: Related Tools + CTA ── */}
-      <section className="relative overflow-hidden py-16 md:py-24" style={{ background: "#0C0A2E" }}>
+      {/* ── Related Tools ── */}
+      <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(107,92,231,0.30) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse 80% 60% at 50% 120%, rgba(107,92,231,0.25) 0%, transparent 70%)" }} />
         <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
-
-          {/* Tools row */}
           <div className="section-label" style={{ color: "rgba(168,158,255,0.70)" }}>More Tools</div>
           <h2 className="text-[22px] font-extrabold mb-6 text-white">More free calculators</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { href: "/freelance-tax-calculator", emoji: "🧾", title: "Freelance Tax Calculator", sub: "See your full tax breakdown" },
               { href: "/1099-vs-w2-calculator", emoji: "⚖️", title: "1099 vs W-2 Calculator", sub: "Compare contract vs salary" },
@@ -244,7 +243,7 @@ export default function HourlyRateCalculatorPage() {
               <Link
                 key={t.href}
                 href={t.href}
-                className="flex items-center gap-4 rounded-2xl p-5 transition-all group"
+                className="flex items-center gap-4 rounded-2xl p-5 transition-all"
                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
               >
                 <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center text-xl flex-shrink-0"
@@ -255,33 +254,6 @@ export default function HourlyRateCalculatorPage() {
                 </div>
               </Link>
             ))}
-          </div>
-
-          {/* Divider */}
-          <div className="border-t mb-14" style={{ borderColor: "rgba(255,255,255,0.08)" }} />
-
-          {/* CTA */}
-          <div className="text-center max-w-[520px] mx-auto">
-            <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full"
-              style={{ background: "rgba(107,92,231,0.20)", color: "#A89EFF", border: "1px solid rgba(107,92,231,0.25)" }}>
-              100% Free
-            </span>
-            <h2 className="text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.1] tracking-tight text-white mb-4">
-              Stop guessing.<br />Start planning.
-            </h2>
-            <p className="text-[15px] mb-8 leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Free, accurate financial tools for freelancers and self-employed professionals. It takes 30 seconds.
-            </p>
-            <Link
-              href="/freelance-tax-calculator"
-              className="inline-flex items-center gap-2 text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all"
-              style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 8px 28px rgba(107,92,231,0.45)" }}
-            >
-              Calculate My Tax — It&apos;s Free
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
           </div>
         </div>
       </section>
