@@ -18,9 +18,7 @@ export const metadata: Metadata = {
     "should i take 1099 or w2",
     "1099 break even calculator",
   ],
-  alternates: {
-    canonical: "https://lancercalc.com/1099-vs-w2-calculator",
-  },
+  alternates: { canonical: "https://lancercalc.com/1099-vs-w2-calculator" },
   openGraph: {
     title: "1099 vs W-2 Calculator 2025 — See the Real Difference | LancerCalc",
     description:
@@ -70,50 +68,60 @@ export default function ContractVsW2Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── Page header ──────────────────────────────────────────────── */}
-      <section className="bg-white py-14 md:py-20">
-        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
-          <div className="flex items-center gap-2 text-[13px] font-medium text-[#8B90A0] mb-6">
-            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
-            <svg className="w-3.5 h-3.5 text-[#C8CAD4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden py-14 md:py-20" style={{ background: "#0C0A2E" }}>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(107,92,231,0.40) 0%, transparent 65%)" }} />
+        <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="flex items-center gap-2 text-[13px] font-medium mb-6">
+            <Link href="/" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>Home</Link>
+            <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-brand font-semibold">1099 vs W-2 Calculator</span>
+            <span className="font-semibold" style={{ color: "#A89EFF" }}>1099 vs W-2 Calculator</span>
           </div>
 
           <div className="max-w-[720px]">
             <div className="section-label">Comparison Tool</div>
-            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.1] tracking-tight mb-4" style={{ color: "#0A0F1E" }}>
+            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
               1099 vs W-2 Calculator
-              <span className="text-brand"> 2025</span>
+              <span style={{
+                background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+              }}> 2025</span>
             </h1>
-            <p className="text-base leading-relaxed mb-6" style={{ color: "#5A6178" }}>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
               A $130K contract isn&apos;t the same as a $130K salary. Enter both offers — see
               the real after-tax, after-benefits comparison in seconds.
             </p>
             <div className="flex flex-wrap gap-2 mb-5">
               {["Free", "No sign-up", "SE tax included", "Benefits valued", "Break-even rate", "2025 IRS brackets"].map((tag) => (
-                <span key={tag} className="pill">{tag}</span>
+                <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
+                  style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
+                  {tag}
+                </span>
               ))}
             </div>
-            <p className="text-xs text-[#8B90A0]">
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.30)" }}>
               Data sources:{" "}
-              <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Rev. Proc. 2024-40</a>
+              <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#A89EFF" }} className="underline">IRS Rev. Proc. 2024-40</a>
               {" · "}
-              <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Topic 554 (SE Tax)</a>
+              <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#A89EFF" }} className="underline">IRS Topic 554 (SE Tax)</a>
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Calculator ───────────────────────────────────────────────── */}
-      <section className="bg-[#F7F8FB] py-12 md:py-16">
+      {/* ── Calculator ── */}
+      <section className="py-12 md:py-16" style={{ background: "#EEF0FF" }}>
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <W2vsContractCalculator />
         </div>
       </section>
 
-      {/* ── How it works ─────────────────────────────────────────────── */}
+      {/* ── How it works ── */}
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">How It Works</div>
@@ -121,29 +129,23 @@ export default function ContractVsW2Page() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                step: "01",
-                icon: "📋",
-                title: "Tax burden difference",
+                step: "01", icon: "📋", title: "Tax burden difference",
                 body: "W-2 employees pay 7.65% FICA (employer pays the other 7.65%). 1099 contractors pay the full 15.3% self-employment tax — but can deduct 50% of it from their AGI. We apply 2025 IRS brackets to both scenarios.",
               },
               {
-                step: "02",
-                icon: "💰",
-                title: "Benefits valuation",
+                step: "02", icon: "💰", title: "Benefits valuation",
                 body: "Employer health insurance, 401(k) match, and paid vacation have real dollar value. We calculate exactly what your employer contributes — and what you'd need to pay yourself as a contractor.",
               },
               {
-                step: "03",
-                icon: "🎯",
-                title: "Break-even rate",
+                step: "03", icon: "🎯", title: "Break-even rate",
                 body: "We solve for the exact 1099 gross income needed for your net pay to match the W-2 offer. This is the number to take into your rate negotiation.",
               },
             ].map((s) => (
               <div key={s.step} className="step-card">
-                <div className="w-[46px] h-[46px] bg-navy rounded-lg flex items-center justify-center text-xl mb-5">
+                <div className="w-[46px] h-[46px] rounded-xl flex items-center justify-center text-xl mb-5 feature-icon">
                   {s.icon}
                 </div>
-                <div className="text-brand text-xs font-bold uppercase tracking-[0.08em] mb-2">Step {s.step}</div>
+                <div className="text-xs font-bold uppercase tracking-[0.08em] mb-2" style={{ color: "#6B5CE7" }}>Step {s.step}</div>
                 <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
               </div>
@@ -152,20 +154,20 @@ export default function ContractVsW2Page() {
         </div>
       </section>
 
-      {/* ── The "real cost of freelancing" explainer ─────────────────── */}
-      <section className="bg-[#F7F8FB] py-16 md:py-20">
+      {/* ── Comparison table ── */}
+      <section className="py-16 md:py-20" style={{ background: "#F4F5FF" }}>
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Comparison Table</div>
           <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>
             Why a $100K contract is worth less than a $100K salary
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-[#E8EAF0] overflow-hidden">
+          <div className="overflow-x-auto rounded-2xl border border-[#E6E9FF] overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#F7F8FB] border-b border-[#E8EAF0]">
-                  <th className="text-left px-6 py-4 font-semibold text-[#5A6178]">Cost</th>
-                  <th className="text-right px-6 py-4 font-semibold text-[#5A6178]">W-2 ($100K)</th>
-                  <th className="text-right px-6 py-4 font-semibold text-brand">1099 ($100K)</th>
+                <tr style={{ background: "#EEF0FF", borderBottom: "1px solid #E6E9FF" }}>
+                  <th className="text-left px-6 py-4 font-semibold" style={{ color: "#5A6178" }}>Cost</th>
+                  <th className="text-right px-6 py-4 font-semibold" style={{ color: "#5A6178" }}>W-2 ($100K)</th>
+                  <th className="text-right px-6 py-4 font-semibold" style={{ color: "#6B5CE7" }}>1099 ($100K)</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-[#F0F1F5]">
@@ -179,22 +181,24 @@ export default function ContractVsW2Page() {
                   ["Net spendable",          "~$79,750", "~$68,070"],
                   ["Difference",            "\u2014", "-$11,680 vs W-2"],
                 ].map(([label, w2, c1099], i) => (
-                  <tr key={label} className={i === 7 ? "bg-brand-light font-semibold" : ""}>
-                    <td className="px-6 py-3.5 text-[#5A6178]">{label}</td>
-                    <td className="px-6 py-3.5 text-right text-[#5A6178]">{w2}</td>
-                    <td className={`px-6 py-3.5 text-right font-medium ${i === 7 ? "text-red-500" : "text-[#5A6178]"}`}>{c1099}</td>
+                  <tr key={label} className={i === 7 ? "font-semibold" : ""}
+                    style={i === 7 ? { background: "#F4F5FF" } : {}}>
+                    <td className="px-6 py-3.5" style={{ color: "#5A6178" }}>{label}</td>
+                    <td className="px-6 py-3.5 text-right" style={{ color: "#5A6178" }}>{w2}</td>
+                    <td className={`px-6 py-3.5 text-right font-medium ${i === 7 ? "text-red-500" : ""}`}
+                      style={i !== 7 ? { color: "#5A6178" } : {}}>{c1099}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-[#8B90A0] mt-4 leading-relaxed">
+          <p className="text-xs mt-4 leading-relaxed" style={{ color: "#8B90A0" }}>
             * Illustrative figures. State taxes not included. Use the calculator above for your exact scenario.
           </p>
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────────── */}
+      {/* ── FAQ ── */}
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-[860px] mx-auto px-4 sm:px-8">
           <div className="section-label">FAQ</div>
@@ -212,28 +216,25 @@ export default function ContractVsW2Page() {
         </div>
       </section>
 
-      {/* ── Related tools ────────────────────────────────────────────── */}
-      <section className="bg-[#F7F8FB] py-12 md:py-16">
+      {/* ── Related tools ── */}
+      <section className="py-12 md:py-16" style={{ background: "#F4F5FF" }}>
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Related Tools</div>
-          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>
-            More free calculators
-          </h2>
+          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>More free calculators</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link href="/freelance-tax-calculator" className="related-card">
-              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">🧾</div>
-              <div>
-                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Freelance Tax Calculator</div>
-                <div className="text-xs" style={{ color: "#8B90A0" }}>Calculate your self-employment tax</div>
-              </div>
-            </Link>
-            <Link href="/hourly-rate-calculator" className="related-card">
-              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⏱️</div>
-              <div>
-                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Hourly Rate Calculator</div>
-                <div className="text-xs" style={{ color: "#8B90A0" }}>Find your minimum hourly rate</div>
-              </div>
-            </Link>
+            {[
+              { href: "/freelance-tax-calculator", emoji: "🧾", title: "Freelance Tax Calculator", sub: "Calculate your self-employment tax" },
+              { href: "/hourly-rate-calculator", emoji: "⏱️", title: "Hourly Rate Calculator", sub: "Find your minimum hourly rate" },
+            ].map((t) => (
+              <Link key={t.href} href={t.href} className="related-card">
+                <div className="w-[42px] h-[42px] rounded-xl flex items-center justify-center text-lg flex-shrink-0 border"
+                  style={{ background: "#EEF0FF", borderColor: "#E6E9FF" }}>{t.emoji}</div>
+                <div>
+                  <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>{t.title}</div>
+                  <div className="text-xs" style={{ color: "#8B90A0" }}>{t.sub}</div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

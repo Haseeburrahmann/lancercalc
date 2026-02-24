@@ -18,9 +18,7 @@ export const metadata: Metadata = {
     "how to calculate self employment tax",
     "freelancer quarterly taxes",
   ],
-  alternates: {
-    canonical: "https://lancercalc.com/freelance-tax-calculator",
-  },
+  alternates: { canonical: "https://lancercalc.com/freelance-tax-calculator" },
   openGraph: {
     title: "Freelance Tax Calculator 2025 — Free Self-Employment Tax Estimator",
     description:
@@ -70,46 +68,58 @@ export default function FreelanceTaxCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── Page header ── */}
-      <section className="bg-white py-14 md:py-20">
-        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
-          <div className="flex items-center gap-2 text-[13px] font-medium text-[#8B90A0] mb-6">
-            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
-            <svg className="w-3.5 h-3.5 text-[#C8CAD4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden py-14 md:py-20" style={{ background: "#0C0A2E" }}>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(107,92,231,0.40) 0%, transparent 65%)" }} />
+        <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-[13px] font-medium mb-6">
+            <Link href="/" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>Home</Link>
+            <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-            <span className="text-brand font-semibold">Freelance Tax Calculator</span>
+            <span className="font-semibold" style={{ color: "#A89EFF" }}>Freelance Tax Calculator</span>
           </div>
 
           <div className="max-w-[720px]">
             <div className="section-label">Tax Calculator</div>
-            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.1] tracking-tight mb-4" style={{ color: "#0A0F1E" }}>
+            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
               Freelance Tax Calculator
-              <span className="text-brand"> 2025–2026</span>
+              <span style={{
+                background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+              }}> 2025–2026</span>
             </h1>
-            <p className="text-base leading-relaxed mb-6" style={{ color: "#5A6178" }}>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
               Enter your income, state, and filing status — instantly see your complete
               tax breakdown, quarterly payment amounts, and exactly how much to set aside.
             </p>
             <div className="flex flex-wrap gap-2 mb-5">
               {["Free", "No sign-up", "All 50 states", "2025 IRS brackets", "SS wage base capped"].map((tag) => (
-                <span key={tag} className="pill">{tag}</span>
+                <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
+                  style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
+                  {tag}
+                </span>
               ))}
             </div>
-            <p className="text-xs text-[#8B90A0]">
+            <p className="text-xs" style={{ color: "rgba(255,255,255,0.30)" }}>
               Data sources:{" "}
-              <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Rev. Proc. 2024-40</a>
+              <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#A89EFF" }} className="underline">IRS Rev. Proc. 2024-40</a>
               {" · "}
-              <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Topic 554</a>
+              <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#A89EFF" }} className="underline">IRS Topic 554</a>
               {" · "}
-              <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">SSA 2025 COLA</a>
+              <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer"
+                style={{ color: "#A89EFF" }} className="underline">SSA 2025 COLA</a>
             </p>
           </div>
         </div>
       </section>
 
       {/* ── Calculator ── */}
-      <section className="bg-[#F7F8FB] py-12 md:py-16">
+      <section className="py-12 md:py-16" style={{ background: "#EEF0FF" }}>
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <SETaxCalculator />
         </div>
@@ -123,29 +133,23 @@ export default function FreelanceTaxCalculatorPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                step: "01",
-                icon: "📋",
-                title: "Self-employment tax",
+                step: "01", icon: "📋", title: "Self-employment tax",
                 body: "Social Security (12.4%) applies up to the $176,100 wage base. Medicare (2.9%) has no cap. An extra 0.9% Medicare applies above $200K. Multiply net income by 92.35% first — then apply rates. 50% of SE tax is deductible from your AGI.",
               },
               {
-                step: "02",
-                icon: "🏛️",
-                title: "Federal income tax",
+                step: "02", icon: "🏛️", title: "Federal income tax",
                 body: "Applied to your adjusted gross income using 2025 IRS tax brackets after the standard deduction ($15,000 single / $30,000 married) and your SE tax deduction.",
               },
               {
-                step: "03",
-                icon: "📍",
-                title: "State income tax",
+                step: "03", icon: "📍", title: "State income tax",
                 body: "Applied based on your state's rate. Nine states charge zero income tax. California (9.3%) and Oregon (9.9%) are the highest. Enter your state to get the accurate rate.",
               },
             ].map((s) => (
               <div key={s.step} className="step-card">
-                <div className="w-[46px] h-[46px] bg-navy rounded-lg flex items-center justify-center text-xl mb-5">
+                <div className="w-[46px] h-[46px] rounded-xl flex items-center justify-center text-xl mb-5 feature-icon">
                   {s.icon}
                 </div>
-                <div className="text-brand text-xs font-bold uppercase tracking-[0.08em] mb-2">Step {s.step}</div>
+                <div className="text-xs font-bold uppercase tracking-[0.08em] mb-2" style={{ color: "#6B5CE7" }}>Step {s.step}</div>
                 <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
               </div>
@@ -155,7 +159,7 @@ export default function FreelanceTaxCalculatorPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-[#F7F8FB] py-16 md:py-20">
+      <section className="py-16 md:py-20" style={{ background: "#F4F5FF" }}>
         <div className="max-w-[860px] mx-auto px-4 sm:px-8">
           <div className="section-label">FAQ</div>
           <div className="section-title">Frequently asked questions</div>
@@ -176,31 +180,22 @@ export default function FreelanceTaxCalculatorPage() {
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Related Tools</div>
-          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>
-            More free calculators
-          </h2>
+          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>More free calculators</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/hourly-rate-calculator" className="related-card">
-              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⏱️</div>
-              <div>
-                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Hourly Rate Calculator</div>
-                <div className="text-xs" style={{ color: "#8B90A0" }}>Find your minimum hourly rate</div>
-              </div>
-            </Link>
-            <Link href="/1099-vs-w2-calculator" className="related-card">
-              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⚖️</div>
-              <div>
-                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>1099 vs W-2 Calculator</div>
-                <div className="text-xs" style={{ color: "#8B90A0" }}>Compare contract vs salary</div>
-              </div>
-            </Link>
-            <Link href="/invoice-generator" className="related-card">
-              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">📄</div>
-              <div>
-                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Invoice Generator</div>
-                <div className="text-xs" style={{ color: "#8B90A0" }}>Create professional invoices free</div>
-              </div>
-            </Link>
+            {[
+              { href: "/hourly-rate-calculator", emoji: "⏱️", title: "Hourly Rate Calculator", sub: "Find your minimum hourly rate" },
+              { href: "/1099-vs-w2-calculator", emoji: "⚖️", title: "1099 vs W-2 Calculator", sub: "Compare contract vs salary" },
+              { href: "/invoice-generator", emoji: "📄", title: "Invoice Generator", sub: "Create professional invoices free" },
+            ].map((t) => (
+              <Link key={t.href} href={t.href} className="related-card">
+                <div className="w-[42px] h-[42px] rounded-xl flex items-center justify-center text-lg flex-shrink-0 border"
+                  style={{ background: "#EEF0FF", borderColor: "#E6E9FF" }}>{t.emoji}</div>
+                <div>
+                  <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>{t.title}</div>
+                  <div className="text-xs" style={{ color: "#8B90A0" }}>{t.sub}</div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

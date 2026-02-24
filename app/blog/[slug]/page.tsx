@@ -381,7 +381,7 @@ function getContent(slug: string): JSX.Element | null {
             Let's break down a detailed comparison assuming you're a single filer with no dependents in a mid-cost-of-living area, using 2025 tax rates.
           </p>
 
-          <div className="bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl p-6 my-8 overflow-x-auto">
+          <div className="rounded-2xl p-6 my-8 overflow-x-auto" style={{ background: "#EEF0FF", border: "1px solid #E6E9FF" }}>
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[#E8EAF0]">
@@ -988,54 +988,57 @@ export default function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="min-h-screen bg-white">
+      <article className="min-h-screen">
         {/* Header */}
-        <header className="bg-white py-14 md:py-20">
-          <div className="max-w-[860px] mx-auto px-4 sm:px-6">
+        <header className="relative overflow-hidden py-14 md:py-20" style={{ background: "#0C0A2E" }}>
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(107,92,231,0.40) 0%, transparent 65%)" }} />
+          <div className="relative max-w-[860px] mx-auto px-4 sm:px-6">
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm font-medium mb-6">
-              <Link href="/" className="text-brand hover:text-brand-dark transition-colors">
+            <div className="flex items-center gap-2 text-[13px] font-medium mb-6 flex-wrap">
+              <Link href="/" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>
                 Home
               </Link>
-              <svg className="w-3.5 h-3.5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              <Link href="/blog" className="text-brand hover:text-brand-dark transition-colors">
+              <Link href="/blog" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>
                 Blog
               </Link>
-              <svg className="w-3.5 h-3.5 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
-              <span style={{ color: "#0A0F1E" }} className="font-medium">{post.title}</span>
+              <span className="font-semibold" style={{ color: "#A89EFF" }}>{post.category}</span>
             </div>
 
             {/* Category badge */}
             <div className="inline-block mb-4">
-              <span className="inline-block bg-brand-light text-brand px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide">
+              <span className="inline-block px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wide"
+                style={{ background: "rgba(107,92,231,0.20)", color: "#A89EFF", border: "1px solid rgba(107,92,231,0.30)" }}>
                 {post.category}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4" style={{ color: "#0A0F1E" }}>
+            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4 text-white">
               {post.title}
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 text-sm" style={{ color: "#8B90A0" }}>
+            <div className="flex items-center gap-4 text-sm" style={{ color: "rgba(255,255,255,0.40)" }}>
               <span>LancerCalc Team</span>
-              <span style={{ color: "#E8EAF0" }}>|</span>
+              <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
               <span>{post.date}</span>
-              <span style={{ color: "#E8EAF0" }}>|</span>
+              <span style={{ color: "rgba(255,255,255,0.15)" }}>|</span>
               <span>{post.readTime} min read</span>
             </div>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="bg-[#F7F8FB] py-12 md:py-16">
+        <main className="py-12 md:py-16" style={{ background: "#EEF0FF" }}>
           <div className="max-w-[860px] mx-auto px-4 sm:px-6">
-            <div className="bg-white rounded-2xl border border-[#E8EAF0] p-8 md:p-12">
+            <div className="bg-white rounded-2xl p-8 md:p-12" style={{ border: "1px solid #E6E9FF" }}>
               <div className="prose prose-gray max-w-none">
                 {content}
               </div>
@@ -1053,7 +1056,8 @@ export default function BlogPostPage({
                 </div>
                 <Link
                   href={post.relatedTool.href}
-                  className="inline-block bg-brand hover:bg-brand-dark text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors flex-shrink-0"
+                  className="inline-block text-white font-bold text-sm px-6 py-3 rounded-xl transition-all flex-shrink-0"
+                  style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 4px 16px rgba(107,92,231,0.35)" }}
                 >
                   Try the Calculator
                 </Link>
@@ -1071,10 +1075,11 @@ export default function BlogPostPage({
                   <Link
                     key={relatedPost.slug}
                     href={`/blog/${relatedPost.slug}`}
-                    className="group bg-white rounded-2xl border-[1.5px] border-[#F0F1F5] p-6 hover:border-brand hover:-translate-y-0.5 transition-all"
+                    className="group bg-white rounded-2xl p-6 hover:-translate-y-0.5 transition-all"
+                    style={{ border: "1.5px solid #E6E9FF" }}
                   >
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-[15px] font-bold group-hover:text-brand transition-colors flex-1" style={{ color: "#0A0F1E" }}>
+                      <h3 className="text-[15px] font-bold transition-colors flex-1" style={{ color: "#0A0F1E" }}>
                         {relatedPost.title}
                       </h3>
                       <span className="text-[11px] font-semibold ml-2 flex-shrink-0" style={{ color: "#8B90A0" }}>
@@ -1084,7 +1089,7 @@ export default function BlogPostPage({
                     <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#5A6178" }}>
                       {relatedPost.description}
                     </p>
-                    <span className="inline-flex items-center gap-1 text-[13px] font-bold text-brand group-hover:text-brand-dark">
+                    <span className="inline-flex items-center gap-1 text-[13px] font-bold" style={{ color: "#6B5CE7" }}>
                       Read article
                       <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
