@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InvoiceGenerator from "@/components/calculators/InvoiceGenerator";
+import FAQAccordion from "@/components/FAQAccordion";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -75,6 +76,7 @@ export default function InvoiceGeneratorPage() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(107,92,231,0.40) 0%, transparent 65%)" }} />
         <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+          {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[13px] font-medium mb-6">
             <Link href="/" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>Home</Link>
             <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -83,26 +85,95 @@ export default function InvoiceGeneratorPage() {
             <span className="font-semibold" style={{ color: "#A89EFF" }}>Invoice Generator</span>
           </div>
 
-          <div className="max-w-[720px]">
-            <div className="section-label">Invoice Tool</div>
-            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
-              Free Invoice Generator
-              <span style={{
-                background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}> No Sign-Up, No Watermark</span>
-            </h1>
-            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
-              Fill in your details, add line items, and download a professional
-              PDF invoice — in under 60 seconds. Free forever.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-5">
-              {["No watermark","No sign-up","Logo upload","Custom tax (VAT/GST)","Discount field","PAID stamp","6 currencies","Live preview"].map((tag) => (
-                <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
-                  style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
-                  {tag}
-                </span>
-              ))}
+          {/* Two-column hero */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left */}
+            <div>
+              <div className="section-label">Invoice Tool</div>
+              <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
+                Free Invoice Generator
+                <span style={{
+                  background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+                }}> No Sign-Up, No Watermark</span>
+              </h1>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+                Fill in your details, add line items, and download a professional
+                PDF invoice — in under 60 seconds. Free forever.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {["No watermark", "No sign-up", "Logo upload", "Custom tax (VAT/GST)", "Discount field", "PAID stamp", "6 currencies", "Live preview"].map((tag) => (
+                  <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
+                    style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — floating mini invoice preview card */}
+            <div className="hidden lg:flex justify-center">
+              <div style={{ transform: "rotate(-1.5deg)", filter: "drop-shadow(0 20px 60px rgba(107,92,231,0.40))" }}>
+                <div className="rounded-2xl p-5 w-[290px]"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}>
+
+                  {/* Invoice header */}
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest mb-0.5"
+                        style={{ color: "rgba(255,255,255,0.35)" }}>Invoice</p>
+                      <p className="text-[13px] font-bold text-white">#INV-0042</p>
+                    </div>
+                    <span className="text-[9px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full"
+                      style={{ background: "rgba(16,185,129,0.20)", color: "#34D399", border: "1px solid rgba(16,185,129,0.30)" }}>
+                      PAID
+                    </span>
+                  </div>
+
+                  <div className="border-b mb-3" style={{ borderColor: "rgba(255,255,255,0.07)" }} />
+
+                  {/* From / To */}
+                  <div className="flex justify-between mb-3">
+                    <div>
+                      <p className="text-[9px] font-bold uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.30)" }}>From</p>
+                      <p className="text-[11px] font-semibold text-white">Alex Johnson</p>
+                      <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.40)" }}>alex@studio.co</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[9px] font-bold uppercase tracking-wide mb-1" style={{ color: "rgba(255,255,255,0.30)" }}>To</p>
+                      <p className="text-[11px] font-semibold text-white">Acme Corp</p>
+                      <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.40)" }}>billing@acme.com</p>
+                    </div>
+                  </div>
+
+                  <div className="border-b mb-3" style={{ borderColor: "rgba(255,255,255,0.07)" }} />
+
+                  {/* Line items */}
+                  {[
+                    ["Web design (40 hrs)", "$4,800"],
+                    ["Brand identity kit", "$1,200"],
+                    ["Revisions (3 rounds)", "$600"],
+                  ].map(([desc, amt]) => (
+                    <div key={desc} className="flex justify-between items-center py-1.5"
+                      style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                      <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.50)" }}>{desc}</span>
+                      <span className="text-[10px] font-semibold" style={{ color: "rgba(255,255,255,0.75)" }}>{amt}</span>
+                    </div>
+                  ))}
+
+                  {/* Total */}
+                  <div className="mt-3 rounded-xl p-4"
+                    style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 8px 24px rgba(107,92,231,0.50)" }}>
+                    <p className="text-[10px] font-bold uppercase tracking-widest mb-1"
+                      style={{ color: "rgba(255,255,255,0.65)" }}>Total due</p>
+                    <p className="text-[32px] font-extrabold text-white leading-none">
+                      $6,600
+                      <span className="text-[13px] font-semibold ml-1" style={{ color: "rgba(255,255,255,0.60)" }}>USD</span>
+                    </p>
+                    <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>Due: Mar 15, 2025</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -132,16 +203,16 @@ export default function InvoiceGeneratorPage() {
               </thead>
               <tbody className="bg-white divide-y divide-[#F0F1F5]">
                 {[
-                  ["No sign-up required",        "✅","❌ (account needed)","✅"],
-                  ["No watermark on PDF",         "✅","❌ (paid to remove)","✅"],
-                  ["Logo upload",                 "✅","✅","❌"],
-                  ["Custom tax label (VAT/GST)",  "✅","❌","❌"],
-                  ["Discount field (% or fixed)", "✅","❌","❌"],
-                  ["PAID stamp",                  "✅","❌","❌"],
-                  ["Multiple currencies",         "✅","❌","✅"],
-                  ["Live preview",                "✅","❌","❌"],
-                  ["Privacy (no server upload)",  "✅","❌","✅"],
-                  ["Always free, no limit",       "✅","❌ (50/mo cap)","✅"],
+                  ["No sign-up required",        "✅", "❌ (account needed)", "✅"],
+                  ["No watermark on PDF",         "✅", "❌ (paid to remove)", "✅"],
+                  ["Logo upload",                 "✅", "✅", "❌"],
+                  ["Custom tax label (VAT/GST)",  "✅", "❌", "❌"],
+                  ["Discount field (% or fixed)", "✅", "❌", "❌"],
+                  ["PAID stamp",                  "✅", "❌", "❌"],
+                  ["Multiple currencies",         "✅", "❌", "✅"],
+                  ["Live preview",                "✅", "❌", "❌"],
+                  ["Privacy (no server upload)",  "✅", "❌", "✅"],
+                  ["Always free, no limit",       "✅", "❌ (50/mo cap)", "✅"],
                 ].map(([feat, lc, is, ig]) => (
                   <tr key={feat}>
                     <td className="px-5 py-3.5 font-medium" style={{ color: "#0A0F1E" }}>{feat}</td>
@@ -158,39 +229,34 @@ export default function InvoiceGeneratorPage() {
 
       {/* ── FAQ ── */}
       <section className="py-16 md:py-20" style={{ background: "#F4F5FF" }}>
-        <div className="max-w-[860px] mx-auto px-4 sm:px-8">
+        <div className="max-w-[760px] mx-auto px-4 sm:px-8">
           <div className="section-label">FAQ</div>
-          <div className="section-title">Frequently asked questions</div>
-          <div className="space-y-3">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="faq-item">
-                <div className="px-6 py-5">
-                  <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{faq.q}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{faq.a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="section-title">Frequently asked questions</h2>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
       {/* ── Related tools ── */}
-      <section className="bg-white py-12 md:py-16">
-        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
-          <div className="section-label">Related Tools</div>
-          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>More free calculators</h2>
+      <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 80% 60% at 50% 120%, rgba(107,92,231,0.25) 0%, transparent 70%)" }} />
+        <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label" style={{ color: "rgba(168,158,255,0.70)" }}>More Tools</div>
+          <h2 className="text-[22px] font-extrabold mb-6 text-white">More free calculators</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { href: "/freelance-tax-calculator", emoji: "🧾", title: "Freelance Tax Calculator", sub: "Estimate your self-employment tax" },
               { href: "/hourly-rate-calculator", emoji: "⏱️", title: "Hourly Rate Calculator", sub: "Find your minimum hourly rate" },
               { href: "/1099-vs-w2-calculator", emoji: "⚖️", title: "1099 vs W-2 Calculator", sub: "Compare contract vs salary" },
             ].map((t) => (
-              <Link key={t.href} href={t.href} className="related-card">
-                <div className="w-[42px] h-[42px] rounded-xl flex items-center justify-center text-lg flex-shrink-0 border"
-                  style={{ background: "#EEF0FF", borderColor: "#E6E9FF" }}>{t.emoji}</div>
+              <Link key={t.href} href={t.href}
+                className="flex items-center gap-4 rounded-2xl p-5 transition-all"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                  style={{ background: "rgba(107,92,231,0.25)", border: "1px solid rgba(107,92,231,0.30)" }}>{t.emoji}</div>
                 <div>
-                  <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>{t.title}</div>
-                  <div className="text-xs" style={{ color: "#8B90A0" }}>{t.sub}</div>
+                  <div className="font-bold text-[14px] mb-0.5 text-white">{t.title}</div>
+                  <div className="text-[12px]" style={{ color: "rgba(255,255,255,0.40)" }}>{t.sub}</div>
                 </div>
               </Link>
             ))}
