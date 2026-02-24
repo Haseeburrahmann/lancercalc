@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HourlyRateCalculator from "@/components/calculators/HourlyRateCalculator";
+import FAQAccordion from "@/components/FAQAccordion";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -73,6 +74,7 @@ export default function HourlyRateCalculatorPage() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: "radial-gradient(ellipse 70% 60% at 50% -5%, rgba(107,92,231,0.40) 0%, transparent 65%)" }} />
         <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+          {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[13px] font-medium mb-6">
             <Link href="/" className="transition-colors" style={{ color: "rgba(255,255,255,0.40)" }}>Home</Link>
             <svg className="w-3.5 h-3.5" style={{ color: "rgba(255,255,255,0.20)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -81,26 +83,64 @@ export default function HourlyRateCalculatorPage() {
             <span className="font-semibold" style={{ color: "#A89EFF" }}>Hourly Rate Calculator</span>
           </div>
 
-          <div className="max-w-[720px]">
-            <div className="section-label">Rate Calculator</div>
-            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
-              Freelance Hourly Rate Calculator
-              <span style={{
-                background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}> 2025–2026</span>
-            </h1>
-            <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
-              What hourly rate do you need to charge to actually hit your income goals?
-              Factor in taxes, health insurance, retirement, and slow months — get your real number.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Free", "No sign-up", "Includes tax + benefits", "Profit margin buffer"].map((tag) => (
-                <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
-                  style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
-                  {tag}
-                </span>
-              ))}
+          {/* Two-column hero layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left — text */}
+            <div>
+              <div className="section-label">Rate Calculator</div>
+              <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.08] tracking-tight mb-4 text-white">
+                Freelance Hourly Rate Calculator
+                <span style={{
+                  background: "linear-gradient(135deg, #A89EFF 0%, #6B5CE7 100%)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+                }}> 2025–2026</span>
+              </h1>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+                What hourly rate do you need to charge to actually hit your income goals?
+                Factor in taxes, health insurance, retirement, and slow months — get your real number.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Free", "No sign-up", "Includes tax + benefits", "Profit margin buffer"].map((tag) => (
+                  <span key={tag} className="text-xs font-semibold px-4 py-1.5 rounded-full border"
+                    style={{ background: "rgba(255,255,255,0.06)", borderColor: "rgba(255,255,255,0.10)", color: "rgba(255,255,255,0.60)" }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — floating sample result card */}
+            <div className="hidden lg:flex justify-center">
+              <div style={{ transform: "rotate(2deg)", filter: "drop-shadow(0 20px 60px rgba(107,92,231,0.40))" }}>
+                <div className="rounded-2xl p-6 w-[290px]"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}>
+
+                  <p className="text-[11px] font-bold uppercase tracking-widest mb-4"
+                    style={{ color: "rgba(255,255,255,0.35)" }}>Sample calculation</p>
+
+                  {[
+                    ["Target take-home", "$80,000 / yr"],
+                    ["Tax rate", "30%"],
+                    ["Billable hours / wk", "30 hrs"],
+                    ["Health insurance", "$400 / mo"],
+                    ["Profit margin", "20%"],
+                  ].map(([label, val]) => (
+                    <div key={label} className="flex justify-between items-center py-2.5"
+                      style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                      <span className="text-[12px]" style={{ color: "rgba(255,255,255,0.45)" }}>{label}</span>
+                      <span className="text-[12px] font-semibold" style={{ color: "rgba(255,255,255,0.75)" }}>{val}</span>
+                    </div>
+                  ))}
+
+                  <div className="mt-4 rounded-xl p-4"
+                    style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 8px 24px rgba(107,92,231,0.50)" }}>
+                    <p className="text-[10px] font-bold uppercase tracking-widest mb-1"
+                      style={{ color: "rgba(255,255,255,0.65)" }}>Your minimum rate</p>
+                    <p className="text-[38px] font-extrabold text-white leading-none">$89<span className="text-[18px] font-semibold ml-1" style={{ color: "rgba(255,255,255,0.70)" }}>/hr</span></p>
+                    <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>to hit your goals after all costs</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -113,25 +153,38 @@ export default function HourlyRateCalculatorPage() {
         </div>
       </section>
 
-      {/* ── Explanation ── */}
+      {/* ── Why freelancers undercharge ── */}
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-            <div>
-              <h2 className="text-[28px] font-extrabold tracking-tight mb-5" style={{ color: "#0A0F1E" }}>
-                Why freelancers undercharge (and how to stop)
-              </h2>
-              <p className="text-[15px] leading-relaxed mb-4" style={{ color: "#5A6178" }}>
-                The most common freelancer mistake is comparing their hourly rate to an employee&apos;s
-                hourly wage. A $50/hr freelancer is NOT equal to a $50/hr employee.
-              </p>
-              <p className="text-[15px] leading-relaxed" style={{ color: "#5A6178" }}>
-                When you work for a company, they pay: employer Social Security (6.2%), employer
-                Medicare (1.45%), health insurance (~$500/mo), retirement matching (3–5%), paid vacation
-                (2–4 weeks), sick days, equipment, and office space. As a freelancer, all of that
-                comes out of your rate.
-              </p>
+          {/* Full-width heading */}
+          <div className="mb-10">
+            <h2 className="text-[28px] md:text-[32px] font-extrabold tracking-tight" style={{ color: "#0A0F1E" }}>
+              Why freelancers undercharge (and how to stop)
+            </h2>
+            <p className="text-[15px] leading-relaxed mt-3 max-w-[560px]" style={{ color: "#8B90A0" }}>
+              A $50/hr freelancer is not equal to a $50/hr employee. Here&apos;s what you&apos;re actually covering.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            {/* Left — 2×2 hidden-cost stat grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: "💸", label: "Payroll Tax", value: "+15.3%", desc: "You pay both the employer and employee share of Social Security & Medicare" },
+                { icon: "🏥", label: "Health Insurance", desc: "No employer contribution — the full premium comes out of your revenue", value: "+$6K/yr" },
+                { icon: "🏖️", label: "Unpaid Time Off", value: "2–4 wks", desc: "Every vacation or sick day is direct lost income with no safety net" },
+                { icon: "📋", label: "Non-Billable Work", value: "30–40%", desc: "Proposals, admin, and sales hours don't show up on any invoice" },
+              ].map((stat) => (
+                <div key={stat.label} className="rounded-2xl p-5" style={{ background: "#F4F5FF", border: "1.5px solid #E6E9FF" }}>
+                  <div className="text-2xl mb-3">{stat.icon}</div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: "#8B90A0" }}>{stat.label}</div>
+                  <div className="text-[22px] font-extrabold leading-none mb-2" style={{ color: "#6B5CE7" }}>{stat.value}</div>
+                  <p className="text-[11px] leading-snug" style={{ color: "#8B90A0" }}>{stat.desc}</p>
+                </div>
+              ))}
             </div>
+
+            {/* Right — breakdown card (unchanged) */}
             <div className="calc-card">
               <h3 className="font-bold text-[15px] mb-4" style={{ color: "#0A0F1E" }}>The hidden costs in a $100K salary equivalent</h3>
               {[
@@ -153,8 +206,8 @@ export default function HourlyRateCalculatorPage() {
                   <span className={i >= 7 ? "font-bold" : "font-medium"} style={{ color: i >= 7 ? "#0A0F1E" : "#5A6178" }}>
                     {label}
                   </span>
-                  <span className={`font-bold ${i === 7 ? "" : i >= 6 ? "" : "text-red-500"}`}
-                    style={i === 7 ? { color: "#6B5CE7" } : { color: i >= 6 ? "#0A0F1E" : undefined }}>
+                  <span className={`font-bold ${i >= 1 && i <= 5 ? "text-red-500" : ""}`}
+                    style={i === 7 ? { color: "#6B5CE7" } : i >= 6 ? { color: "#0A0F1E" } : undefined}>
                     {value}
                   </span>
                 </div>
@@ -166,42 +219,69 @@ export default function HourlyRateCalculatorPage() {
 
       {/* ── FAQ ── */}
       <section className="py-16 md:py-20" style={{ background: "#F4F5FF" }}>
-        <div className="max-w-[860px] mx-auto px-4 sm:px-8">
+        <div className="max-w-[760px] mx-auto px-4 sm:px-8">
           <div className="section-label">FAQ</div>
-          <div className="section-title">Frequently asked questions</div>
-          <div className="space-y-3">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="faq-item">
-                <div className="px-6 py-5">
-                  <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{faq.q}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{faq.a}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="section-title">Frequently asked questions</h2>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
-      {/* ── Related tools ── */}
-      <section className="bg-white py-12 md:py-16">
-        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
-          <div className="section-label">Related Tools</div>
-          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>More free calculators</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {/* ── Merged: Related Tools + CTA ── */}
+      <section className="relative overflow-hidden py-16 md:py-24" style={{ background: "#0C0A2E" }}>
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(107,92,231,0.30) 0%, transparent 70%)" }} />
+        <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
+
+          {/* Tools row */}
+          <div className="section-label" style={{ color: "rgba(168,158,255,0.70)" }}>More Tools</div>
+          <h2 className="text-[22px] font-extrabold mb-6 text-white">More free calculators</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
             {[
               { href: "/freelance-tax-calculator", emoji: "🧾", title: "Freelance Tax Calculator", sub: "See your full tax breakdown" },
               { href: "/1099-vs-w2-calculator", emoji: "⚖️", title: "1099 vs W-2 Calculator", sub: "Compare contract vs salary" },
               { href: "/invoice-generator", emoji: "📄", title: "Invoice Generator", sub: "Create professional invoices free" },
             ].map((t) => (
-              <Link key={t.href} href={t.href} className="related-card">
-                <div className="w-[42px] h-[42px] rounded-xl flex items-center justify-center text-lg flex-shrink-0 border"
-                  style={{ background: "#EEF0FF", borderColor: "#E6E9FF" }}>{t.emoji}</div>
+              <Link
+                key={t.href}
+                href={t.href}
+                className="flex items-center gap-4 rounded-2xl p-5 transition-all group"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
+              >
+                <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                  style={{ background: "rgba(107,92,231,0.25)", border: "1px solid rgba(107,92,231,0.30)" }}>{t.emoji}</div>
                 <div>
-                  <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>{t.title}</div>
-                  <div className="text-xs" style={{ color: "#8B90A0" }}>{t.sub}</div>
+                  <div className="font-bold text-[14px] mb-0.5 text-white">{t.title}</div>
+                  <div className="text-[12px]" style={{ color: "rgba(255,255,255,0.40)" }}>{t.sub}</div>
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Divider */}
+          <div className="border-t mb-14" style={{ borderColor: "rgba(255,255,255,0.08)" }} />
+
+          {/* CTA */}
+          <div className="text-center max-w-[520px] mx-auto">
+            <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full"
+              style={{ background: "rgba(107,92,231,0.20)", color: "#A89EFF", border: "1px solid rgba(107,92,231,0.25)" }}>
+              100% Free
+            </span>
+            <h2 className="text-[clamp(28px,3vw,40px)] font-extrabold leading-[1.1] tracking-tight text-white mb-4">
+              Stop guessing.<br />Start planning.
+            </h2>
+            <p className="text-[15px] mb-8 leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Free, accurate financial tools for freelancers and self-employed professionals. It takes 30 seconds.
+            </p>
+            <Link
+              href="/freelance-tax-calculator"
+              className="inline-flex items-center gap-2 text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all"
+              style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 8px 28px rgba(107,92,231,0.45)" }}
+            >
+              Calculate My Tax — It&apos;s Free
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
