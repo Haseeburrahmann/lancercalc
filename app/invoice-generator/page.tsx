@@ -73,51 +73,58 @@ export default function InvoiceGeneratorPage() {
       />
 
       {/* ── Page header ───────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-gray-900 to-brand-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <div className="flex items-center gap-2 text-brand-300 text-sm font-medium mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>›</span>
-            <span>Invoice Generator</span>
+      <section className="bg-white py-14 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="flex items-center gap-2 text-[13px] font-medium text-[#8B90A0] mb-6">
+            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
+            <svg className="w-3.5 h-3.5 text-[#C8CAD4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-brand font-semibold">Invoice Generator</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Free Invoice Generator
-            <span className="block text-brand-400 text-2xl sm:text-3xl font-semibold mt-1">No sign-up · No watermark · Download PDF</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
-            Fill in your details, add line items, and download a professional
-            PDF invoice — in under 60 seconds. Free forever.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-5">
-            {["No watermark","No sign-up","Logo upload","Custom tax (VAT/GST)","Discount field","PAID stamp","6 currencies","Live preview"].map((tag) => (
-              <span key={tag} className="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">
-                {tag}
-              </span>
-            ))}
+
+          <div className="max-w-[720px]">
+            <div className="section-label">Invoice Tool</div>
+            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.1] tracking-tight mb-4" style={{ color: "#0A0F1E" }}>
+              Free Invoice Generator
+              <span className="text-brand"> No Sign-Up, No Watermark</span>
+            </h1>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "#5A6178" }}>
+              Fill in your details, add line items, and download a professional
+              PDF invoice — in under 60 seconds. Free forever.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["No watermark","No sign-up","Logo upload","Custom tax (VAT/GST)","Discount field","PAID stamp","6 currencies","Live preview"].map((tag) => (
+                <span key={tag} className="pill">{tag}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Generator ─────────────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-        <InvoiceGenerator />
+      <section className="bg-[#F7F8FB] py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <InvoiceGenerator />
+        </div>
       </section>
 
-      {/* ── Why this one ──────────────────────────────────────────────── */}
-      <section className="bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Why LancerCalc Invoice Generator?</h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+      {/* ── Comparison table ──────────────────────────────────────────── */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Comparison</div>
+          <div className="section-title">Why LancerCalc Invoice Generator?</div>
+          <div className="rounded-2xl border border-[#E8EAF0] overflow-hidden">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="text-left px-4 py-3 font-semibold text-gray-700">Feature</th>
-                  <th className="text-center px-4 py-3 font-semibold text-gray-700">LancerCalc</th>
-                  <th className="text-center px-4 py-3 font-semibold text-gray-700">InvoiceSimple Free</th>
-                  <th className="text-center px-4 py-3 font-semibold text-gray-700">invoice-generator.com</th>
+                <tr className="bg-[#F7F8FB] border-b border-[#E8EAF0]">
+                  <th className="text-left px-5 py-4 font-semibold text-[#5A6178]">Feature</th>
+                  <th className="text-center px-5 py-4 font-semibold text-[#5A6178]">LancerCalc</th>
+                  <th className="text-center px-5 py-4 font-semibold text-[#5A6178]">InvoiceSimple Free</th>
+                  <th className="text-center px-5 py-4 font-semibold text-[#5A6178]">invoice-generator.com</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100 bg-white">
+              <tbody className="bg-white divide-y divide-[#F0F1F5]">
                 {[
                   ["No sign-up required",        "✅","❌ (account needed)","✅"],
                   ["No watermark on PDF",         "✅","❌ (paid to remove)","✅"],
@@ -131,10 +138,10 @@ export default function InvoiceGeneratorPage() {
                   ["Always free, no limit",       "✅","❌ (50/mo cap)","✅"],
                 ].map(([feat, lc, is, ig]) => (
                   <tr key={feat}>
-                    <td className="px-4 py-3 text-gray-700">{feat}</td>
-                    <td className="px-4 py-3 text-center font-semibold text-emerald-600">{lc}</td>
-                    <td className="px-4 py-3 text-center text-gray-500">{is}</td>
-                    <td className="px-4 py-3 text-center text-gray-500">{ig}</td>
+                    <td className="px-5 py-3.5 font-medium" style={{ color: "#0A0F1E" }}>{feat}</td>
+                    <td className="px-5 py-3.5 text-center font-semibold text-emerald-600">{lc}</td>
+                    <td className="px-5 py-3.5 text-center text-[#5A6178]">{is}</td>
+                    <td className="px-5 py-3.5 text-center text-[#5A6178]">{ig}</td>
                   </tr>
                 ))}
               </tbody>
@@ -144,31 +151,51 @@ export default function InvoiceGeneratorPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
-        <div className="space-y-5">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
+      <section className="bg-[#F7F8FB] py-16 md:py-20">
+        <div className="max-w-[860px] mx-auto px-4 sm:px-8">
+          <div className="section-label">FAQ</div>
+          <div className="section-title">Frequently asked questions</div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="faq-item">
+                <div className="px-6 py-5">
+                  <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{faq.q}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── Related tools ─────────────────────────────────────────────── */}
-      <section className="bg-gray-50 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <h2 className="text-lg font-bold text-gray-900 mb-5">Related calculators</h2>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/freelance-tax-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
-              🧾 Freelance Tax Calculator
+      <section className="bg-white py-12 md:py-16">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Related Tools</div>
+          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>
+            More free calculators
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/freelance-tax-calculator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">🧾</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Freelance Tax Calculator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Estimate your self-employment tax</div>
+              </div>
             </Link>
-            <Link href="/hourly-rate-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
-              ⏱️ Hourly Rate Calculator
+            <Link href="/hourly-rate-calculator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⏱️</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Hourly Rate Calculator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Find your minimum hourly rate</div>
+              </div>
             </Link>
-            <Link href="/1099-vs-w2-calculator" className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm">
-              ⚖️ 1099 vs W-2 Calculator
+            <Link href="/1099-vs-w2-calculator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⚖️</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>1099 vs W-2 Calculator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Compare contract vs salary</div>
+              </div>
             </Link>
           </div>
         </div>

@@ -239,7 +239,7 @@ export default function W2vsContractCalculator() {
     placeholder?: string
   ) => (
     <div className="relative">
-      {prefix && <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">{prefix}</span>}
+      {prefix && <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B90A0] font-medium text-sm">{prefix}</span>}
       <input
         type="text"
         inputMode="numeric"
@@ -252,7 +252,7 @@ export default function W2vsContractCalculator() {
         }}
         className={`input-field ${prefix ? "pl-8" : ""} ${suffix ? "pr-10" : ""}`}
       />
-      {suffix && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium text-sm">{suffix}</span>}
+      {suffix && <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8B90A0] font-medium text-sm">{suffix}</span>}
     </div>
   );
 
@@ -265,7 +265,7 @@ export default function W2vsContractCalculator() {
 
       {/* ── Filing status + State ────────────────────────────────────── */}
       <div className="calc-card">
-        <h2 className="text-base font-bold text-gray-900 mb-4">Your Tax Situation</h2>
+        <h2 className="text-lg font-bold mb-5" style={{ color: "#0A0F1E" }}>Your Tax Situation</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="label">Filing status</label>
@@ -276,8 +276,8 @@ export default function W2vsContractCalculator() {
                   onClick={() => { setFiling(f); setCalc(false); }}
                   className={`flex-1 py-2.5 rounded-xl border font-medium text-sm transition-all ${
                     filing === f
-                      ? "bg-brand-600 border-brand-600 text-white shadow-sm"
-                      : "bg-white border-gray-200 text-gray-600 hover:border-brand-300"
+                      ? "bg-brand border-brand text-white shadow-sm"
+                      : "bg-white border-[#E8EAF0] text-[#5A6178] hover:border-brand-300"
                   }`}
                 >
                   {f === "single" ? "Single" : "Married"}
@@ -306,10 +306,10 @@ export default function W2vsContractCalculator() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
         {/* W-2 inputs */}
-        <div className="calc-card border-t-4 border-t-gray-400">
+        <div className="calc-card border-t-4 border-t-[#8B90A0]">
           <div className="flex items-center gap-2 mb-5">
-            <span className="bg-gray-100 text-gray-600 font-bold text-xs px-2.5 py-1 rounded-full">W-2 JOB</span>
-            <h3 className="font-bold text-gray-900">Full-Time Employee Offer</h3>
+            <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#5A6178] font-bold text-xs px-2.5 py-1 rounded-full">W-2 JOB</span>
+            <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Full-Time Employee Offer</h3>
           </div>
 
           <div className="space-y-4">
@@ -319,20 +319,20 @@ export default function W2vsContractCalculator() {
             </div>
             <div>
               <label className="label">
-                Employer health premium <span className="text-gray-400 font-normal">(employer pays, $/mo)</span>
+                Employer health premium <span className="text-[#8B90A0] font-normal">(employer pays, $/mo)</span>
               </label>
               {numericInput(w2Health, setW2Health, "$", undefined, "500")}
-              <p className="text-xs text-gray-400 mt-1">What your employer pays toward your health insurance each month</p>
+              <p className="text-xs text-[#8B90A0] mt-1">What your employer pays toward your health insurance each month</p>
             </div>
             <div>
               <label className="label">
-                401(k) employer match <span className="text-gray-400 font-normal">(% of salary)</span>
+                401(k) employer match <span className="text-[#8B90A0] font-normal">(% of salary)</span>
               </label>
               {numericInput(w2Retirement, setW2Retirement, undefined, "%", "3")}
             </div>
             <div>
               <label className="label">
-                Paid vacation days <span className="text-gray-400 font-normal">(days/year)</span>
+                Paid vacation days <span className="text-[#8B90A0] font-normal">(days/year)</span>
               </label>
               {numericInput(w2PtoDays, setW2PtoDays, undefined, "days", "15")}
             </div>
@@ -340,10 +340,10 @@ export default function W2vsContractCalculator() {
         </div>
 
         {/* 1099 inputs */}
-        <div className="calc-card border-t-4 border-t-brand-500">
+        <div className="calc-card border-t-4 border-t-brand">
           <div className="flex items-center gap-2 mb-5">
-            <span className="bg-brand-50 text-brand-700 font-bold text-xs px-2.5 py-1 rounded-full">1099 CONTRACT</span>
-            <h3 className="font-bold text-gray-900">Freelance / Contract Offer</h3>
+            <span className="bg-brand-light text-brand font-bold text-xs px-2.5 py-1 rounded-full">1099 CONTRACT</span>
+            <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Freelance / Contract Offer</h3>
           </div>
 
           <div className="space-y-4">
@@ -357,8 +357,8 @@ export default function W2vsContractCalculator() {
                     onClick={() => { setRateType(t); setCalc(false); }}
                     className={`flex-1 py-2 rounded-lg border font-medium text-sm transition-all ${
                       rateType === t
-                        ? "bg-brand-600 border-brand-600 text-white"
-                        : "bg-white border-gray-200 text-gray-600 hover:border-brand-300"
+                        ? "bg-brand border-brand text-white"
+                        : "bg-white border-[#E8EAF0] text-[#5A6178] hover:border-brand-300"
                     }`}
                   >
                     {t === "annual" ? "Annual contract" : "Hourly rate"}
@@ -385,17 +385,17 @@ export default function W2vsContractCalculator() {
 
             <div>
               <label className="label">
-                Health insurance <span className="text-gray-400 font-normal">(you pay, $/mo)</span>
+                Health insurance <span className="text-[#8B90A0] font-normal">(you pay, $/mo)</span>
               </label>
               {numericInput(contractHealth, setContractHealth, "$", undefined, "500")}
-              <p className="text-xs text-gray-400 mt-1">Individual market / COBRA cost you pay out-of-pocket</p>
+              <p className="text-xs text-[#8B90A0] mt-1">Individual market / COBRA cost you pay out-of-pocket</p>
             </div>
             <div>
               <label className="label">
-                Retirement savings <span className="text-gray-400 font-normal">(% of contract income)</span>
+                Retirement savings <span className="text-[#8B90A0] font-normal">(% of contract income)</span>
               </label>
               {numericInput(contractRetire, setContractRetire, undefined, "%", "10")}
-              <p className="text-xs text-gray-400 mt-1">SEP-IRA or Solo 401(k) contribution</p>
+              <p className="text-xs text-[#8B90A0] mt-1">SEP-IRA or Solo 401(k) contribution</p>
             </div>
           </div>
         </div>
@@ -403,7 +403,10 @@ export default function W2vsContractCalculator() {
 
       {/* ── Calculate button ─────────────────────────────────────────── */}
       <button onClick={handleCalc} className="btn-primary">
-        Compare 1099 vs W-2 →
+        Compare 1099 vs W-2
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
       </button>
 
       {/* ── Results ─────────────────────────────────────────────────── */}
@@ -413,22 +416,22 @@ export default function W2vsContractCalculator() {
           {/* Winner banner */}
           <div className={`rounded-2xl p-6 text-white ${
             winner === "1099"
-              ? "bg-gradient-to-br from-brand-600 to-brand-700"
+              ? "bg-navy"
               : winner === "W-2"
-              ? "bg-gradient-to-br from-gray-700 to-gray-800"
-              : "bg-gradient-to-br from-gray-600 to-gray-700"
+              ? "bg-[#1A2249]"
+              : "bg-[#1A2249]"
           }`}>
-            <p className="text-sm font-semibold opacity-80 mb-1">
+            <p className="text-[13px] font-semibold text-white/50 mb-1">
               {winner === "tie" ? "It's essentially a tie" : "Better financial outcome"}
             </p>
-            <p className="text-4xl font-bold mb-2">
+            <p className="text-4xl font-extrabold tracking-tight mb-2">
               {winner === "1099"
                 ? `1099 wins by ${fmt(results.annualDiff)}/year`
                 : winner === "W-2"
                 ? `W-2 wins by ${fmt(Math.abs(results.annualDiff))}/year`
                 : "Both options are equal"}
             </p>
-            <p className="text-sm opacity-80 leading-relaxed">
+            <p className="text-[13px] text-white/50 leading-relaxed">
               {winner === "1099"
                 ? `After paying self-employment tax, health insurance, and retirement savings out of pocket, the contract offer still nets ${fmt(results.annualDiff)} more per year.`
                 : winner === "W-2"
@@ -443,8 +446,8 @@ export default function W2vsContractCalculator() {
             {/* W-2 breakdown */}
             <div className="calc-card">
               <div className="flex items-center gap-2 mb-4">
-                <span className="bg-gray-100 text-gray-600 font-bold text-xs px-2.5 py-1 rounded-full">W-2</span>
-                <h3 className="font-bold text-gray-900">Full-Time Employee</h3>
+                <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#5A6178] font-bold text-xs px-2.5 py-1 rounded-full">W-2</span>
+                <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Full-Time Employee</h3>
               </div>
               <div className="space-y-0">
                 <div className="result-row">
@@ -454,51 +457,51 @@ export default function W2vsContractCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     FICA tax (employee share)
-                    <span className="block text-xs text-gray-400">SS 6.2% + Medicare 1.45%</span>
+                    <span className="block text-xs text-[#8B90A0]">SS 6.2% + Medicare 1.45%</span>
                   </span>
-                  <span className="result-value text-red-500">−{fmt(results.w2FicaTax)}</span>
+                  <span className="result-value text-red-500">-{fmt(results.w2FicaTax)}</span>
                 </div>
                 <div className="result-row">
                   <span className="result-label">Federal income tax</span>
-                  <span className="result-value text-red-500">−{fmt(results.w2FederalTax)}</span>
+                  <span className="result-value text-red-500">-{fmt(results.w2FederalTax)}</span>
                 </div>
                 <div className="result-row">
                   <span className="result-label">
                     {state} state income tax
-                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax 🎉</span>}
+                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax</span>}
                   </span>
                   <span className="result-value text-red-500">
-                    {results.stateRate === 0 ? "—" : `−${fmt(results.w2StateTax)}`}
+                    {results.stateRate === 0 ? "\u2014" : `-${fmt(results.w2StateTax)}`}
                   </span>
                 </div>
                 <div className="result-row font-semibold">
-                  <span className="result-label text-gray-700">Take-home pay</span>
-                  <span className="result-value text-gray-900 text-base">{fmt(results.w2TakeHome)}</span>
+                  <span className="result-label" style={{ color: "#0A0F1E" }}>Take-home pay</span>
+                  <span className="result-value text-base" style={{ color: "#0A0F1E" }}>{fmt(results.w2TakeHome)}</span>
                 </div>
-                <div className="pt-3 mt-2 border-t border-gray-100">
-                  <p className="text-xs font-semibold text-gray-500 mb-2">Employer benefits (hidden compensation)</p>
+                <div className="pt-3 mt-2 border-t border-[#F0F1F5]">
+                  <p className="text-xs font-semibold text-[#5A6178] mb-2">Employer benefits (hidden compensation)</p>
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs">
-                      <span className="text-gray-500">Health insurance paid by employer</span>
+                      <span className="text-[#5A6178]">Health insurance paid by employer</span>
                       <span className="text-emerald-600 font-medium">+{fmt((parseFloat(w2Health)||0)*12)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-gray-500">401(k) match</span>
+                      <span className="text-[#5A6178]">401(k) match</span>
                       <span className="text-emerald-600 font-medium">+{fmt(results.w2Gross * ((parseFloat(w2Retirement)||0)/100))}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-gray-500">PTO value ({w2PtoDays} days)</span>
+                      <span className="text-[#5A6178]">PTO value ({w2PtoDays} days)</span>
                       <span className="text-emerald-600 font-medium">+{fmt((results.w2Gross/260)*(parseFloat(w2PtoDays)||0))}</span>
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between items-center pt-3 border-t border-gray-200 mt-2">
-                  <p className="text-sm font-bold text-gray-900">Total compensation value</p>
-                  <p className="text-lg font-bold text-gray-900">{fmt(results.w2TotalComp)}</p>
+                <div className="flex justify-between items-center pt-3 border-t border-[#E8EAF0] mt-2">
+                  <p className="text-sm font-bold" style={{ color: "#0A0F1E" }}>Total compensation value</p>
+                  <p className="text-lg font-bold" style={{ color: "#0A0F1E" }}>{fmt(results.w2TotalComp)}</p>
                 </div>
                 <div className="flex justify-between items-center pt-1">
-                  <p className="text-xs text-gray-500">Effective tax rate</p>
-                  <p className="text-xs font-semibold text-gray-600">{pct(results.w2EffectiveRate)}</p>
+                  <p className="text-xs text-[#8B90A0]">Effective tax rate</p>
+                  <p className="text-xs font-semibold text-[#5A6178]">{pct(results.w2EffectiveRate)}</p>
                 </div>
               </div>
             </div>
@@ -506,8 +509,8 @@ export default function W2vsContractCalculator() {
             {/* 1099 breakdown */}
             <div className="calc-card">
               <div className="flex items-center gap-2 mb-4">
-                <span className="bg-brand-50 text-brand-700 font-bold text-xs px-2.5 py-1 rounded-full">1099</span>
-                <h3 className="font-bold text-gray-900">Independent Contractor</h3>
+                <span className="bg-brand-light text-brand font-bold text-xs px-2.5 py-1 rounded-full">1099</span>
+                <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Independent Contractor</h3>
               </div>
               <div className="space-y-0">
                 <div className="result-row">
@@ -517,9 +520,9 @@ export default function W2vsContractCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Self-employment tax
-                    <span className="block text-xs text-gray-400">Both employer + employee FICA shares</span>
+                    <span className="block text-xs text-[#8B90A0]">Both employer + employee FICA shares</span>
                   </span>
-                  <span className="result-value text-red-500">−{fmt(results.contractSeTax)}</span>
+                  <span className="result-value text-red-500">-{fmt(results.contractSeTax)}</span>
                 </div>
                 <div className="result-row">
                   <span className="result-label">SE tax deduction (50%)</span>
@@ -527,56 +530,56 @@ export default function W2vsContractCalculator() {
                 </div>
                 <div className="result-row">
                   <span className="result-label">Federal income tax</span>
-                  <span className="result-value text-red-500">−{fmt(results.contractFederalTax)}</span>
+                  <span className="result-value text-red-500">-{fmt(results.contractFederalTax)}</span>
                 </div>
                 <div className="result-row">
                   <span className="result-label">
                     {state} state income tax
-                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax 🎉</span>}
+                    {results.stateRate === 0 && <span className="block text-xs text-emerald-500">No state income tax</span>}
                   </span>
                   <span className="result-value text-red-500">
-                    {results.stateRate === 0 ? "—" : `−${fmt(results.contractStateTax)}`}
+                    {results.stateRate === 0 ? "\u2014" : `-${fmt(results.contractStateTax)}`}
                   </span>
                 </div>
                 <div className="result-row font-semibold">
-                  <span className="result-label text-gray-700">Take-home (before self-funding)</span>
-                  <span className="result-value text-gray-900 text-base">{fmt(results.contractTakeHome)}</span>
+                  <span className="result-label" style={{ color: "#0A0F1E" }}>Take-home (before self-funding)</span>
+                  <span className="result-value text-base" style={{ color: "#0A0F1E" }}>{fmt(results.contractTakeHome)}</span>
                 </div>
-                <div className="pt-3 mt-2 border-t border-gray-100">
-                  <p className="text-xs font-semibold text-gray-500 mb-2">Self-funded benefits (your cost)</p>
+                <div className="pt-3 mt-2 border-t border-[#F0F1F5]">
+                  <p className="text-xs font-semibold text-[#5A6178] mb-2">Self-funded benefits (your cost)</p>
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs">
-                      <span className="text-gray-500">Health insurance (self-pay)</span>
-                      <span className="text-red-500 font-medium">−{fmt((parseFloat(contractHealth)||0)*12)}</span>
+                      <span className="text-[#5A6178]">Health insurance (self-pay)</span>
+                      <span className="text-red-500 font-medium">-{fmt((parseFloat(contractHealth)||0)*12)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-gray-500">Retirement savings ({contractRetire}%)</span>
-                      <span className="text-red-500 font-medium">−{fmt(results.contractGross * ((parseFloat(contractRetire)||0)/100))}</span>
+                      <span className="text-[#5A6178]">Retirement savings ({contractRetire}%)</span>
+                      <span className="text-red-500 font-medium">-{fmt(results.contractGross * ((parseFloat(contractRetire)||0)/100))}</span>
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between items-center pt-3 border-t border-gray-200 mt-2">
-                  <p className="text-sm font-bold text-gray-900">Net after self-funded benefits</p>
-                  <p className={`text-lg font-bold ${results.contractNetAfterExpenses >= results.w2TakeHome ? "text-emerald-600" : "text-gray-900"}`}>
+                <div className="flex justify-between items-center pt-3 border-t border-[#E8EAF0] mt-2">
+                  <p className="text-sm font-bold" style={{ color: "#0A0F1E" }}>Net after self-funded benefits</p>
+                  <p className={`text-lg font-bold ${results.contractNetAfterExpenses >= results.w2TakeHome ? "text-emerald-600" : ""}`} style={results.contractNetAfterExpenses < results.w2TakeHome ? { color: "#0A0F1E" } : undefined}>
                     {fmt(results.contractNetAfterExpenses)}
                   </p>
                 </div>
                 <div className="flex justify-between items-center pt-1">
-                  <p className="text-xs text-gray-500">Effective tax rate</p>
-                  <p className="text-xs font-semibold text-gray-600">{pct(results.contractEffectiveRate)}</p>
+                  <p className="text-xs text-[#8B90A0]">Effective tax rate</p>
+                  <p className="text-xs font-semibold text-[#5A6178]">{pct(results.contractEffectiveRate)}</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Break-even insight */}
-          <div className="calc-card bg-amber-50 border-amber-200">
+          <div className="calc-card bg-brand-light border-brand-200">
             <div className="flex gap-3">
-              <span className="text-2xl mt-0.5">🎯</span>
+              <div className="w-9 h-9 bg-brand/10 rounded-lg flex items-center justify-center text-lg flex-shrink-0">🎯</div>
               <div>
-                <p className="font-bold text-amber-900 mb-1">Break-even contract rate</p>
-                <p className="text-3xl font-bold text-amber-800 mb-2">{fmt(results.breakEvenRate)}/year</p>
-                <p className="text-sm text-amber-700 leading-relaxed">
+                <p className="font-bold text-brand-900 mb-1">Break-even contract rate</p>
+                <p className="text-3xl font-extrabold tracking-tight text-brand-800 mb-2">{fmt(results.breakEvenRate)}/year</p>
+                <p className="text-[13px] text-brand-800 leading-relaxed">
                   To exactly match your W-2 take-home pay (after self-funding health and retirement),
                   your 1099 contract needs to pay at least{" "}
                   <strong>{fmt(results.breakEvenRate)}/year</strong>.
@@ -595,15 +598,15 @@ export default function W2vsContractCalculator() {
           </div>
 
           {/* What's not included box */}
-          <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 flex gap-3">
-            <span className="text-base mt-0.5">ℹ️</span>
+          <div className="bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl p-5 flex gap-3">
+            <div className="w-9 h-9 bg-white border border-[#E8EAF0] rounded-lg flex items-center justify-center text-sm flex-shrink-0">ℹ️</div>
             <div>
-              <p className="text-xs font-semibold text-gray-600 mb-1">What this calculator includes — and what it doesn&apos;t</p>
-              <p className="text-xs text-gray-500 leading-relaxed">
+              <p className="text-xs font-bold text-[#5A6178] mb-1">What this calculator includes — and what it doesn&apos;t</p>
+              <p className="text-xs text-[#8B90A0] leading-relaxed">
                 <strong>Included:</strong> SE tax (both employer/employee FICA shares), 50% SE tax deduction, 2025 federal income tax brackets, state income tax (all 50 states + DC), employer vs self-funded health insurance and retirement.{" "}
                 <strong>Not included:</strong> Local city/county taxes, business expense deductions beyond retirement, pre-tax 401(k) contribution effects, contractor&apos;s non-billable time, unpaid time between contracts, or professional liability insurance.{" "}
                 Federal brackets sourced from{" "}
-                <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand-600 underline hover:text-brand-700">
+                <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand underline hover:text-brand-dark">
                   IRS Rev. Proc. 2024-40
                 </a>
                 .{" "}
@@ -615,14 +618,14 @@ export default function W2vsContractCalculator() {
         </div>
       ) : calculated ? (
         <div className="calc-card flex flex-col items-center justify-center text-center py-12">
-          <div className="text-4xl mb-3">⚠️</div>
-          <p className="text-gray-600 font-medium">Please enter both a W-2 salary and a contract rate to compare.</p>
+          <div className="w-16 h-16 bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl flex items-center justify-center text-3xl mb-5">⚠️</div>
+          <p className="font-medium" style={{ color: "#5A6178" }}>Please enter both a W-2 salary and a contract rate to compare.</p>
         </div>
       ) : (
         <div className="calc-card flex flex-col items-center justify-center text-center py-14 min-h-[200px]">
-          <div className="text-5xl mb-4">⚖️</div>
-          <p className="text-gray-500 font-medium text-lg mb-2">Enter both offers above</p>
-          <p className="text-gray-400 text-sm max-w-sm">
+          <div className="w-16 h-16 bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl flex items-center justify-center text-3xl mb-5">⚖️</div>
+          <p className="font-bold text-lg mb-2" style={{ color: "#0A0F1E" }}>Enter both offers above</p>
+          <p className="text-[13px] max-w-sm" style={{ color: "#8B90A0" }}>
             Fill in your W-2 salary and 1099 contract details, then click Compare to see which one puts more money in your pocket.
           </p>
         </div>

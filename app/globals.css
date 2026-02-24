@@ -8,43 +8,135 @@
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-white antialiased;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #0A0F1E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
+  /* ── Cards ── */
   .calc-card {
-    @apply bg-white rounded-2xl border border-gray-200 shadow-sm p-6;
+    @apply bg-white rounded-2xl border border-[#E8EAF0] p-8;
   }
+
+  /* ── Form inputs ── */
   .input-field {
-    @apply w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3
-           text-gray-800 text-sm font-medium
-           focus:outline-none focus:ring-2 focus:ring-brand-600 focus:border-transparent
-           transition-all duration-150;
+    @apply w-full rounded-xl border-[1.5px] border-[#E8EAF0] bg-[#F7F8FB] px-4 py-3.5
+           text-sm font-semibold
+           focus:outline-none focus:border-brand focus:ring-[3px] focus:ring-brand/[0.08] focus:bg-white
+           transition-all duration-200;
+    color: #0A0F1E;
   }
   .select-field {
-    @apply input-field appearance-none cursor-pointer;
+    @apply input-field appearance-none cursor-pointer pr-10;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%238B90A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
   }
   .label {
-    @apply block text-sm font-medium text-gray-600 mb-1.5;
+    @apply block text-[13px] font-semibold mb-2;
+    color: #0A0F1E;
   }
+
+  /* ── Results display ── */
   .result-row {
-    @apply flex justify-between items-center py-3 border-b border-gray-100 last:border-0;
+    @apply flex justify-between items-center py-3.5 border-b border-[#F0F1F5] last:border-0;
   }
   .result-label {
-    @apply text-sm text-gray-500;
+    @apply text-sm font-medium;
+    color: #5A6178;
   }
   .result-value {
-    @apply text-sm font-semibold text-gray-800;
+    @apply text-sm font-bold;
+    color: #0A0F1E;
   }
+
+  /* ── Buttons ── */
   .btn-primary {
-    @apply w-full bg-brand-600 hover:bg-brand-700 active:bg-brand-800
-           text-white font-semibold py-3.5 px-6 rounded-xl
-           transition-all duration-150 shadow-sm hover:shadow
-           focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2;
+    @apply w-full bg-navy hover:bg-navy-700 active:bg-navy-800
+           text-white font-bold py-4 px-6 rounded-xl
+           transition-all duration-200
+           flex items-center justify-center gap-2.5
+           focus:outline-none;
   }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(10,15,30,0.2);
+  }
+
+  /* ── Tags / Pills ── */
   .tag {
-    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full;
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full;
   }
+  .pill {
+    @apply text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E8EAF0] bg-white;
+    color: #5A6178;
+  }
+  .pill-filled {
+    @apply text-xs font-semibold px-4 py-1.5 rounded-full bg-brand-light border-transparent text-brand;
+  }
+
+  /* ── Section headings ── */
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-[0.08em] text-brand mb-2;
+  }
+  .section-title {
+    @apply text-[32px] font-extrabold tracking-tight mb-10;
+    color: #0A0F1E;
+  }
+
+  /* ── Metric cards ── */
+  .metric-card {
+    @apply bg-white rounded-2xl border border-[#E8EAF0] p-6 transition-colors duration-200;
+  }
+  .metric-card:hover {
+    border-color: #155DEE;
+  }
+
+  /* ── Step cards (How it works) ── */
+  .step-card {
+    @apply bg-[#F7F8FB] border border-[#F0F1F5] rounded-2xl p-8 transition-all duration-200;
+  }
+  .step-card:hover {
+    @apply bg-white border-brand;
+    box-shadow: 0 8px 32px rgba(21,93,238,0.06);
+    transform: translateY(-3px);
+  }
+
+  /* ── FAQ accordion ── */
+  .faq-item {
+    @apply bg-white border-[1.5px] border-[#E8EAF0] rounded-2xl overflow-hidden transition-colors duration-200;
+  }
+  .faq-item.open {
+    border-color: #155DEE;
+  }
+
+  /* ── Related tool cards ── */
+  .related-card {
+    @apply flex items-center gap-4 bg-[#F7F8FB] border-[1.5px] border-[#F0F1F5] rounded-2xl p-6
+           no-underline transition-all duration-200;
+  }
+  .related-card:hover {
+    @apply bg-white border-brand;
+    box-shadow: 0 4px 20px rgba(21,93,238,0.06);
+    transform: translateY(-3px);
+  }
+
+  /* ── Trust strip items ── */
+  .trust-item {
+    @apply flex items-center gap-3.5;
+  }
+  .trust-icon {
+    @apply w-[42px] h-[42px] rounded-lg bg-white/[0.06] flex items-center justify-center text-lg flex-shrink-0;
+  }
+}
+
+/* ── Print styles for invoice ── */
+@media print {
+  body { margin: 0; padding: 0; }
+  .no-print { display: none !important; }
+  @page { size: A4; margin: 0; }
 }

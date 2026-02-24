@@ -70,112 +70,136 @@ export default function FreelanceTaxCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── Page header ──────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-gray-900 to-brand-900 text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <div className="flex items-center gap-2 text-brand-300 text-sm font-medium mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>›</span>
-            <span>Freelance Tax Calculator</span>
+      {/* ── Page header ── */}
+      <section className="bg-white py-14 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="flex items-center gap-2 text-[13px] font-medium text-[#8B90A0] mb-6">
+            <Link href="/" className="hover:text-brand transition-colors">Home</Link>
+            <svg className="w-3.5 h-3.5 text-[#C8CAD4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-brand font-semibold">Freelance Tax Calculator</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            Freelance Tax Calculator
-            <span className="block text-brand-400 text-2xl sm:text-3xl font-semibold mt-1">2025–2026</span>
-          </h1>
-          <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
-            Enter your income, state, and filing status — instantly see your complete
-            tax breakdown, quarterly payment amounts, and exactly how much to set aside.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-5">
-            {["Free","No sign-up","All 50 states","2025 IRS brackets","SS wage base capped","Updated Jan 2025"].map((tag) => (
-              <span key={tag} className="bg-white/10 text-white text-xs font-medium px-3 py-1 rounded-full border border-white/20">
-                {tag}
-              </span>
-            ))}
+
+          <div className="max-w-[720px]">
+            <div className="section-label">Tax Calculator</div>
+            <h1 className="text-[clamp(32px,4vw,48px)] font-extrabold leading-[1.1] tracking-tight mb-4" style={{ color: "#0A0F1E" }}>
+              Freelance Tax Calculator
+              <span className="text-brand"> 2025–2026</span>
+            </h1>
+            <p className="text-base leading-relaxed mb-6" style={{ color: "#5A6178" }}>
+              Enter your income, state, and filing status — instantly see your complete
+              tax breakdown, quarterly payment amounts, and exactly how much to set aside.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-5">
+              {["Free", "No sign-up", "All 50 states", "2025 IRS brackets", "SS wage base capped"].map((tag) => (
+                <span key={tag} className="pill">{tag}</span>
+              ))}
+            </div>
+            <p className="text-xs text-[#8B90A0]">
+              Data sources:{" "}
+              <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Rev. Proc. 2024-40</a>
+              {" · "}
+              <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">IRS Topic 554</a>
+              {" · "}
+              <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand-dark underline">SSA 2025 COLA</a>
+            </p>
           </div>
-          <p className="text-xs text-gray-400 mt-4">
-            Data sources:{" "}
-            <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Rev. Proc. 2024-40</a>
-            {" · "}
-            <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">IRS Topic 554</a>
-            {" · "}
-            <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">SSA 2025 COLA</a>
-          </p>
         </div>
       </section>
 
-      {/* ── Calculator ───────────────────────────────────────────── */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-        <SETaxCalculator />
+      {/* ── Calculator ── */}
+      <section className="bg-[#F7F8FB] py-12 md:py-16">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <SETaxCalculator />
+        </div>
       </section>
 
-      {/* ── How it works ─────────────────────────────────────────── */}
-      <section className="bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">How we calculate your freelance tax</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* ── How it works ── */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">How It Works</div>
+          <div className="section-title">How we calculate your freelance tax</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
                 step: "01",
+                icon: "📋",
                 title: "Self-employment tax",
                 body: "Social Security (12.4%) applies up to the $176,100 wage base. Medicare (2.9%) has no cap. An extra 0.9% Medicare applies above $200K. Multiply net income by 92.35% first — then apply rates. 50% of SE tax is deductible from your AGI.",
               },
               {
                 step: "02",
+                icon: "🏛️",
                 title: "Federal income tax",
                 body: "Applied to your adjusted gross income using 2025 IRS tax brackets after the standard deduction ($15,000 single / $30,000 married) and your SE tax deduction.",
               },
               {
                 step: "03",
+                icon: "📍",
                 title: "State income tax",
                 body: "Applied based on your state's rate. Nine states charge zero income tax. California (9.3%) and Oregon (9.9%) are the highest. Enter your state to get the accurate rate.",
               },
             ].map((s) => (
-              <div key={s.step} className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-                <div className="text-brand-600 font-bold text-xs mb-3">STEP {s.step}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.body}</p>
+              <div key={s.step} className="step-card">
+                <div className="w-[46px] h-[46px] bg-navy rounded-lg flex items-center justify-center text-xl mb-5">
+                  {s.icon}
+                </div>
+                <div className="text-brand text-xs font-bold uppercase tracking-[0.08em] mb-2">Step {s.step}</div>
+                <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
-        <div className="space-y-5">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
+      {/* ── FAQ ── */}
+      <section className="bg-[#F7F8FB] py-16 md:py-20">
+        <div className="max-w-[860px] mx-auto px-4 sm:px-8">
+          <div className="section-label">FAQ</div>
+          <div className="section-title">Frequently asked questions</div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="faq-item">
+                <div className="px-6 py-5">
+                  <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{faq.q}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── Related tools ────────────────────────────────────────── */}
-      <section className="bg-gray-50 border-t border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <h2 className="text-lg font-bold text-gray-900 mb-5">Related calculators</h2>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/hourly-rate-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
-            >
-              ⏱️ Hourly Rate Calculator
+      {/* ── Related tools ── */}
+      <section className="bg-white py-12 md:py-16">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Related Tools</div>
+          <h2 className="text-[24px] font-extrabold tracking-tight mb-6" style={{ color: "#0A0F1E" }}>
+            More free calculators
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link href="/hourly-rate-calculator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⏱️</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Hourly Rate Calculator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Find your minimum hourly rate</div>
+              </div>
             </Link>
-            <Link
-              href="/1099-vs-w2-calculator"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
-            >
-              ⚖️ 1099 vs W-2 Calculator
+            <Link href="/1099-vs-w2-calculator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">⚖️</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>1099 vs W-2 Calculator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Compare contract vs salary</div>
+              </div>
             </Link>
-            <Link
-              href="/invoice-generator"
-              className="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 font-medium text-sm px-4 py-2.5 rounded-xl hover:border-brand-300 hover:text-brand-600 transition-all shadow-sm"
-            >
-              📄 Invoice Generator
+            <Link href="/invoice-generator" className="related-card">
+              <div className="w-[42px] h-[42px] bg-[#F7F8FB] border border-[#E8EAF0] rounded-lg flex items-center justify-center text-lg flex-shrink-0">📄</div>
+              <div>
+                <div className="font-bold text-[14px] mb-0.5" style={{ color: "#0A0F1E" }}>Invoice Generator</div>
+                <div className="text-xs" style={{ color: "#8B90A0" }}>Create professional invoices free</div>
+              </div>
             </Link>
           </div>
         </div>

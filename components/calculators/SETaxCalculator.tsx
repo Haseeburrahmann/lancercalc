@@ -94,24 +94,15 @@ export default function SETaxCalculator() {
     const extraDeduct= parseFloat(deduct.replace(/,/g, "")) || 0;
     if (gross <= 0) return null;
 
-    // ── Self-employment tax (IRS Schedule SE) ──────────────────────────
-    // Step 1: Net SE income = gross × 92.35% (IRS SE_ADJUSTMENT)
     const netSE = gross * SE_ADJUSTMENT;
-
-    // Step 2: Social Security tax — capped at $176,100 wage base (2025)
     const ssTaxableAmt = Math.min(netSE, SS_WAGE_BASE);
     const ssTax        = ssTaxableAmt * SS_RATE;
-
-    // Step 3: Medicare tax — no wage base limit
     const medicareTax  = netSE * MEDICARE_RATE;
-
-    // Step 4: Additional Medicare (0.9%) on income above threshold
     const addlMedicareBase      = ADDL_MEDICARE_THRESHOLD[filing];
     const addlMedicareTaxableAmt= Math.max(0, gross - addlMedicareBase);
     const addlMedicareTax       = addlMedicareTaxableAmt * ADDL_MEDICARE_RATE;
 
     const seTax    = ssTax + medicareTax + addlMedicareTax;
-    // Deduction: 50% of SE tax is deductible from AGI
     const seDeduct = seTax * 0.5;
 
     const stdDeduct  = STANDARD_DEDUCTION[filing];
@@ -125,7 +116,7 @@ export default function SETaxCalculator() {
     const totalTax   = seTax + federalTax + stateTax;
     const effectiveRate = totalTax / gross;
     const quarterly  = totalTax / 4;
-    const savePct    = Math.min(0.45, effectiveRate + 0.02); // buffer of 2%
+    const savePct    = Math.min(0.45, effectiveRate + 0.02);
 
     return {
       gross, seTax, seDeduct, federalTax, stateTax,
@@ -144,18 +135,17 @@ export default function SETaxCalculator() {
   const noTaxStates = ["AK","FL","NV","NH","SD","TN","TX","WA","WY"];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-      {/* ── Inputs ──────────────────────────────────────────────── */}
-      <div className="lg:col-span-2 space-y-5">
+      {/* ── Inputs ── */}
+      <div className="space-y-5">
         <div className="calc-card">
-          <h2 className="text-lg font-bold text-gray-900 mb-5">Your Details</h2>
+          <h2 className="text-lg font-bold mb-5" style={{ color: "#0A0F1E" }}>Your Details</h2>
 
-          {/* Income */}
           <div className="mb-4">
             <label className="label">Annual freelance income</label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B90A0] font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -171,7 +161,6 @@ export default function SETaxCalculator() {
             </div>
           </div>
 
-          {/* Filing status */}
           <div className="mb-4">
             <label className="label">Filing status</label>
             <select
@@ -184,7 +173,6 @@ export default function SETaxCalculator() {
             </select>
           </div>
 
-          {/* State */}
           <div className="mb-4">
             <label className="label">State</label>
             <select
@@ -200,13 +188,12 @@ export default function SETaxCalculator() {
             </select>
           </div>
 
-          {/* Business expenses */}
           <div className="mb-6">
             <label className="label">
-              Business deductions <span className="text-gray-400 font-normal">(optional)</span>
+              Business deductions <span className="text-[#8B90A0] font-normal">(optional)</span>
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">$</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B90A0] font-medium">$</span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -220,57 +207,61 @@ export default function SETaxCalculator() {
                 className="input-field pl-8"
               />
             </div>
-            <p className="text-xs text-gray-400 mt-1.5">
+            <p className="text-xs text-[#8B90A0] mt-1.5">
               Deductible expenses reduce your taxable income.
             </p>
           </div>
 
           <button onClick={handleCalc} className="btn-primary">
-            Calculate My Tax →
+            Calculate My Tax
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </button>
         </div>
 
-        {/* Disclaimer */}
-        <p className="text-xs text-gray-400 leading-relaxed px-1">
+        <p className="text-xs text-[#8B90A0] leading-relaxed px-1">
           Based on 2025 federal tax brackets and state rates. Figures are estimates for planning
           purposes only. Consult a tax professional for advice specific to your situation.
         </p>
       </div>
 
-      {/* ── Results ─────────────────────────────────────────────── */}
-      <div className="lg:col-span-3 space-y-5">
+      {/* ── Results ── */}
+      <div className="space-y-5">
         {!calculated || !results ? (
           <div className="calc-card flex flex-col items-center justify-center text-center py-16 h-full min-h-[340px]">
-            <div className="text-5xl mb-4">🧾</div>
-            <p className="text-gray-500 font-medium text-lg mb-2">Enter your income to get started</p>
-            <p className="text-gray-400 text-sm max-w-xs">
+            <div className="w-16 h-16 bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl flex items-center justify-center text-3xl mb-5">🧾</div>
+            <p className="font-bold text-lg mb-2" style={{ color: "#0A0F1E" }}>Enter your income to get started</p>
+            <p className="text-[13px] max-w-xs" style={{ color: "#8B90A0" }}>
               Your results will show a full tax breakdown, quarterly payments, and how much to set aside.
             </p>
           </div>
         ) : (
           <>
-            {/* Save this much */}
-            <div className="calc-card bg-gradient-to-br from-brand-600 to-brand-700 border-0 text-white">
-              <p className="text-brand-200 text-sm font-medium mb-1">Set aside from every payment</p>
-              <p className="text-5xl font-bold mb-2">{pct(results.savePct)}</p>
-              <p className="text-brand-200 text-sm">
+            <div className="calc-card bg-navy border-0 text-white">
+              <p className="text-[13px] font-semibold text-white/50 mb-1">Set aside from every payment</p>
+              <p className="text-5xl font-extrabold tracking-tight mb-2">{pct(results.savePct)}</p>
+              <p className="text-[13px] text-white/50">
                 That&apos;s approximately {fmt(results.gross * results.savePct)} per year,
                 or {fmt(results.gross * results.savePct / 12)} per month.
               </p>
             </div>
 
-            {/* Quarterly */}
-            <div className="calc-card border-l-4 border-l-amber-400">
-              <p className="text-sm font-medium text-gray-500 mb-1">Pay the IRS every quarter</p>
-              <p className="text-4xl font-bold text-gray-900">{fmt(results.quarterly)}</p>
-              <p className="text-xs text-gray-400 mt-1">
-                Due: April 15 · June 16 · Sep 15 · Jan 15 &apos;26
-              </p>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="calc-card">
+                <p className="text-[11px] font-semibold text-[#8B90A0] uppercase tracking-[0.06em] mb-2">Quarterly Payment</p>
+                <p className="text-2xl font-extrabold tracking-tight" style={{ color: "#0A0F1E" }}>{fmt(results.quarterly)}</p>
+                <p className="text-xs text-[#8B90A0] mt-1">Due: Apr 15 · Jun 16 · Sep 15 · Jan 15</p>
+              </div>
+              <div className="calc-card">
+                <p className="text-[11px] font-semibold text-[#8B90A0] uppercase tracking-[0.06em] mb-2">Take-Home Pay</p>
+                <p className="text-2xl font-extrabold tracking-tight text-emerald-600">{fmt(results.gross - results.totalTax)}</p>
+                <p className="text-xs text-[#8B90A0] mt-1">{pct(1 - results.effectiveRate)} of gross</p>
+              </div>
             </div>
 
-            {/* Full breakdown */}
             <div className="calc-card">
-              <h3 className="font-bold text-gray-900 mb-4">Full Tax Breakdown</h3>
+              <h3 className="font-bold mb-4" style={{ color: "#0A0F1E" }}>Full Tax Breakdown</h3>
               <div className="space-y-0">
                 <div className="result-row">
                   <span className="result-label">Gross freelance income</span>
@@ -279,7 +270,7 @@ export default function SETaxCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Self-employment tax
-                    <span className="block text-xs text-gray-400">
+                    <span className="block text-xs text-[#8B90A0]">
                       SS {results.ssCapped ? `(capped at $176,100 wage base)` : `(12.4%)`} + Medicare (2.9%)
                       {results.addlMedicareTax > 0 && " + 0.9% additional Medicare"}
                     </span>
@@ -293,7 +284,7 @@ export default function SETaxCalculator() {
                 <div className="result-row">
                   <span className="result-label">
                     Federal income tax
-                    <span className="block text-xs text-gray-400">
+                    <span className="block text-xs text-[#8B90A0]">
                       on {fmt(results.taxableInc)} taxable income
                     </span>
                   </span>
@@ -303,7 +294,7 @@ export default function SETaxCalculator() {
                   <span className="result-label">
                     {state} state income tax
                     {results.stateRate === 0 && (
-                      <span className="block text-xs text-emerald-500">No state income tax 🎉</span>
+                      <span className="block text-xs text-emerald-500">No state income tax</span>
                     )}
                   </span>
                   <span className="result-value text-red-500">
@@ -311,29 +302,27 @@ export default function SETaxCalculator() {
                   </span>
                 </div>
 
-                {/* Total */}
-                <div className="flex justify-between items-center pt-4 mt-2 border-t border-gray-200">
+                <div className="flex justify-between items-center pt-4 mt-2 border-t border-[#E8EAF0]">
                   <div>
-                    <p className="font-bold text-gray-900">Total estimated tax</p>
-                    <p className="text-xs text-gray-400">Effective rate: {pct(results.effectiveRate)}</p>
+                    <p className="font-bold" style={{ color: "#0A0F1E" }}>Total estimated tax</p>
+                    <p className="text-xs text-[#8B90A0]">Effective rate: {pct(results.effectiveRate)}</p>
                   </div>
-                  <p className="text-2xl font-bold text-gray-900">{fmt(results.totalTax)}</p>
+                  <p className="text-2xl font-extrabold tracking-tight" style={{ color: "#0A0F1E" }}>{fmt(results.totalTax)}</p>
                 </div>
                 <div className="flex justify-between items-center pt-3">
-                  <p className="font-semibold text-gray-700">Take-home pay</p>
-                  <p className="text-xl font-bold text-emerald-600">
+                  <p className="font-semibold" style={{ color: "#5A6178" }}>Take-home pay</p>
+                  <p className="text-xl font-extrabold text-emerald-600">
                     {fmt(results.gross - results.totalTax)}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Tip */}
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3">
-              <span className="text-xl mt-0.5">💡</span>
+            <div className="bg-brand-light border border-brand-200 rounded-2xl p-5 flex gap-3">
+              <div className="w-9 h-9 bg-brand/10 rounded-lg flex items-center justify-center text-lg flex-shrink-0">💡</div>
               <div>
-                <p className="text-sm font-semibold text-amber-900 mb-1">Pro tip</p>
-                <p className="text-sm text-amber-800 leading-relaxed">
+                <p className="text-sm font-bold text-brand-900 mb-1">Pro tip</p>
+                <p className="text-[13px] text-brand-800 leading-relaxed">
                   Open a separate bank account and move{" "}
                   <strong>{pct(results.savePct)}</strong> every time a client pays you.
                   Treat it as untouchable. Quarterly tax time becomes stress-free.
@@ -341,43 +330,19 @@ export default function SETaxCalculator() {
               </div>
             </div>
 
-            {/* Inline disclaimer + IRS citation */}
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 flex gap-3">
-              <span className="text-base mt-0.5">ℹ️</span>
+            <div className="bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl p-5 flex gap-3">
+              <div className="w-9 h-9 bg-white border border-[#E8EAF0] rounded-lg flex items-center justify-center text-sm flex-shrink-0">ℹ️</div>
               <div>
-                <p className="text-xs font-semibold text-gray-600 mb-1">Accuracy & Sources</p>
-                <p className="text-xs text-gray-500 leading-relaxed">
+                <p className="text-xs font-bold text-[#5A6178] mb-1">Accuracy & Sources</p>
+                <p className="text-xs text-[#8B90A0] leading-relaxed">
                   Federal brackets and SE tax rates sourced from{" "}
-                  <a
-                    href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-600 underline hover:text-brand-700"
-                  >
-                    IRS Rev. Proc. 2024-40
-                  </a>
+                  <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand underline hover:text-brand-dark">IRS Rev. Proc. 2024-40</a>
                   {" "}and{" "}
-                  <a
-                    href="https://www.irs.gov/taxtopics/tc554"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-600 underline hover:text-brand-700"
-                  >
-                    IRS Topic 554 (Self-Employment Tax)
-                  </a>
-                  . Social Security wage base ($176,100) per{" "}
-                  <a
-                    href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-600 underline hover:text-brand-700"
-                  >
-                    SSA 2025 COLA fact sheet
-                  </a>
-                  . State rates from state revenue department schedules.{" "}
-                  <strong>These are estimates for planning purposes only</strong> and do not
-                  account for all credits, deductions, or local taxes. Consult a qualified
-                  tax professional for advice specific to your situation.
+                  <a href="https://www.irs.gov/taxtopics/tc554" target="_blank" rel="noopener noreferrer" className="text-brand underline hover:text-brand-dark">IRS Topic 554</a>
+                  . SS wage base ($176,100) per{" "}
+                  <a href="https://www.ssa.gov/news/press/factsheets/colafacts2025.pdf" target="_blank" rel="noopener noreferrer" className="text-brand underline hover:text-brand-dark">SSA 2025 COLA</a>
+                  .{" "}
+                  <strong>These are estimates for planning purposes only.</strong>
                 </p>
               </div>
             </div>

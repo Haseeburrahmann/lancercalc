@@ -82,7 +82,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <meta name="theme-color"     content="#155DEE" />
+        <meta name="theme-color"     content="#0A0F1E" />
         <meta name="google-site-verification" content="SC4nTGns8dCZ_jUEMjn9LuZUn6vip3Ybp8qXLa_PNMI" />
       </head>
       <body>
