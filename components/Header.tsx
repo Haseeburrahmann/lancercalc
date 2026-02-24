@@ -16,33 +16,67 @@ export default function Header() {
   const router = useRouter();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-2xl border-b border-[#F0F1F5]">
+    <header
+      className="sticky top-0 z-50 border-b"
+      style={{
+        background: "rgba(12,10,46,0.88)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderColor: "rgba(255,255,255,0.08)",
+      }}
+    >
       <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
         <div className="flex items-center justify-between h-[68px]">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-navy rounded-[10px] flex items-center justify-center">
+            <div
+              className="w-9 h-9 rounded-[10px] flex items-center justify-center border"
+              style={{
+                background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)",
+                borderColor: "rgba(139,126,248,0.35)",
+                boxShadow: "0 0 16px rgba(107,92,231,0.40)",
+              }}
+            >
               <span className="text-white font-extrabold text-[13px] tracking-tight">LC</span>
             </div>
-            <span className="font-extrabold text-[20px] tracking-tight" style={{ color: "#0A0F1E" }}>
-              Lancer<span className="text-brand">Calc</span>
+            <span className="font-extrabold text-[20px] tracking-tight text-white">
+              Lancer<span style={{ color: "#8B7EF8" }}>Calc</span>
             </span>
           </Link>
 
           {/* Desktop nav — pill container */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#F7F8FB] rounded-full p-1 border border-[#F0F1F5]">
+          <nav
+            className="hidden md:flex items-center gap-1 p-1 rounded-full border"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              borderColor: "rgba(255,255,255,0.10)",
+            }}
+          >
             {tools.map((t) => {
               const isActive = pathname === t.href;
               return (
                 <Link
                   key={t.href}
                   href={t.href}
-                  className={`text-[13px] font-semibold px-[18px] py-2 rounded-full transition-all duration-200 ${
+                  className="text-[13px] font-semibold px-[18px] py-2 rounded-full transition-all duration-200"
+                  style={
                     isActive
-                      ? "bg-navy text-white shadow-[0_2px_8px_rgba(10,15,30,0.15)]"
-                      : "text-[#5A6178] hover:text-[#0A0F1E]"
-                  }`}
+                      ? {
+                          background: "rgba(107,92,231,0.90)",
+                          color: "#fff",
+                          boxShadow: "0 2px 10px rgba(107,92,231,0.45)",
+                        }
+                      : { color: "rgba(255,255,255,0.60)" }
+                  }
+                  onMouseEnter={(e) => {
+                    if (!isActive)
+                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.95)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive)
+                      (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.60)";
+                  }}
                 >
                   {t.label}
                 </Link>
@@ -54,13 +88,34 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-2">
             <Link
               href="/blog"
-              className="text-[13px] font-semibold text-[#5A6178] hover:text-brand px-4 py-2 rounded-full transition-colors"
+              className="text-[13px] font-semibold px-4 py-2 rounded-full transition-colors"
+              style={{ color: "rgba(255,255,255,0.55)" }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.90)")
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.55)")
+              }
             >
               Blog
             </Link>
             <button
               onClick={() => router.push("/freelance-tax-calculator")}
-              className="px-5 py-2.5 bg-navy text-white text-[13px] font-bold rounded-full hover:bg-navy-700 transition-all cursor-pointer"
+              className="px-5 py-2.5 text-white text-[13px] font-bold rounded-full transition-all cursor-pointer"
+              style={{
+                background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)",
+                boxShadow: "0 4px 14px rgba(107,92,231,0.40)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                  "0 6px 20px rgba(107,92,231,0.55)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                  "0 4px 14px rgba(107,92,231,0.40)";
+              }}
             >
               Calculate Tax →
             </button>
@@ -68,7 +123,8 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 rounded-lg text-[#5A6178] hover:bg-[#F7F8FB] transition-colors"
+            className="md:hidden p-2 rounded-lg transition-colors"
+            style={{ color: "rgba(255,255,255,0.65)" }}
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -86,7 +142,10 @@ export default function Header() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden py-3 border-t border-[#F0F1F5] space-y-1">
+          <div
+            className="md:hidden py-3 border-t space-y-1"
+            style={{ borderColor: "rgba(255,255,255,0.08)" }}
+          >
             {tools.map((t) => {
               const isActive = pathname === t.href;
               return (
@@ -94,11 +153,15 @@ export default function Header() {
                   key={t.href}
                   href={t.href}
                   onClick={() => setOpen(false)}
-                  className={`block px-4 py-3 text-[14px] font-semibold rounded-xl transition-all ${
+                  className="block px-4 py-3 text-[14px] font-semibold rounded-xl transition-all"
+                  style={
                     isActive
-                      ? "bg-navy text-white"
-                      : "text-[#5A6178] hover:text-[#0A0F1E] hover:bg-[#F7F8FB]"
-                  }`}
+                      ? {
+                          background: "rgba(107,92,231,0.85)",
+                          color: "#fff",
+                        }
+                      : { color: "rgba(255,255,255,0.60)" }
+                  }
                 >
                   {t.label}
                 </Link>
@@ -107,7 +170,8 @@ export default function Header() {
             <Link
               href="/blog"
               onClick={() => setOpen(false)}
-              className="block px-4 py-3 text-[14px] font-semibold text-[#5A6178] hover:text-brand hover:bg-brand-light rounded-xl transition-all"
+              className="block px-4 py-3 text-[14px] font-semibold rounded-xl transition-all"
+              style={{ color: "rgba(255,255,255,0.60)" }}
             >
               Blog
             </Link>
