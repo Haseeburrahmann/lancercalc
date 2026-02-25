@@ -82,9 +82,9 @@ function pct(n: number): string {
 }
 
 // ── Component ─────────────────────────────────────────────────────────────
-export default function SETaxCalculator() {
+export default function SETaxCalculator({ defaultState = "TX" }: { defaultState?: string }) {
   const [income, setIncome]   = useState<string>("");
-  const [state,  setState]    = useState<string>("TX");
+  const [state,  setState]    = useState<string>(defaultState);
   const [filing, setFiling]   = useState<"single" | "married">("single");
   const [deduct, setDeduct]   = useState<string>("");
   const [calculated, setCalc] = useState(false);

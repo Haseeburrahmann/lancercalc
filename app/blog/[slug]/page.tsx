@@ -936,6 +936,202 @@ function getContent(slug: string): JSX.Element | null {
         </>
       );
 
+    case 'freelance-tax-filing-deadlines-2025':
+      return (
+        <>
+          <h2>Why Freelancers Have More Deadlines Than W-2 Employees</h2>
+          <p>
+            When you work a regular job, your employer withholds taxes from every paycheck — you barely think about the IRS until April. As a freelancer, that changes entirely. No employer withholds anything, so the IRS requires you to prepay taxes throughout the year in four quarterly installments. Miss a deadline and you face an underpayment penalty even if you pay everything you owe by April 15.
+          </p>
+          <p>
+            The penalty currently runs at roughly 8% annualized on the underpaid amount — not catastrophic, but completely avoidable. Understanding every deadline on the freelance tax calendar is the first step to staying penalty-free.
+          </p>
+
+          <h2>The 2025 Quarterly Estimated Tax Deadlines</h2>
+          <p>
+            The IRS divides the year into four unequal quarters. Here are the exact deadlines for 2025:
+          </p>
+          <p>
+            <strong>Q1 — April 15, 2025:</strong> Covers income earned January 1 through March 31. This date also coincides with your annual 2024 tax return deadline, so April 15 is a double-deadline day. If April 15 falls on a weekend or holiday, the deadline moves to the next business day.
+          </p>
+          <p>
+            <strong>Q2 — June 16, 2025:</strong> Covers income earned April 1 through May 31. Note this is only a two-month window, not three. June 15 falls on a Sunday in 2025, pushing the deadline to Monday June 16.
+          </p>
+          <p>
+            <strong>Q3 — September 15, 2025:</strong> Covers income earned June 1 through August 31. Back to a three-month window. September 15 falls on a Monday in 2025.
+          </p>
+          <p>
+            <strong>Q4 — January 15, 2026:</strong> Covers income earned September 1 through December 31. This payment falls in the following calendar year. You can skip this payment if you file your full 2025 return and pay all taxes owed by January 31, 2026.
+          </p>
+
+          <h2>The Annual Filing Deadline — April 15, 2026</h2>
+          <p>
+            Your 2025 annual tax return (Form 1040) is due April 15, 2026. This is when you reconcile everything — all income, deductions, quarterly payments already made — and either pay the remaining balance or receive a refund. Freelancers file Schedule C (business income) and Schedule SE (self-employment tax) alongside their Form 1040.
+          </p>
+          <p>
+            If you need more time, you can file for an automatic six-month extension using Form 4868 by April 15. This extends your filing deadline to October 15, 2026. Critical caveat: an extension to file is NOT an extension to pay. You must estimate and pay any taxes owed by April 15 — the extension only gives you more time to file the paperwork.
+          </p>
+
+          <h2>State Tax Deadlines</h2>
+          <p>
+            Most states follow the federal quarterly schedule — April 15, June 15, September 15, January 15 — but not all. Some states have their own dates or thresholds for required quarterly payments. Nine states (Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, Wyoming) have no income tax, so there are no state estimated payments to make. Always check your specific state&apos;s revenue department for confirmed dates.
+          </p>
+
+          <h2>Other Key Freelance Tax Dates</h2>
+          <p>
+            <strong>January 31, 2026:</strong> Deadline for clients to send you Form 1099-NEC if they paid you $600 or more in 2025. Don&apos;t wait for 1099s to file — you owe taxes on all income whether or not you receive a form.
+          </p>
+          <p>
+            <strong>March 17, 2026:</strong> If you operate as an S-Corp or partnership, your business return (Form 1120-S or 1065) is due March 17.
+          </p>
+          <p>
+            <strong>April 15, 2026:</strong> Annual 1040 filing deadline + Q1 2026 estimated tax payment due simultaneously.
+          </p>
+
+          <h2>How to Never Miss a Deadline</h2>
+          <p>
+            The most reliable system is simple: set four calendar reminders two weeks before each deadline — that gives you time to calculate, gather funds, and pay without rushing. Use our free Quarterly Tax Scheduler to calculate exactly how much you owe each quarter based on your income and filing status. Then pay via IRS Direct Pay online — it takes under five minutes and payments post immediately.
+          </p>
+          <p>
+            Many freelancers also open a dedicated tax savings account and automatically transfer 25–30% of every payment they receive into it. When deadlines arrive, the money is already set aside. It&apos;s the simplest tax management system that actually works.
+          </p>
+
+          <h2>What Happens if You Miss a Deadline?</h2>
+          <p>
+            Missing a quarterly deadline triggers the underpayment penalty — currently about 8% annualized on the amount that should have been paid. The IRS calculates this per quarter, so even being one quarter late on one payment generates a penalty. You can reduce or eliminate penalties if you meet the safe harbor rule: pay 100% of last year&apos;s total tax bill divided equally across all four quarters. Even if your income jumps, safe harbor protects you from the underpayment penalty.
+          </p>
+          <p>
+            For very high earners (adjusted gross income above $150,000 in the prior year), the safe harbor threshold rises to 110% of last year&apos;s tax. If you missed a payment, don&apos;t skip future ones — pay what you can and file Form 2210 with your annual return to calculate the exact penalty owed.
+          </p>
+        </>
+      );
+
+    case 'best-accounting-software-freelancers-2025':
+      return (
+        <>
+          <h2>Do Freelancers Actually Need Accounting Software?</h2>
+          <p>
+            If you earn more than $30,000 a year freelancing, accounting software pays for itself many times over — not just in time saved, but in deductions you won&apos;t miss, invoices that get paid faster, and a stress-free tax season. The real question isn&apos;t whether to use it, but which one fits how you actually work.
+          </p>
+          <p>
+            Here are the top options for freelancers in 2025, compared honestly on what matters: cost, ease of use, invoicing quality, and tax prep integration.
+          </p>
+
+          <h2>Wave — Best Free Option</h2>
+          <p>
+            Wave is genuinely free for accounting and invoicing — not a limited free tier, but a fully functional product at no cost. You get unlimited invoices, income and expense tracking, receipt scanning, and basic reports. The catch: payments (credit cards, ACH) cost extra per transaction, and payroll is a paid add-on.
+          </p>
+          <p>
+            Wave is ideal for freelancers who invoice clients directly and want zero monthly cost. The interface is clean and the accounting follows proper double-entry bookkeeping, which matters when tax time comes. The mobile app is solid for receipt capture on the go. If you earn under $80,000 and have straightforward income, Wave is hard to beat at the price.
+          </p>
+
+          <h2>FreshBooks — Best for Service-Based Freelancers</h2>
+          <p>
+            FreshBooks is purpose-built for service freelancers and it shows. Invoicing is polished, proposals and contracts are built in, time tracking integrates directly into invoices, and client communication lives in one place. The automated payment reminders alone recover thousands for busy freelancers who forget to follow up.
+          </p>
+          <p>
+            Pricing starts at $19/month (Lite) for up to 5 clients, scaling to $33/month (Plus) for 50 clients and $60/month (Premium) for unlimited. A notable downside: the Lite plan doesn&apos;t include double-entry accounting reports, which you&apos;ll want for accurate tax prep. FreshBooks suits consultants, designers, writers, and other project-based freelancers who bill hourly or per project.
+          </p>
+
+          <h2>QuickBooks Self-Employed — Best for Simple Tax Prep</h2>
+          <p>
+            QuickBooks Self-Employed ($15/month, often discounted for the first year) is laser-focused on Schedule C tax prep. It automatically categorizes transactions, tracks mileage via the mobile app, separates business and personal expenses, and calculates your estimated quarterly taxes in real time. If you use TurboTax, it integrates directly — your Schedule C data transfers automatically.
+          </p>
+          <p>
+            The downside is limited invoicing (basic templates only) and weak reporting. It&apos;s not a full accounting system. Think of it as a very smart expense tracker that doubles as a tax estimator. Best for freelancers who want the simplest possible route from income to tax return, especially if they&apos;re already TurboTax users.
+          </p>
+
+          <h2>QuickBooks Simple Start — Best for Growing Freelancers</h2>
+          <p>
+            QuickBooks Simple Start ($30/month) is the step up when you outgrow Self-Employed. You get real accounting with a proper chart of accounts, professional invoicing, tax deduction tracking, and mileage. Unlike Self-Employed, Simple Start handles sales tax, connects to your bank and credit cards, and generates balance sheets and P&amp;L statements that accountants actually want to see.
+          </p>
+          <p>
+            It&apos;s worth the extra cost once your freelance income exceeds $80,000–$100,000 or you&apos;re planning to form an LLC or S-Corp. The jump in capability relative to Self-Employed is significant.
+          </p>
+
+          <h2>HoneyBook — Best All-in-One for Creative Freelancers</h2>
+          <p>
+            HoneyBook ($19/month Starter, $39/month Essentials) is less accounting software and more a complete client management platform. Proposals, contracts, invoices, scheduling, payments, and basic bookkeeping all live in one place. For photographers, designers, event planners, and other creative freelancers who manage projects end-to-end, it eliminates juggling five separate tools.
+          </p>
+          <p>
+            HoneyBook&apos;s accounting is less robust than dedicated options — you won&apos;t get deep financial reports here. Export to QuickBooks or your accountant at tax time. But for running your client workflow, it&apos;s hard to beat.
+          </p>
+
+          <h2>The Verdict: Which Should You Choose?</h2>
+          <p>
+            Just starting out and keeping costs low: use Wave for free. Project-based service freelancer billing 5–20 clients: FreshBooks Lite or Plus. Solo freelancer who wants the easiest possible tax prep and uses TurboTax: QuickBooks Self-Employed. Growing practice above $80K with an accountant: QuickBooks Simple Start. Creative freelancer managing full client workflows: HoneyBook.
+          </p>
+          <p>
+            Whatever you choose, the most important habit is connecting your bank account and categorizing transactions weekly — not monthly, and definitely not at tax time. Fifteen minutes a week of bookkeeping saves fifteen hours in April.
+          </p>
+        </>
+      );
+
+    case 'how-to-pay-estimated-taxes-online-2025':
+      return (
+        <>
+          <h2>The Two Ways to Pay Estimated Taxes Online</h2>
+          <p>
+            The IRS offers two main online payment systems: IRS Direct Pay and EFTPS (Electronic Federal Tax Payment System). Both are free and both work well. The difference is setup time and flexibility. Direct Pay requires no account — you pay in minutes with just your bank account and Social Security Number. EFTPS requires registration upfront but offers more control for regular payers.
+          </p>
+          <p>
+            For most freelancers, especially those just starting with estimated taxes, IRS Direct Pay is the right choice. It&apos;s simpler, faster, and has no learning curve.
+          </p>
+
+          <h2>Paying with IRS Direct Pay — Step by Step</h2>
+          <p>
+            <strong>Step 1:</strong> Go to irs.gov/payments/direct-pay in your browser. There is no app — only the website. It works fine on mobile.
+          </p>
+          <p>
+            <strong>Step 2:</strong> Click &quot;Make a Payment.&quot; On the next screen, select your reason for payment: choose <em>Estimated Tax</em> from the dropdown. Under &quot;Apply Payment To,&quot; select <em>1040ES</em>. For Tax Period, select <em>2025</em>.
+          </p>
+          <p>
+            <strong>Step 3:</strong> Verify your identity. Enter your name exactly as it appears on your tax return, your Social Security Number, your date of birth, and your filing status. The IRS uses this to match your payment to the right account — accuracy matters here.
+          </p>
+          <p>
+            <strong>Step 4:</strong> The system will ask you to confirm a prior-year tax return amount as a secondary verification (usually your 2023 or 2024 AGI). Have a copy of your prior return handy.
+          </p>
+          <p>
+            <strong>Step 5:</strong> Enter your bank account routing number and account number. Select checking or savings. Enter the payment amount and choose a payment date (today or a future date up to 30 days out).
+          </p>
+          <p>
+            <strong>Step 6:</strong> Review the confirmation screen and submit. You&apos;ll receive a confirmation number — screenshot or write it down. Payment typically posts within 1–2 business days.
+          </p>
+
+          <h2>Setting Up EFTPS for Recurring Payments</h2>
+          <p>
+            EFTPS (Electronic Federal Tax Payment System) at eftps.gov is the IRS&apos;s full-featured payment portal. Registration is free but takes 7–10 business days because the IRS mails your PIN by postal mail. If your first quarterly payment is coming up in the next week, use Direct Pay instead and set up EFTPS for future quarters.
+          </p>
+          <p>
+            To register: go to eftps.gov, click &quot;Enroll,&quot; and enter your SSN or EIN, bank account information, and contact details. The IRS mails your 4-digit PIN to your address on file. Once received, return to eftps.gov to set your internet password and complete activation.
+          </p>
+          <p>
+            EFTPS advantages over Direct Pay: you can schedule payments up to 365 days in advance, view your full payment history, and receive email confirmation. If you want to schedule all four quarterly payments at the start of the year, EFTPS is the right tool.
+          </p>
+
+          <h2>How Much to Pay Each Quarter</h2>
+          <p>
+            This is where most freelancers get stuck. The IRS doesn&apos;t tell you what to pay — you calculate it yourself. The general rule: pay 25% of your estimated annual tax each quarter. A simpler and safer approach is the safe harbor rule: divide your total prior year tax bill by four and pay that amount each quarter. Even if your income rises significantly, safe harbor payments protect you from underpayment penalties.
+          </p>
+          <p>
+            Use our free Quarterly Tax Scheduler to enter your estimated income and get the exact amount for each quarter in seconds. You can also use the IRS Form 1040-ES worksheet, though it&apos;s more complex than necessary for most freelancers.
+          </p>
+
+          <h2>Common Mistakes to Avoid</h2>
+          <p>
+            The most common error is selecting the wrong tax period — always confirm you&apos;re paying toward 2025, not a prior year. The second most common mistake is missing the deadline by a day or two. IRS Direct Pay payments initiated by 8pm ET on the due date count as on-time. Schedule a payment a few days early to avoid any bank processing issues.
+          </p>
+          <p>
+            Don&apos;t wait until you have exact numbers. A reasonable estimate paid on time is better than a perfect calculation paid late. You reconcile everything on your annual return — overpayments become credits or refunds, and any remaining balance is paid by April 15 with no penalty as long as your quarterly payments met the safe harbor threshold.
+          </p>
+
+          <h2>Confirming Your Payment Was Applied Correctly</h2>
+          <p>
+            After paying, you can verify the payment posted by creating or logging into your IRS Online Account at irs.gov/account. Under &quot;Tax Records,&quot; you can view all payments applied to your account and confirm they&apos;re attributed to the correct year and form. Check this annually before filing your return — it&apos;s the best way to catch errors before they become problems.
+          </p>
+        </>
+      );
+
     default:
       return null;
   }

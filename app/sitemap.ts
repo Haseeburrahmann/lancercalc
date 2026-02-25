@@ -1,9 +1,17 @@
 import { MetadataRoute } from "next";
 import { posts } from "./blog/posts";
+import { STATE_DATA } from "@/lib/stateData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://lancercalc.com";
   const now  = new Date();
+
+  const stateEntries: MetadataRoute.Sitemap = STATE_DATA.map((s) => ({
+    url: `${base}/freelance-tax-calculator/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
 
   const blogEntries: MetadataRoute.Sitemap = [
     {
@@ -63,6 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...stateEntries,
     ...blogEntries,
     {
       url: `${base}/privacy`,
