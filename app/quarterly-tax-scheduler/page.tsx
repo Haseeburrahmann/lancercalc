@@ -76,6 +76,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Quarterly Tax Scheduler 2025",
+  "url": "https://lancercalc.com/quarterly-tax-scheduler",
+  "description": "Free quarterly estimated tax scheduler for freelancers. Get your 2025 IRS payment calendar, exact due dates, amounts, and safe harbor guidance. No sign-up required.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 const faqs = [
   {
     q: "When are the 2025 quarterly estimated tax deadlines?",
@@ -100,6 +112,7 @@ export default function QuarterlyTaxSchedulerPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
       <div className="min-h-screen">
 
         {/* ── Hero ── */}

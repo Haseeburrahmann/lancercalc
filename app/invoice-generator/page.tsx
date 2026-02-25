@@ -73,6 +73,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free Invoice Generator — No Sign-Up, No Watermark",
+  "url": "https://lancercalc.com/invoice-generator",
+  "description": "Create and download a professional invoice PDF for free. No watermark, no sign-up. Add logo, custom tax (VAT/GST), discount, and PAID stamp. Free freelance invoice template.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 export default function InvoiceGeneratorPage() {
   return (
     <div className="min-h-screen">
@@ -83,6 +95,10 @@ export default function InvoiceGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
 
       {/* ── Hero ── */}
@@ -237,6 +253,31 @@ export default function InvoiceGeneratorPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Invoice Template PDF section (SEO: targets "freelance invoice template pdf") ── */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Free Invoice Template</div>
+          <h2 className="section-title">Free Freelance Invoice Template — Download as PDF Instantly</h2>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+            Looking for a freelance invoice template you can download as a PDF? You found it. Fill in your details above and click Download PDF — your browser generates a clean, print-quality PDF file on the spot. No file uploads, no servers, no watermarks. Works as an invoice template for designers, developers, consultants, writers, and any other freelancer.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { icon: "🖨️", title: "Download as PDF", body: "One click — your browser's print engine generates a print-quality PDF. No third-party software needed." },
+              { icon: "🏷️", title: "Custom tax label", body: "Type VAT, GST, HST, Sales Tax — or leave it blank. Works for US, UK, Canada, Australia, and more." },
+              { icon: "🖼️", title: "Logo upload", body: "Add your business logo in PNG, JPG, or SVG. It appears instantly on the live preview and in your PDF." },
+              { icon: "✅", title: "PAID stamp", body: "Mark any invoice as PAID with a single click — perfect for record-keeping and sending final receipts." },
+            ].map((item) => (
+              <div key={item.title} className="step-card">
+                <div className="text-2xl mb-3">{item.icon}</div>
+                <h3 className="font-bold text-[14px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

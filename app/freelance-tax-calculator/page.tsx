@@ -71,6 +71,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Tax Calculator 2025",
+  "url": "https://lancercalc.com/freelance-tax-calculator",
+  "description": "Free self-employment tax calculator for freelancers. Calculate federal tax, SE tax, state tax, and quarterly estimates instantly. No sign-up required.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 export default function FreelanceTaxCalculatorPage() {
   return (
     <div className="min-h-screen">
@@ -81,6 +93,10 @@ export default function FreelanceTaxCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
 
       {/* ── Hero ── */}
@@ -212,6 +228,30 @@ export default function FreelanceTaxCalculatorPage() {
                 <div className="text-xs font-bold uppercase tracking-[0.08em] mb-2" style={{ color: "#6B5CE7" }}>Step {s.step}</div>
                 <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
                 <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Self-Employed Tax Calculator section (SEO: targets "self employed tax calculator") ── */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Also Known As</div>
+          <h2 className="section-title">Self-Employed Tax Calculator — Same Tool, Exact Numbers</h2>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+            Whether you call it a freelance tax calculator or a self-employed tax calculator, this tool handles both. If you receive 1099 income, run a sole proprietorship, or work as an independent contractor, your tax situation is identical — and this calculator covers it all.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              { icon: "🧾", title: "Freelancers", body: "Designers, writers, developers, consultants — anyone earning 1099 income with no employer withholding." },
+              { icon: "🏢", title: "Sole Proprietors", body: "Running your own business? You file on Schedule C and pay self-employment tax the same way as a freelancer." },
+              { icon: "🔧", title: "Independent Contractors", body: "Gig workers, contractors, and consultants all face the same 15.3% SE tax rate — this calculator handles it exactly." },
+            ].map((item) => (
+              <div key={item.title} className="step-card">
+                <div className="text-2xl mb-3">{item.icon}</div>
+                <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
               </div>
             ))}
           </div>

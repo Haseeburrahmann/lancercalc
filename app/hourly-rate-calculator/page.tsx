@@ -71,6 +71,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Hourly Rate Calculator 2025",
+  "url": "https://lancercalc.com/hourly-rate-calculator",
+  "description": "Calculate the minimum hourly rate you need to charge as a freelancer. Factor in taxes, health insurance, retirement, and profit margin. Free, no sign-up.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 export default function HourlyRateCalculatorPage() {
   return (
     <div className="min-h-screen">
@@ -81,6 +93,10 @@ export default function HourlyRateCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
 
       {/* ── Hero ── */}

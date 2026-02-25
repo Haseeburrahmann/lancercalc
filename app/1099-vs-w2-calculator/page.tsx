@@ -71,6 +71,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "1099 vs W-2 Calculator 2025",
+  "url": "https://lancercalc.com/1099-vs-w2-calculator",
+  "description": "Compare 1099 contractor vs W-2 employee income side by side. See real after-tax take-home including SE tax, health insurance, and benefits. Free contract vs salary calculator.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 export default function ContractVsW2Page() {
   return (
     <div className="min-h-screen">
@@ -81,6 +93,10 @@ export default function ContractVsW2Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
       />
 
       {/* ── Hero ── */}
@@ -260,6 +276,31 @@ export default function ContractVsW2Page() {
           <p className="text-xs mt-4 leading-relaxed" style={{ color: "#8B90A0" }}>
             * Illustrative figures. State taxes not included. Use the calculator above for your exact scenario.
           </p>
+        </div>
+      </section>
+
+      {/* ── Contract vs Salary section (SEO: targets "contract vs salary calculator") ── */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
+          <div className="section-label">Also Use As</div>
+          <h2 className="section-title">Contract vs Salary Calculator — Which Offer Actually Pays More?</h2>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+            This tool doubles as a contract vs salary calculator. Enter a W-2 salary offer on one side and a contract rate on the other — and see which one puts more money in your pocket after every tax and benefit is factored in. Stop guessing. Negotiate from real numbers.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[860px]">
+            {[
+              { icon: "📋", title: "Job offer decisions", body: "Comparing a $120K salary with a $150K contract role? Enter both and see the real after-tax difference before you decide." },
+              { icon: "💼", title: "Negotiating a raise", body: "Converting from W-2 to contractor at your current company? Know the exact rate you need to maintain the same take-home pay." },
+              { icon: "🔄", title: "Going full-time freelance", body: "Thinking about leaving a salaried job? Calculate your exact break-even contract rate before you make the leap." },
+              { icon: "⚖️", title: "Evaluating benefits packages", body: "Health insurance, 401k match, and PTO all have real dollar value. This calculator makes that value visible." },
+            ].map((item) => (
+              <div key={item.title} className="step-card">
+                <div className="text-2xl mb-3">{item.icon}</div>
+                <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

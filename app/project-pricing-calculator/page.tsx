@@ -4,7 +4,7 @@ import BottomCTA from "@/components/BottomCTA";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Project Pricing Calculator — How Much to Charge as a Freelancer",
+  title: "Freelance Project Pricing Calculator 2025 — How Much to Charge",
   description:
     "Calculate the exact price to quote for your next freelance project. Enter hours, rate, expenses, and profit margin — get a clean quote, floor price, and effective hourly rate instantly. Free.",
   keywords: [
@@ -76,6 +76,18 @@ const breadcrumbSchema = {
   ],
 };
 
+const webAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Project Pricing Calculator 2025",
+  "url": "https://lancercalc.com/project-pricing-calculator",
+  "description": "Calculate exactly what to charge for your next freelance project. Enter hours, rate, expenses, and profit margin — get a clean quote instantly. Free freelance project pricing tool.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+};
+
 const faqs = [
   {
     q: "How do I price a freelance project?",
@@ -100,6 +112,7 @@ export default function ProjectPricingCalculatorPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
       <div className="min-h-screen">
 
         {/* ── Hero ── */}
