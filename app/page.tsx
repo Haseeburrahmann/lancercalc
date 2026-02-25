@@ -131,7 +131,7 @@ export default function HomePage() {
                 className="font-extrabold leading-[1.08] tracking-tight mb-5"
                 style={{ fontSize: "clamp(38px,4.5vw,56px)" }}
               >
-                <span className="text-white">Financial tools</span>
+                <span className="text-white">Free freelance tax</span>
                 <br />
                 <span
                   style={{
@@ -141,7 +141,7 @@ export default function HomePage() {
                     backgroundClip: "text",
                   }}
                 >
-                  built for freelancers.
+                  calculator & tools.
                 </span>
               </h1>
 

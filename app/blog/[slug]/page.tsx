@@ -17,6 +17,7 @@ interface BlogPost {
     label: string;
     emoji: string;
   };
+  images?: { src: string; alt: string }[];
 }
 
 export async function generateStaticParams() {
@@ -1020,7 +1021,7 @@ export default function BlogPostPage({
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4 text-white">
+            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-4 text-white">
               {post.title}
             </h1>
 
@@ -1039,9 +1040,29 @@ export default function BlogPostPage({
         <main className="py-12 md:py-16" style={{ background: "#EEF0FF" }}>
           <div className="max-w-[860px] mx-auto px-4 sm:px-6">
             <div className="bg-white rounded-2xl p-8 md:p-12" style={{ border: "1px solid #E6E9FF" }}>
-              <div className="prose prose-gray max-w-none">
+              {/* Hero image */}
+              {post.images?.[0] && (
+                <img
+                  src={post.images[0].src}
+                  alt={post.images[0].alt}
+                  className="w-full rounded-xl mb-8 object-cover"
+                  style={{ height: "320px" }}
+                  loading="lazy"
+                />
+              )}
+              <div className="blog-content">
                 {content}
               </div>
+              {/* Mid-article image */}
+              {post.images?.[1] && (
+                <img
+                  src={post.images[1].src}
+                  alt={post.images[1].alt}
+                  className="w-full rounded-xl mt-4 mb-2 object-cover"
+                  style={{ height: "260px" }}
+                  loading="lazy"
+                />
+              )}
 
               {/* Related Tool CTA */}
               <div className="related-card mt-12 flex-col sm:flex-row items-start sm:items-center">

@@ -8,6 +8,7 @@ export interface BlogPost {
   readTime: string;
   category: string;
   relatedTool: { href: string; label: string; emoji: string };
+  images?: { src: string; alt: string }[];
 }
 
 export const posts: BlogPost[] = [
@@ -30,6 +31,10 @@ export const posts: BlogPost[] = [
     readTime: "8 min read",
     category: "Tax Guide",
     relatedTool: { href: "/freelance-tax-calculator", label: "Freelance Tax Calculator", emoji: "🧾" },
+    images: [
+      { src: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Calculator and financial documents for planning quarterly estimated tax payments as a freelancer" },
+      { src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=400&auto=format&q=75&fit=crop", alt: "IRS Form 1040-ES and pen used to calculate freelance quarterly estimated tax payments" },
+    ],
   },
   {
     slug: "self-employment-tax-guide-2025",
@@ -50,6 +55,10 @@ export const posts: BlogPost[] = [
     readTime: "10 min read",
     category: "Tax Guide",
     relatedTool: { href: "/freelance-tax-calculator", label: "Freelance Tax Calculator", emoji: "🧾" },
+    images: [
+      { src: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Self-employment tax rate of 15.3% explained for freelancers and independent contractors in 2025" },
+      { src: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Freelancer reviewing self-employment tax deductions and Social Security contributions" },
+    ],
   },
   {
     slug: "1099-vs-w2-real-difference",
@@ -70,6 +79,10 @@ export const posts: BlogPost[] = [
     readTime: "9 min read",
     category: "Career",
     relatedTool: { href: "/1099-vs-w2-calculator", label: "1099 vs W-2 Calculator", emoji: "⚖️" },
+    images: [
+      { src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Comparing 1099 contractor versus W-2 employee compensation, taxes, and real take-home pay" },
+      { src: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Calculator showing the income break-even point between 1099 freelance and W-2 employment" },
+    ],
   },
   {
     slug: "freelance-hourly-rate-guide-2025",
@@ -90,6 +103,10 @@ export const posts: BlogPost[] = [
     readTime: "8 min read",
     category: "Pricing",
     relatedTool: { href: "/hourly-rate-calculator", label: "Hourly Rate Calculator", emoji: "⏱️" },
+    images: [
+      { src: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Freelancer calculating minimum hourly rate at a laptop to cover taxes, expenses, and target income" },
+      { src: "https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Time and billable hours calculation for setting the right freelance hourly rate in 2025" },
+    ],
   },
   {
     slug: "freelancer-tax-deductions-2025",
@@ -110,6 +127,10 @@ export const posts: BlogPost[] = [
     readTime: "11 min read",
     category: "Tax Guide",
     relatedTool: { href: "/freelance-tax-calculator", label: "Freelance Tax Calculator", emoji: "🧾" },
+    images: [
+      { src: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Freelancer home office setup eligible for home office tax deduction in 2025" },
+      { src: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Tax deduction receipts and business expense documents for freelancer tax write-offs 2025" },
+    ],
   },
 ];
 

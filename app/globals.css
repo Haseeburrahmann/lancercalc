@@ -165,6 +165,67 @@
     background-clip: text;
   }
 
+  /* ── Blog article content typography ── */
+  .blog-content {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #5A6178;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .blog-content h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #0A0F1E;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .blog-content h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #0A0F1E;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+  .blog-content ol, .blog-content ul {
+    margin-bottom: 1.5rem;
+  }
+  .blog-content strong {
+    font-weight: 700;
+    color: #0A0F1E;
+  }
+  .blog-content a {
+    color: #6B5CE7;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .blog-content th {
+    background: #EEF0FF;
+    color: #0A0F1E;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #E6E9FF;
+  }
+  .blog-content td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #F0F1F5;
+    color: #5A6178;
+  }
+
   /* ── Glass card (on dark bg) ── */
   .glass-card {
     @apply rounded-2xl border p-6 transition-all duration-200;
