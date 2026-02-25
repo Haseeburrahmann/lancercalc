@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Use | LancerCalc",
+  title: "Terms of Use",
   description: "LancerCalc terms of use. Free financial calculators for freelancers — no warranties, no tax advice.",
 };
 

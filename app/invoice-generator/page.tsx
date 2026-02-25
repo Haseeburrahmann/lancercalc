@@ -4,7 +4,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Free Invoice Generator 2025 — No Sign-Up, No Watermark | LancerCalc",
+  title: "Free Invoice Generator 2025 — No Sign-Up, No Watermark",
   description:
     "Create a professional invoice in seconds. Add your logo, line items, tax, and discount — then download as PDF. Completely free, no account needed, no watermarks ever.",
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://lancercalc.com/invoice-generator" },
   openGraph: {
-    title: "Free Invoice Generator — No Sign-Up, No Watermark | LancerCalc",
+    title: "Free Invoice Generator — No Sign-Up, No Watermark",
     description:
       "Make a professional invoice in seconds. Logo, line items, tax, discount, paid stamp — download as PDF free. No account. No watermark.",
     url: "https://lancercalc.com/invoice-generator",
@@ -63,12 +63,25 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lancercalc.com" },
+    { "@type": "ListItem", "position": 2, "name": "Invoice Generator", "item": "https://lancercalc.com/invoice-generator" },
+  ],
+};
+
 export default function InvoiceGeneratorPage() {
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* ── Hero ── */}

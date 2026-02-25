@@ -61,12 +61,25 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lancercalc.com" },
+    { "@type": "ListItem", "position": 2, "name": "Hourly Rate Calculator", "item": "https://lancercalc.com/hourly-rate-calculator" },
+  ],
+};
+
 export default function HourlyRateCalculatorPage() {
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* ── Hero ── */}

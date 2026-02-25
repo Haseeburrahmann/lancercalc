@@ -4,7 +4,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "1099 vs W-2 Calculator 2025 — Is Freelancing Worth It? | LancerCalc",
+  title: "1099 vs W-2 Calculator 2025 — Is Freelancing Worth It?",
   description:
     "Compare a 1099 contract vs W-2 job offer side by side. See the real after-tax difference including self-employment tax, health insurance, retirement, and state taxes. Free, no sign-up.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://lancercalc.com/1099-vs-w2-calculator" },
   openGraph: {
-    title: "1099 vs W-2 Calculator 2025 — See the Real Difference | LancerCalc",
+    title: "1099 vs W-2 Calculator 2025 — See the Real Difference",
     description:
       "Enter your W-2 salary and 1099 contract rate. Instantly see which pays more after taxes, health insurance, and retirement. Free, no sign-up.",
     url: "https://lancercalc.com/1099-vs-w2-calculator",
@@ -61,12 +61,25 @@ const faqSchema = {
   })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lancercalc.com" },
+    { "@type": "ListItem", "position": 2, "name": "1099 vs W-2 Calculator", "item": "https://lancercalc.com/1099-vs-w2-calculator" },
+  ],
+};
+
 export default function ContractVsW2Page() {
   return (
     <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* ── Hero ── */}

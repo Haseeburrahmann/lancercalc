@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | LancerCalc",
+  title: "Privacy Policy",
   description: "LancerCalc privacy policy. Your financial data never leaves your browser — we don't collect, store, or sell any of your information.",
 };
 
