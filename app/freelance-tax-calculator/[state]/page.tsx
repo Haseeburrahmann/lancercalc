@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SETaxCalculator from "@/components/calculators/SETaxCalculator";
-import EmailCapture from "@/components/EmailCapture";
+import BottomCTA from "@/components/BottomCTA";
 import { STATE_DATA, getStateBySlug, getStateParams } from "@/lib/stateData";
 
 // ── Static generation: pre-render all 50 states at build time ──────────────
@@ -257,41 +257,16 @@ export default function StateTaxCalculatorPage({ params }: { params: { state: st
           </div>
         </section>
 
-        {/* ── Email capture ── */}
-        <EmailCapture
-          variant="dark"
+        {/* ── Bottom CTA ── */}
+        <BottomCTA
           source={`tax-calculator-${s.slug}`}
-          heading={`Free ${s.name} Freelance Tax Tips`}
-          subheading="Quarterly deadlines, deduction guides, and tax-saving strategies for freelancers — straight to your inbox."
+          emailHeading={`Free ${s.name} Freelance Tax Tips`}
+          relatedTools={[
+            { href: "/quarterly-tax-scheduler", emoji: "📅", title: "Quarterly Tax Scheduler" },
+            { href: "/hourly-rate-calculator", emoji: "⏱️", title: "Hourly Rate Calculator" },
+            { href: "/invoice-generator", emoji: "📄", title: "Invoice Generator" },
+          ]}
         />
-
-        {/* ── Related tools ── */}
-        <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 80% 60% at 50% 120%, rgba(107,92,231,0.25) 0%, transparent 70%)" }} />
-          <div className="relative max-w-[1220px] mx-auto px-4 sm:px-8">
-            <div className="section-label" style={{ color: "rgba(168,158,255,0.70)" }}>More Tools</div>
-            <h2 className="text-[22px] font-extrabold mb-6 text-white">More free calculators</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { href: "/quarterly-tax-scheduler", emoji: "📅", title: "Quarterly Tax Scheduler", sub: "Never miss an IRS deadline" },
-                { href: "/hourly-rate-calculator", emoji: "⏱️", title: "Hourly Rate Calculator", sub: "Find your minimum hourly rate" },
-                { href: "/invoice-generator", emoji: "📄", title: "Invoice Generator", sub: "Create professional invoices free" },
-              ].map((t) => (
-                <Link key={t.href} href={t.href}
-                  className="flex items-center gap-4 rounded-2xl p-5 transition-all"
-                  style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <div className="w-[44px] h-[44px] rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ background: "rgba(107,92,231,0.25)", border: "1px solid rgba(107,92,231,0.30)" }}>{t.emoji}</div>
-                  <div>
-                    <div className="font-bold text-[14px] mb-0.5 text-white">{t.title}</div>
-                    <div className="text-[12px]" style={{ color: "rgba(255,255,255,0.40)" }}>{t.sub}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
 
       </div>
     </>

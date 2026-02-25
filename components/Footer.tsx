@@ -16,54 +16,6 @@ const resources = [
 export default function Footer() {
   return (
     <>
-      {/* ── Footer CTA ── */}
-      <section
-        className="relative overflow-hidden py-[80px] text-center"
-        style={{ background: "#0C0A2E" }}
-      >
-        {/* Glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 60% 80% at 50% 100%, rgba(107,92,231,0.30) 0%, transparent 65%)",
-          }}
-        />
-        <div className="relative max-w-[600px] mx-auto px-8">
-          <div
-            className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full border mb-7"
-            style={{
-              background: "rgba(107,92,231,0.15)",
-              borderColor: "rgba(107,92,231,0.25)",
-              color: "#A89EFF",
-            }}
-          >
-            100% Free
-          </div>
-          <h2 className="text-4xl font-extrabold text-white tracking-tight mb-3 leading-tight">
-            Stop guessing.<br />Start planning.
-          </h2>
-          <p
-            className="text-[15px] leading-relaxed mb-9"
-            style={{ color: "rgba(255,255,255,0.45)" }}
-          >
-            Free, accurate financial tools for freelancers and self-employed professionals. It takes 30 seconds.
-          </p>
-          <Link
-            href="/freelance-tax-calculator"
-            className="inline-flex items-center gap-2.5 text-white font-bold text-[15px] px-9 py-4 rounded-xl transition-all"
-            style={{
-              background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)",
-              boxShadow: "0 4px 24px rgba(107,92,231,0.50)",
-            }}
-          >
-            Calculate My Tax — It&apos;s Free
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
-        </div>
-      </section>
-
       {/* ── Footer ── */}
       <footer style={{ background: "#07061C", paddingTop: "52px", paddingBottom: "32px" }}>
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
