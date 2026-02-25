@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { posts, getPost } from '../posts';
 import EmailCapture from '@/components/EmailCapture';
@@ -1239,26 +1240,31 @@ export default function BlogPostPage({
             <div className="bg-white rounded-2xl p-8 md:p-12" style={{ border: "1px solid #E6E9FF" }}>
               {/* Hero image */}
               {post.images?.[0] && (
-                <img
-                  src={post.images[0].src}
-                  alt={post.images[0].alt}
-                  className="w-full rounded-xl mb-8 object-cover"
-                  style={{ height: "320px" }}
-                  loading="lazy"
-                />
+                <div className="relative w-full rounded-xl mb-8 overflow-hidden" style={{ height: "320px" }}>
+                  <Image
+                    src={post.images[0].src}
+                    alt={post.images[0].alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 860px"
+                    priority
+                  />
+                </div>
               )}
               <div className="blog-content">
                 {content}
               </div>
               {/* Mid-article image */}
               {post.images?.[1] && (
-                <img
-                  src={post.images[1].src}
-                  alt={post.images[1].alt}
-                  className="w-full rounded-xl mt-4 mb-2 object-cover"
-                  style={{ height: "260px" }}
-                  loading="lazy"
-                />
+                <div className="relative w-full rounded-xl mt-4 mb-2 overflow-hidden" style={{ height: "260px" }}>
+                  <Image
+                    src={post.images[1].src}
+                    alt={post.images[1].alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 860px"
+                  />
+                </div>
               )}
 
               {/* Related Tool CTA */}

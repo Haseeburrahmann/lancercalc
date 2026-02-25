@@ -40,11 +40,20 @@ export const metadata: Metadata = {
     title: "LancerCalc — Free Financial Calculators for Freelancers",
     description:
       "Free financial tools for the world's 1.57 billion freelancers. No sign-up. No paywalls.",
+    images: [
+      {
+        url: "https://lancercalc.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "LancerCalc — Free Financial Calculators for Freelancers",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "LancerCalc — Free Financial Calculators for Freelancers",
     description: "Free financial tools built for freelancers. No sign-up. No paywalls.",
+    images: ["https://lancercalc.com/og-image.png"],
   },
   robots: {
     index: true,
@@ -78,7 +87,8 @@ export default function RootLayout({
         <link rel="icon"             href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="icon"             href="/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        <link rel="manifest"        href="/site.webmanifest" />
+        <link rel="manifest"         href="/site.webmanifest" />
+        <link rel="sitemap"          type="application/xml" href="/sitemap.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -95,7 +105,10 @@ export default function RootLayout({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+          gtag('config', '${GA_ID}', {
+            page_location: window.location.href,
+            page_title: document.title,
+          });
         `}</Script>
 
         <Header />

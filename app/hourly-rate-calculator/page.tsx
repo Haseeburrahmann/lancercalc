@@ -150,7 +150,7 @@ export default function HourlyRateCalculatorPage() {
                     style={{ background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)", boxShadow: "0 8px 24px rgba(107,92,231,0.50)" }}>
                     <p className="text-[10px] font-bold uppercase tracking-widest mb-1"
                       style={{ color: "rgba(255,255,255,0.65)" }}>Your minimum rate</p>
-                    <p className="text-[38px] font-extrabold text-white leading-none">$89<span className="text-[18px] font-semibold ml-1" style={{ color: "rgba(255,255,255,0.70)" }}>/hr</span></p>
+                    <p className="text-[38px] font-extrabold text-white leading-none">$95<span className="text-[18px] font-semibold ml-1" style={{ color: "rgba(255,255,255,0.70)" }}>/hr</span></p>
                     <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.55)" }}>to hit your goals after all costs</p>
                   </div>
                 </div>

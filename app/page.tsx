@@ -69,11 +69,6 @@ const websiteSchema = {
   "name": "LancerCalc",
   "url": "https://lancercalc.com",
   "description": "Free financial calculators for freelancers — self-employment tax, hourly rate, 1099 vs W-2, invoice generator.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://lancercalc.com/?q={search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export default function HomePage() {
@@ -559,7 +554,7 @@ function ToolCard({ tool }: { tool: typeof tools[0] }) {
     <div
       className="group relative flex flex-col h-full rounded-2xl p-7 border transition-all duration-200"
       style={{
-        background: tool.ready ? "#fff" : "#fff",
+        background: "#fff",
         borderColor: "#E8EAF0",
         boxShadow: "0 2px 12px rgba(10,15,30,0.05)",
         opacity: tool.ready ? 1 : 0.5,

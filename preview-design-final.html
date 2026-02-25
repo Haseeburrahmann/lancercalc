@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LancerCalc — Freelance Tax Calculator 2025–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --brand: #155DEE;
+    --brand-dark: #1048CC;
+    --brand-light: #EBF2FF;
+    --navy: #0A0F1E;
+    --navy-800: #111836;
+    --navy-700: #1A2249;
+    --surface: #F7F8FB;
+    --surface-alt: #F0F2F7;
+    --white: #FFFFFF;
+    --border: #E8EAF0;
+    --border-light: #F0F1F5;
+    --text-primary: #0A0F1E;
+    --text-secondary: #5A6178;
+    --text-muted: #8B90A0;
+    --red: #E5484D;
+    --red-light: #FFF1F1;
+    --emerald: #18A058;
+    --emerald-light: #EDFCF2;
+    --amber: #F0A000;
+    --amber-light: #FFF9EB;
+    --violet: #7C5CFC;
+    --violet-light: #F3F0FF;
+    --cyan: #0CA5E9;
+    --cyan-light: #EFF9FF;
+    --radius: 20px;
+    --radius-sm: 14px;
+    --radius-xs: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════ */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-inner {
+    max-width: 1220px; margin: 0 auto; padding: 0 32px;
+    height: 68px; display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 36px; height: 36px; background: var(--navy);
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; color: white;
+    font-size: 13px; font-weight: 800; letter-spacing: -0.02em;
+  }
+  .logo-text { font-size: 20px; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; }
+  .logo-text span { color: var(--brand); }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 4px;
+    background: var(--surface); border-radius: 100px;
+    padding: 4px; border: 1px solid var(--border-light);
+  }
+  .nav-link {
+    text-decoration: none; font-size: 13px; font-weight: 600;
+    padding: 8px 18px; border-radius: 100px; color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+  .nav-link:hover { color: var(--text-primary); }
+  .nav-link.active {
+    background: var(--navy); color: white;
+    box-shadow: 0 2px 8px rgba(10,15,30,0.15);
+  }
+  .nav-right { display: flex; align-items: center; gap: 8px; }
+  .nav-secondary {
+    text-decoration: none; font-size: 13px; font-weight: 600;
+    color: var(--text-secondary); padding: 8px 16px; border-radius: 100px;
+    transition: color 0.2s;
+  }
+  .nav-secondary:hover { color: var(--brand); }
+  .nav-cta-btn {
+    padding: 9px 20px; background: var(--navy); color: white;
+    border: none; border-radius: 100px; font-family: inherit;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-cta-btn:hover { background: var(--navy-700); }
+
+  /* ════════════════════════════════════════════
+     HERO — Fixed 2-column symmetry
+     ════════════════════════════════════════════ */
+  .hero {
+    background: var(--white);
+    padding: 72px 0 80px;
+  }
+  .hero-inner {
+    max-width: 1220px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; color: var(--brand);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .hero-label-dot {
+    width: 8px; height: 8px; background: var(--brand);
+    border-radius: 50%; opacity: 0.4;
+  }
+  .hero-title {
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.035em; color: var(--navy);
+  }
+  .hero-title-accent {
+    color: var(--brand); display: block;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 800; line-height: 1.08;
+    letter-spacing: -0.035em; margin-bottom: 22px;
+  }
+  .hero-desc {
+    font-size: 16px; line-height: 1.75; color: var(--text-secondary);
+    max-width: 480px; margin-bottom: 30px;
+  }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .pill {
+    font-size: 12px; font-weight: 600; padding: 7px 16px;
+    border-radius: 100px; border: 1px solid var(--border);
+    color: var(--text-secondary); background: var(--white);
+  }
+  .pill.filled {
+    background: var(--brand-light); border-color: transparent; color: var(--brand);
+  }
+  .hero-stats {
+    display: flex; gap: 32px; padding-top: 28px;
+    border-top: 1px solid var(--border-light);
+  }
+  .hero-stat-val { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+  .hero-stat-lbl { font-size: 11px; font-weight: 600; color: var(--text-muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* Hero right: preview card (same height as left) */
+  .hero-preview {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    position: relative; height: 100%;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .hero-preview::before {
+    content: ''; position: absolute; inset: -1px;
+    border-radius: var(--radius); padding: 1px;
+    background: linear-gradient(135deg, var(--border) 0%, var(--brand-light) 50%, var(--border) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    pointer-events: none;
+  }
+  .preview-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .preview-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .preview-dots { display: flex; gap: 3px; }
+  .preview-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
+
+  .preview-highlight {
+    background: var(--navy); border-radius: var(--radius-sm);
+    padding: 22px; color: white;
+  }
+  .ph-lbl { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .ph-val { font-size: 46px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .ph-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+
+  .preview-metrics {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .preview-metric {
+    padding: 14px 16px; border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm); background: var(--surface);
+  }
+  .pm-label { font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+  .pm-row { display: flex; align-items: baseline; justify-content: space-between; }
+  .pm-value { font-size: 18px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; }
+  .pm-trend { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .pm-trend.up { background: var(--emerald-light); color: var(--emerald); }
+  .pm-trend.amber { background: var(--amber-light); color: var(--amber); }
+
+  .preview-tip {
+    background: var(--brand-light); border-radius: var(--radius-xs);
+    padding: 14px 16px; font-size: 12px; font-weight: 600;
+    color: var(--brand); line-height: 1.5; flex: 1;
+  }
+
+  /* ════════════════════════════════════════════
+     TRUST STRIP
+     ════════════════════════════════════════════ */
+  .trust-strip {
+    background: var(--navy);
+    padding: 36px 0;
+  }
+  .trust-inner {
+    max-width: 1220px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .trust-item:first-child { padding-left: 0; }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon {
+    width: 42px; height: 42px; border-radius: var(--radius-xs);
+    background: rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .trust-label { font-size: 13px; font-weight: 700; color: white; margin-bottom: 2px; }
+  .trust-sub { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; }
+
+  /* ════════════════════════════════════════════
+     CALCULATOR — Balanced equal-weight columns
+     ════════════════════════════════════════════ */
+  .calc-section { background: var(--surface); padding: 80px 0; }
+  .calc-inner { max-width: 1220px; margin: 0 auto; padding: 0 32px; }
+  .section-label {
+    font-size: 12px; font-weight: 700; color: var(--brand);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 32px; font-weight: 800; color: var(--navy);
+    letter-spacing: -0.03em; margin-bottom: 40px;
+  }
+
+  .calc-grid {
+    display: grid;
+    /* Equal 50/50 split — fixes the old asymmetry */
+    grid-template-columns: 1fr 1fr;
+    gap: 24px; align-items: start;
+  }
+
+  /* ── Input card ── */
+  .input-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 36px;
+    position: sticky; top: 88px;
+  }
+  .card-header {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 28px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .card-header-icon {
+    width: 44px; height: 44px; background: var(--brand-light);
+    border-radius: var(--radius-xs); display: flex;
+    align-items: center; justify-content: center; font-size: 20px;
+  }
+  .card-header-title { font-size: 17px; font-weight: 700; color: var(--text-primary); }
+  .card-header-sub { font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 2px; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 20px; }
+  .field-label {
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 8px;
+  }
+  .field-label .opt { color: var(--text-muted); font-weight: 400; font-size: 12px; }
+  .input-wrap { position: relative; }
+  .input-wrap .pfx {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    font-size: 14px; font-weight: 700; color: var(--text-muted); pointer-events: none;
+  }
+  .form-input {
+    width: 100%; padding: 13px 16px;
+    background: var(--surface); border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm); font-family: inherit;
+    font-size: 14px; font-weight: 600; color: var(--text-primary);
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-input:focus {
+    border-color: var(--brand); box-shadow: 0 0 0 3px rgba(21,93,238,0.08);
+    background: var(--white);
+  }
+  .form-input.has-pfx { padding-left: 32px; }
+  select.form-input {
+    cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%238B90A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center;
+    padding-right: 42px;
+  }
+  .field-hint { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+  .btn-main {
+    width: 100%; padding: 15px 24px; border: none;
+    border-radius: var(--radius-sm); background: var(--navy); color: white;
+    font-family: inherit; font-size: 15px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px;
+    transition: all 0.2s; margin-top: 8px;
+  }
+  .btn-main:hover {
+    background: var(--navy-700); transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(10,15,30,0.2);
+  }
+  .input-disclaimer {
+    font-size: 11px; color: var(--text-muted); line-height: 1.6;
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--border-light); text-align: center;
+  }
+
+  /* ── Results panel ── */
+  .results { display: flex; flex-direction: column; gap: 16px; }
+
+  .result-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-800) 60%, var(--navy-700) 100%);
+    border-radius: var(--radius); padding: 36px; color: white;
+    position: relative; overflow: hidden;
+  }
+  .result-hero::after {
+    content: ''; position: absolute; top: -40%; right: -10%;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: var(--brand); opacity: 0.08; filter: blur(60px);
+  }
+  .rh-label {
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;
+  }
+  .rh-row { display: flex; align-items: flex-end; justify-content: space-between; }
+  .rh-value {
+    font-size: 58px; font-weight: 800; letter-spacing: -0.04em;
+    line-height: 1; position: relative; z-index: 1;
+  }
+  .rh-badge {
+    background: rgba(255,255,255,0.1); border-radius: 8px;
+    padding: 8px 14px; text-align: right; position: relative; z-index: 1;
+  }
+  .rh-badge-val { font-size: 18px; font-weight: 800; color: white; }
+  .rh-badge-lbl { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .rh-sub {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    position: relative; z-index: 1; margin-top: 10px;
+  }
+
+  .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .metric-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px; transition: border-color 0.2s;
+  }
+  .metric-card:hover { border-color: var(--brand); }
+  .mc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .mc-badge {
+    width: 40px; height: 40px; border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .mc-badge.amber { background: var(--amber-light); }
+  .mc-badge.emerald { background: var(--emerald-light); }
+  .mc-badge.violet { background: var(--violet-light); }
+  .mc-badge.cyan { background: var(--cyan-light); }
+  .mc-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .mc-value { font-size: 28px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 4px; }
+  .mc-value.green { color: var(--emerald); }
+  .mc-sub { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  /* Breakdown card */
+  .breakdown {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+  }
+  .bd-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .bd-title { font-size: 17px; font-weight: 700; color: var(--text-primary); }
+  .bd-ctx {
+    font-size: 12px; font-weight: 600; color: var(--text-muted);
+    background: var(--surface); padding: 6px 14px; border-radius: 100px;
+  }
+
+  /* Stacked bar */
+  .bar-container { margin-bottom: 24px; }
+  .bar-labels { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+  .bar-track {
+    height: 10px; border-radius: 6px; display: flex;
+    overflow: hidden; background: var(--surface); gap: 3px;
+  }
+  .bar-seg { height: 100%; border-radius: 6px; transition: width 0.8s ease; }
+
+  .bar-legend { display: flex; gap: 20px; margin-top: 12px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+  .bd-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 0; border-bottom: 1px solid var(--border-light);
+  }
+  .bd-row:last-of-type { border-bottom: none; }
+  .bd-row-left {}
+  .bd-row-label { font-size: 14px; font-weight: 500; color: var(--text-secondary); }
+  .bd-row-detail { font-size: 12px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+  .bd-val { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+  .bd-val.red { color: var(--red); }
+  .bd-val.green { color: var(--emerald); }
+
+  .bd-divider { border: none; border-top: 2px solid var(--text-primary); margin: 4px 0 0; }
+  .bd-summary {
+    padding-top: 18px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .bd-sum-row { display: flex; justify-content: space-between; align-items: center; }
+  .bd-sum-label { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+  .bd-sum-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .bd-sum-val { font-size: 26px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em; }
+  .bd-sum-val.green { color: var(--emerald); }
+
+  .tip-card {
+    background: var(--brand-light); border: 1px solid #D4E2FC;
+    border-radius: var(--radius); padding: 22px 26px;
+    display: flex; gap: 16px;
+  }
+  .tip-icon-wrap {
+    width: 42px; height: 42px; background: var(--brand);
+    border-radius: var(--radius-xs); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .tip-title { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .tip-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+  .tip-text strong { color: var(--navy); font-weight: 700; }
+
+  /* ════════════════════════════════════════════
+     HOW IT WORKS
+     ════════════════════════════════════════════ */
+  .how-section { background: var(--white); padding: 80px 0; }
+  .how-inner { max-width: 1220px; margin: 0 auto; padding: 0 32px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step-card {
+    background: var(--surface); border: 1px solid var(--border-light);
+    border-radius: var(--radius); padding: 34px;
+    transition: all 0.25s;
+  }
+  .step-card:hover {
+    background: var(--white); border-color: var(--brand);
+    box-shadow: 0 8px 32px rgba(21,93,238,0.06); transform: translateY(-3px);
+  }
+  .step-badge {
+    width: 46px; height: 46px; background: var(--navy);
+    border-radius: var(--radius-xs); display: flex;
+    align-items: center; justify-content: center;
+    color: white; font-size: 15px; font-weight: 800;
+    margin-bottom: 22px;
+  }
+  .step-card h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+  .step-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+  /* ════════════════════════════════════════════
+     FAQ — Two-column layout (fixes horizontal tiles)
+     ════════════════════════════════════════════ */
+  .faq-section { background: var(--surface); padding: 80px 0; }
+  .faq-inner { max-width: 1220px; margin: 0 auto; padding: 0 32px; }
+  .faq-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: start;
+  }
+  /* Left: sticky header + CTA */
+  .faq-left { position: sticky; top: 88px; }
+  .faq-left-desc {
+    font-size: 15px; line-height: 1.75; color: var(--text-secondary);
+    margin-top: 16px; margin-bottom: 32px; max-width: 380px;
+  }
+  .faq-cta-row { display: flex; flex-direction: column; gap: 10px; }
+  .btn-outline-dark {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 24px; background: transparent;
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 14px; font-weight: 700;
+    color: var(--text-primary); cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-outline-dark:hover { border-color: var(--brand); color: var(--brand); }
+  .btn-filled-dark {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 24px; background: var(--navy);
+    border: none; border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 14px; font-weight: 700;
+    color: white; cursor: pointer; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-filled-dark:hover { background: var(--navy-700); transform: translateY(-1px); }
+
+  /* Right: accordion */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s;
+  }
+  .faq-item.open { border-color: var(--brand); }
+  .faq-question {
+    width: 100%; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px;
+    padding: 20px 24px; background: none; border: none;
+    text-align: left; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 700;
+    color: var(--text-primary); transition: color 0.15s;
+  }
+  .faq-question:hover { color: var(--brand); }
+  .faq-item.open .faq-question { color: var(--brand); }
+  .faq-icon {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--surface); display: flex;
+    align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 400; flex-shrink: 0;
+    transition: background 0.2s, transform 0.3s;
+    color: var(--text-secondary); line-height: 1;
+  }
+  .faq-item.open .faq-icon {
+    background: var(--brand-light); color: var(--brand);
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    display: none; padding: 0 24px 20px;
+    font-size: 13px; color: var(--text-secondary); line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ════════════════════════════════════════════
+     RELATED TOOLS — 3x2 grid (was only 3 items)
+     ════════════════════════════════════════════ */
+  .related-section { background: var(--white); padding: 80px 0; }
+  .related-inner { max-width: 1220px; margin: 0 auto; padding: 0 32px; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .related-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--surface); border: 1.5px solid var(--border-light);
+    border-radius: var(--radius); padding: 24px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .related-card:hover {
+    background: var(--white); border-color: var(--brand);
+    box-shadow: 0 4px 20px rgba(21,93,238,0.06); transform: translateY(-3px);
+  }
+  .related-icon {
+    width: 52px; height: 52px; background: var(--white);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0; transition: all 0.2s;
+  }
+  .related-card:hover .related-icon { background: var(--brand-light); border-color: var(--brand); }
+  .related-name { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+  .related-desc { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+  .related-arrow { margin-left: auto; color: var(--text-muted); font-size: 18px; flex-shrink: 0; transition: color 0.2s; }
+  .related-card:hover .related-arrow { color: var(--brand); }
+
+  /* ════════════════════════════════════════════
+     FOOTER CTA
+     ════════════════════════════════════════════ */
+  .footer-cta { background: var(--navy); padding: 72px 0; text-align: center; }
+  .footer-cta-inner { max-width: 600px; margin: 0 auto; padding: 0 32px; }
+  .footer-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    padding: 7px 16px; border-radius: 100px; margin-bottom: 24px;
+  }
+  .footer-cta h2 {
+    font-size: 36px; font-weight: 800; color: white;
+    letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.15;
+  }
+  .footer-cta p { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 36px; }
+  .footer-cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 36px; background: var(--white); color: var(--navy);
+    font-family: inherit; font-size: 15px; font-weight: 700;
+    border: none; border-radius: var(--radius-sm);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .footer-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,255,255,0.12); }
+
+  /* ════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════ */
+  footer { background: #070C1A; padding: 52px 0 32px; }
+  .footer-inner { max-width: 1220px; margin: 0 auto; padding: 0 32px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 48px;
+  }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 14px; max-width: 260px; line-height: 1.7; }
+  .footer-col h4 {
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block; font-size: 13px; color: rgba(255,255,255,0.4);
+    margin-bottom: 10px; text-decoration: none; transition: color 0.15s; font-weight: 500;
+  }
+  .footer-col a:hover { color: rgba(255,255,255,0.8); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  .footer-badge {
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 11px; font-weight: 700; color: #34d399;
+  }
+
+  /* ════════════════════════════════════════════
+     ANIMATIONS
+     ════════════════════════════════════════════ */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { animation: slideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.12s; }
+  .d3 { animation-delay: 0.19s; } .d4 { animation-delay: 0.26s; }
+  .d5 { animation-delay: 0.33s; } .d6 { animation-delay: 0.40s; }
+
+  /* ════════════════════════════════════════════
+     RESPONSIVE
+     ════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .input-card { position: static; }
+    .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+    .faq-left { position: static; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .trust-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trust-item { border-right: none; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero-title, .hero-title-accent { font-size: 34px; }
+    .metric-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .trust-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">LC</div>
+      <div class="logo-text">Lancer<span>Calc</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="nav-link active">Tax Calculator</a>
+      <a href="#" class="nav-link">Hourly Rate</a>
+      <a href="#" class="nav-link">1099 vs W-2</a>
+      <a href="#" class="nav-link">Invoice</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-secondary">Blog</a>
+      <button class="nav-cta-btn" onclick="document.getElementById('calc').scrollIntoView({behavior:'smooth'})">Calculate Tax →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     HERO — 50/50 two-column layout
+     ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Left: copy -->
+    <div class="reveal d1">
+      <div class="hero-label">
+        <span class="hero-label-dot"></span>
+        Freelance Tax Calculator
+      </div>
+      <h1 class="hero-title">Calculate Your</h1>
+      <div class="hero-title" style="margin-bottom:0">Freelance Taxes</div>
+      <div class="hero-title-accent">2025–2026</div>
+      <p class="hero-desc">
+        Enter your income, state, and filing status — instantly see your complete tax breakdown, quarterly payment amounts, and exactly how much to set aside.
+      </p>
+      <div class="hero-pills">
+        <span class="pill filled">Free Forever</span>
+        <span class="pill">No sign-up needed</span>
+        <span class="pill">All 50 states</span>
+        <span class="pill">2025 IRS brackets</span>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-val">50K+</div>
+          <div class="hero-stat-lbl">Freelancers helped</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">< 2 min</div>
+          <div class="hero-stat-lbl">Time to results</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">100%</div>
+          <div class="hero-stat-lbl">Private & free</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: preview card — fills same height -->
+    <div class="hero-preview reveal d3">
+      <div class="preview-header">
+        <span class="preview-title">Live Tax Overview</span>
+        <div class="preview-dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="preview-highlight">
+        <div class="ph-lbl">Set aside from every payment</div>
+        <div class="ph-row" style="display:flex;align-items:flex-end;justify-content:space-between;">
+          <div class="ph-val">34.2%</div>
+          <div style="text-align:right">
+            <div style="font-size:22px;font-weight:800;color:white;letter-spacing:-0.02em">$32,490</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px">total tax owed</div>
+          </div>
+        </div>
+        <div class="ph-sub">Based on $95K income · California · Single filer</div>
+      </div>
+
+      <div class="preview-metrics">
+        <div class="preview-metric">
+          <div class="pm-label">Quarterly Est.</div>
+          <div class="pm-row">
+            <span class="pm-value">$8,123</span>
+            <span class="pm-trend amber">Q1–Q4</span>
+          </div>
+        </div>
+        <div class="preview-metric">
+          <div class="pm-label">Take-Home</div>
+          <div class="pm-row">
+            <span class="pm-value">$62,510</span>
+            <span class="pm-trend up">65.8%</span>
+          </div>
+        </div>
+        <div class="preview-metric">
+          <div class="pm-label">Federal</div>
+          <div class="pm-row">
+            <span class="pm-value">$10,216</span>
+          </div>
+        </div>
+        <div class="preview-metric">
+          <div class="pm-label">Monthly Aside</div>
+          <div class="pm-row">
+            <span class="pm-value">$2,708</span>
+            <span class="pm-trend up">/mo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-tip">
+        💡 <strong>Pro tip:</strong> Open a dedicated tax savings account and auto-transfer 34% every time a client pays.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TRUST STRIP
+     ═══════════════════════════════════════ -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div>
+        <div class="trust-label">100% Private</div>
+        <div class="trust-sub">No data stored or shared</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📅</div>
+      <div>
+        <div class="trust-label">2025–26 Rates</div>
+        <div class="trust-sub">Latest IRS & HMRC brackets</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚡</div>
+      <div>
+        <div class="trust-label">Instant Results</div>
+        <div class="trust-sub">No sign-up, no waiting</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🌍</div>
+      <div>
+        <div class="trust-label">All 50 States</div>
+        <div class="trust-sub">Plus UK & Canadian support</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CALCULATOR — Equal 50/50 columns
+     ═══════════════════════════════════════ -->
+<section class="calc-section" id="calc">
+  <div class="calc-inner">
+    <div class="section-label">YOUR TAX ESTIMATE</div>
+    <div class="section-title">Enter your details, see the breakdown</div>
+
+    <div class="calc-grid">
+
+      <!-- Left: input form -->
+      <div class="input-card">
+        <div class="card-header">
+          <div class="card-header-icon">🧾</div>
+          <div>
+            <div class="card-header-title">Your Tax Details</div>
+            <div class="card-header-sub">All fields update results in real-time</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Annual freelance income</label>
+          <div class="input-wrap">
+            <span class="pfx">$</span>
+            <input type="number" id="f-income" class="form-input has-pfx" value="95000" oninput="calculate()">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label">Filing status</label>
+            <select id="f-status" class="form-input" onchange="calculate()">
+              <option value="single">Single</option>
+              <option value="married">Married Filing Jointly</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">State</label>
+            <select id="f-state" class="form-input" onchange="calculate()">
+              <option value="0">No state tax</option>
+              <option value="5.75">Georgia (5.75%)</option>
+              <option value="9.3" selected>California (9.3%)</option>
+              <option value="9.9">Oregon (9.9%)</option>
+              <option value="5.0">Colorado (5.0%)</option>
+              <option value="5.5">Arizona (5.5%)</option>
+              <option value="6.3">Illinois (6.3%)</option>
+              <option value="6.85">Nevada — none (0%)</option>
+              <option value="6.0">Michigan (6.0%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Business deductions <span class="opt">(optional)</span></label>
+          <div class="input-wrap">
+            <span class="pfx">$</span>
+            <input type="number" id="f-deductions" class="form-input has-pfx" value="0" placeholder="0" oninput="calculate()">
+          </div>
+          <div class="field-hint">Home office, equipment, subscriptions — reduces taxable income.</div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Additional withholding / paid so far <span class="opt">(optional)</span></label>
+          <div class="input-wrap">
+            <span class="pfx">$</span>
+            <input type="number" id="f-paid" class="form-input has-pfx" value="0" placeholder="0" oninput="calculate()">
+          </div>
+        </div>
+
+        <button class="btn-main" onclick="calculate()">
+          Recalculate
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </button>
+
+        <div class="input-disclaimer">
+          Based on 2025 federal brackets, SE tax, and state rates. These are estimates — consult a tax professional for personalised advice.
+        </div>
+      </div>
+
+      <!-- Right: results panel -->
+      <div class="results" id="results">
+
+        <div class="result-hero">
+          <div class="rh-label">Set aside from every payment</div>
+          <div class="rh-row">
+            <div class="rh-value" id="r-pct">—</div>
+            <div class="rh-badge">
+              <div class="rh-badge-val" id="r-monthly">—</div>
+              <div class="rh-badge-lbl">per month</div>
+            </div>
+          </div>
+          <div class="rh-sub" id="r-sub">Fill in your details to see your personalised breakdown.</div>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="mc-top"><span class="mc-label">Quarterly Est.</span><div class="mc-badge amber">📅</div></div>
+            <div class="mc-value" id="r-quarterly">—</div>
+            <div class="mc-sub">Apr · Jun · Sep · Jan</div>
+          </div>
+          <div class="metric-card">
+            <div class="mc-top"><span class="mc-label">Take-Home Pay</span><div class="mc-badge emerald">💰</div></div>
+            <div class="mc-value green" id="r-takehome">—</div>
+            <div class="mc-sub">After all taxes</div>
+          </div>
+          <div class="metric-card">
+            <div class="mc-top"><span class="mc-label">Effective Rate</span><div class="mc-badge violet">📊</div></div>
+            <div class="mc-value" id="r-effrate">—</div>
+            <div class="mc-sub">Fed + state + SE combined</div>
+          </div>
+          <div class="metric-card">
+            <div class="mc-top"><span class="mc-label">Total Tax Owed</span><div class="mc-badge cyan">🏦</div></div>
+            <div class="mc-value" id="r-totaltax">—</div>
+            <div class="mc-sub" id="r-still-owed">After any payments made</div>
+          </div>
+        </div>
+
+        <div class="breakdown">
+          <div class="bd-head">
+            <span class="bd-title">Full Tax Breakdown</span>
+            <span class="bd-ctx" id="r-ctx">—</span>
+          </div>
+
+          <div class="bar-container">
+            <div class="bar-labels">
+              <span>Self-Employment Tax</span><span>Federal Income Tax</span><span>State Tax</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-seg" id="bar-se" style="background:#E5484D; width:0%"></div>
+              <div class="bar-seg" id="bar-fed" style="background:#F0A000; width:0%"></div>
+              <div class="bar-seg" id="bar-state" style="background:#155DEE; width:0%"></div>
+            </div>
+            <div class="bar-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#E5484D"></div>SE Tax</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#F0A000"></div>Federal</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#155DEE"></div>State</div>
+            </div>
+          </div>
+
+          <div class="bd-row">
+            <div class="bd-row-left"><div class="bd-row-label">Gross freelance income</div></div>
+            <span class="bd-val" id="r-gross">—</span>
+          </div>
+          <div class="bd-row">
+            <div class="bd-row-left">
+              <div class="bd-row-label">Self-employment tax</div>
+              <div class="bd-row-detail">SS (12.4%) + Medicare (2.9%) on 92.35% of net</div>
+            </div>
+            <span class="bd-val red" id="r-setax">—</span>
+          </div>
+          <div class="bd-row">
+            <div class="bd-row-left">
+              <div class="bd-row-label">SE tax deduction (50%)</div>
+              <div class="bd-row-detail">Lowers your adjusted gross income</div>
+            </div>
+            <span class="bd-val green" id="r-sededuct">—</span>
+          </div>
+          <div class="bd-row">
+            <div class="bd-row-left">
+              <div class="bd-row-label">Business deductions</div>
+            </div>
+            <span class="bd-val green" id="r-busdeduct">—</span>
+          </div>
+          <div class="bd-row">
+            <div class="bd-row-left">
+              <div class="bd-row-label">Federal income tax</div>
+              <div class="bd-row-detail" id="r-fed-detail">On taxable income after deductions</div>
+            </div>
+            <span class="bd-val red" id="r-fedtax">—</span>
+          </div>
+          <div class="bd-row">
+            <div class="bd-row-left">
+              <div class="bd-row-label">State income tax</div>
+              <div class="bd-row-detail" id="r-state-detail">Based on selected state</div>
+            </div>
+            <span class="bd-val red" id="r-statetax">—</span>
+          </div>
+
+          <hr class="bd-divider">
+
+          <div class="bd-summary">
+            <div class="bd-sum-row">
+              <div>
+                <div class="bd-sum-label">Total estimated tax</div>
+                <div class="bd-sum-sub" id="r-effrate-sub">Effective rate —</div>
+              </div>
+              <span class="bd-sum-val" id="r-totaltax2">—</span>
+            </div>
+            <div class="bd-sum-row">
+              <div class="bd-sum-label">Take-home pay</div>
+              <span class="bd-sum-val green" id="r-takehome2">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-card" id="tip-card">
+          <div class="tip-icon-wrap">💡</div>
+          <div>
+            <div class="tip-title">Pro tip</div>
+            <div class="tip-text" id="tip-text">Enter your income above to get a personalised saving tip.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════ -->
+<section class="how-section" id="how-it-works">
+  <div class="how-inner">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">How we calculate your freelance tax</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-badge">01</div>
+        <h3>Self-employment tax</h3>
+        <p>Social Security (12.4%) applies up to the $176,100 wage base. Medicare (2.9%) has no cap. An extra 0.9% Medicare applies above $200K. Net income is multiplied by 92.35% first — then rates apply. You can deduct 50% of SE tax from your AGI.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">02</div>
+        <h3>Federal income tax</h3>
+        <p>Applied to your adjusted gross income using the latest 2025 IRS brackets after the standard deduction ($15,000 single / $30,000 married), your SE tax deduction, and any business deductions you enter.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">03</div>
+        <h3>State income tax</h3>
+        <p>Applied based on your selected state's flat or effective rate. Nine states charge zero income tax. California and Oregon are among the highest. Select your state above for the accurate calculation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ — Two-column accordion layout
+     ═══════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <div class="faq-grid">
+
+      <!-- Left: sticky heading + CTA -->
+      <div class="faq-left">
+        <div class="section-label">FAQ</div>
+        <div class="section-title" style="margin-bottom:0">Frequently asked questions</div>
+        <p class="faq-left-desc">
+          Everything freelancers need to know about self-employment tax in the US and UK. Can't find what you need? Reach out.
+        </p>
+        <div class="faq-cta-row">
+          <a href="#calc" class="btn-filled-dark">
+            Use the Calculator
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="#" class="btn-outline-dark">Contact Support</a>
+        </div>
+      </div>
+
+      <!-- Right: accordion list -->
+      <div class="faq-list">
+
+        <div class="faq-item open">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How is self-employment tax calculated?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            SE tax is calculated on 92.35% of your net self-employment income. Social Security (12.4%) applies up to the $176,100 wage base in 2025. Medicare (2.9%) has no income cap. If you earn above $200,000 (single) you pay an additional 0.9% Medicare. The good news: you can deduct 50% of your SE tax from your gross income, reducing your federal income tax.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How much should I set aside as a freelancer?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            A general rule is 25–35% of gross income, but your exact amount depends on state, filing status, and deductions. This calculator gives you a precise percentage. We recommend rounding up by 2–3% as a buffer. Open a dedicated savings account and auto-transfer that percentage every time a client pays.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            When are 2025 quarterly tax payments due?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            IRS quarterly estimated tax deadlines in 2025–2026 are: <strong>April 15, 2025</strong> (Q1), <strong>June 16, 2025</strong> (Q2), <strong>September 15, 2025</strong> (Q3), and <strong>January 15, 2026</strong> (Q4). If you expect to owe $1,000 or more for the year, you're required to make these payments to avoid underpayment penalties.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What business expenses can I deduct?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Common deductible expenses include: home office (exclusively used for work), equipment and software, professional subscriptions and tools, health insurance premiums, retirement contributions (SEP-IRA up to 25% of net income), and legitimate business travel. Each deduction reduces your taxable income directly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How accurate is this calculator?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            LancerCalc uses official 2025 IRS tax brackets, the standard deduction, and state income tax rates. Results are estimates assuming standard filing — unusual situations like multiple income sources, rental income, capital gains, or large retirement contributions may differ. Always consult a qualified CPA for your specific circumstances.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What's the difference between 1099 and W-2 tax?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            On a W-2 payroll, your employer pays half of Social Security and Medicare taxes (7.65%). As a 1099 freelancer, you pay the full 15.3% SE tax yourself. However, you can deduct 50% of SE tax from your AGI, and you have far more flexibility to deduct business expenses, which partially offsets the difference.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     RELATED TOOLS — 3×2 expanded grid
+     ═══════════════════════════════════════ -->
+<section class="related-section" id="tools">
+  <div class="related-inner">
+    <div class="section-label">More Tools</div>
+    <div class="section-title" style="margin-bottom:28px">Related calculators for freelancers</div>
+    <div class="related-grid">
+
+      <a href="#" class="related-card">
+        <div class="related-icon">⏱️</div>
+        <div>
+          <div class="related-name">Hourly Rate Calculator</div>
+          <div class="related-desc">Find your minimum viable rate</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+      <a href="#" class="related-card">
+        <div class="related-icon">⚖️</div>
+        <div>
+          <div class="related-name">1099 vs W-2 Calculator</div>
+          <div class="related-desc">Compare contract vs. salary after tax</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+      <a href="#" class="related-card">
+        <div class="related-icon">📄</div>
+        <div>
+          <div class="related-name">Invoice Generator</div>
+          <div class="related-desc">Professional invoices, no watermark</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+      <a href="#" class="related-card">
+        <div class="related-icon">🏠</div>
+        <div>
+          <div class="related-name">Home Office Deduction</div>
+          <div class="related-desc">Simplified vs. actual cost method</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+      <a href="#" class="related-card">
+        <div class="related-icon">💼</div>
+        <div>
+          <div class="related-name">SEP-IRA Contribution Calc</div>
+          <div class="related-desc">Maximise your retirement deduction</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+      <a href="#" class="related-card">
+        <div class="related-icon">📅</div>
+        <div>
+          <div class="related-name">Quarterly Tax Planner</div>
+          <div class="related-desc">Never miss a payment deadline</div>
+        </div>
+        <span class="related-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER CTA
+     ═══════════════════════════════════════ -->
+<section class="footer-cta">
+  <div class="footer-cta-inner">
+    <div class="footer-cta-pill">🚀 No credit card required</div>
+    <h2>Stop guessing.<br>Start planning.</h2>
+    <p>Join 50,000+ freelancers who use LancerCalc to take control of their taxes. It takes 30 seconds.</p>
+    <button class="footer-cta-btn" onclick="document.getElementById('calc').scrollIntoView({behavior:'smooth'})">
+      Calculate My Tax — It's Free
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">LC</div>
+          <div class="logo-text" style="color:white">Lancer<span>Calc</span></div>
+        </div>
+        <p>Free, accurate, and privacy-first tax tools for freelancers and self-employed professionals.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculators</h4>
+        <a href="#">Tax Calculator</a>
+        <a href="#">Hourly Rate</a>
+        <a href="#">1099 vs W-2</a>
+        <a href="#">Home Office</a>
+        <a href="#">SEP-IRA</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#">Tax Guides</a>
+        <a href="#">Quarterly Dates</a>
+        <a href="#">Deduction Types</a>
+        <a href="#">State Tax Rates</a>
+        <a href="#">IRS Links</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 LancerCalc. For guidance only — not financial or tax advice.</p>
+      <div class="footer-badge">🔒 Zero Data Stored</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT — Live calculator
+     ═══════════════════════════════════════ -->
+<script>
+  // Format number as USD
+  const fmt = n => '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+  const pct = n => n.toFixed(1) + '%';
+
+  function calculate() {
+    const gross   = parseFloat(document.getElementById('f-income').value)     || 0;
+    const deduct  = parseFloat(document.getElementById('f-deductions').value)  || 0;
+    const paid    = parseFloat(document.getElementById('f-paid').value)        || 0;
+    const status  = document.getElementById('f-status').value;
+    const stateRate = parseFloat(document.getElementById('f-state').value)     || 0;
+
+    if (gross <= 0) return;
+
+    // 1. Self-employment tax
+    const netSE      = gross * 0.9235;
+    const seTax      = netSE * 0.153;   // 12.4% SS + 2.9% Medicare
+    const seDeduct   = seTax * 0.5;
+
+    // 2. Standard deduction 2025
+    const stdDeduct  = status === 'married' ? 30000 : 15000;
+
+    // 3. Taxable income for federal
+    const agi         = gross - seDeduct - deduct;
+    const taxableInc  = Math.max(0, agi - stdDeduct);
+
+    // 4. Federal income tax (2025 brackets – single / MFJ)
+    let fedTax = 0;
+    if (status === 'single') {
+      const brackets = [[11925,0.10],[48475,0.12],[103350,0.22],[197300,0.24],[250525,0.32],[626350,0.35],[Infinity,0.37]];
+      let prev = 0;
+      for (const [top, rate] of brackets) {
+        if (taxableInc <= prev) break;
+        fedTax += (Math.min(taxableInc, top) - prev) * rate;
+        prev = top;
+      }
+    } else {
+      const brackets = [[23850,0.10],[96950,0.12],[206700,0.22],[394600,0.24],[501050,0.32],[751600,0.35],[Infinity,0.37]];
+      let prev = 0;
+      for (const [top, rate] of brackets) {
+        if (taxableInc <= prev) break;
+        fedTax += (Math.min(taxableInc, top) - prev) * rate;
+        prev = top;
+      }
+    }
+
+    // 5. State income tax (flat rate on AGI)
+    const stateTax = agi * (stateRate / 100);
+
+    // 6. Totals
+    const totalTax  = seTax + fedTax + stateTax;
+    const taxOwed   = Math.max(0, totalTax - paid);
+    const takeHome  = gross - totalTax;
+    const effRate   = (totalTax / gross) * 100;
+    const monthly   = totalTax / 12;
+    const quarterly = totalTax / 4;
+
+    // Update hero
+    document.getElementById('r-pct').textContent     = pct(effRate);
+    document.getElementById('r-monthly').textContent = fmt(monthly);
+    document.getElementById('r-sub').textContent     =
+      `That's ${fmt(totalTax)} per year, or ${fmt(monthly)} per month — move it to a separate savings account.`;
+
+    // Metrics
+    document.getElementById('r-quarterly').textContent  = fmt(quarterly);
+    document.getElementById('r-takehome').textContent   = fmt(takeHome);
+    document.getElementById('r-effrate').textContent    = pct(effRate);
+    document.getElementById('r-totaltax').textContent   = fmt(taxOwed);
+    document.getElementById('r-still-owed').textContent = paid > 0 ? `After ${fmt(paid)} already paid` : 'Total annual estimate';
+
+    // Breakdown
+    const stateLabel = document.getElementById('f-state');
+    const stateText  = stateLabel.options[stateLabel.selectedIndex].text;
+    const statusText = status === 'married' ? 'MFJ' : 'Single';
+    document.getElementById('r-ctx').textContent        = `${fmt(gross)} · ${statusText} · ${stateText.split(' ')[0]}`;
+    document.getElementById('r-gross').textContent      = fmt(gross);
+    document.getElementById('r-setax').textContent      = '−' + fmt(seTax);
+    document.getElementById('r-sededuct').textContent   = '+' + fmt(seDeduct) + ' saved';
+    document.getElementById('r-busdeduct').textContent  = deduct > 0 ? '+' + fmt(deduct) + ' saved' : '$0';
+    document.getElementById('r-fedtax').textContent     = '−' + fmt(fedTax);
+    document.getElementById('r-fed-detail').textContent = `On ${fmt(taxableInc)} taxable income`;
+    document.getElementById('r-statetax').textContent   = stateRate > 0 ? '−' + fmt(stateTax) : '$0';
+    document.getElementById('r-state-detail').textContent = stateRate > 0 ? `${stateRate}% effective rate` : 'No state income tax';
+    document.getElementById('r-totaltax2').textContent  = fmt(totalTax);
+    document.getElementById('r-takehome2').textContent  = fmt(takeHome);
+    document.getElementById('r-effrate-sub').textContent = `Effective rate: ${pct(effRate)} of gross`;
+
+    // Bar chart
+    const sePct    = (seTax    / totalTax * 100).toFixed(1);
+    const fedPct   = (fedTax   / totalTax * 100).toFixed(1);
+    const statePct = (stateTax / totalTax * 100).toFixed(1);
+    document.getElementById('bar-se').style.width    = sePct + '%';
+    document.getElementById('bar-fed').style.width   = fedPct + '%';
+    document.getElementById('bar-state').style.width = statePct + '%';
+
+    // Tip
+    document.getElementById('tip-text').innerHTML =
+      `Open a dedicated savings account and auto-transfer <strong>${pct(Math.ceil(effRate + 2))}</strong> every time a client pays you. ` +
+      `Your quarterly payment is <strong>${fmt(quarterly)}</strong> — treat it as untouchable. Tax time becomes stress-free.`;
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item   = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Run on load
+  calculate();
+</script>
+
+</body>
+</html>

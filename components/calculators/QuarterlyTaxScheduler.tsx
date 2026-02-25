@@ -1,34 +1,11 @@
 "use client";
 
 import { useState, useMemo } from "react";
-
-// ── 2025 IRS constants (same as SETaxCalculator) ──────────────────────────
-const SS_WAGE_BASE        = 176100;
-const SS_RATE             = 0.124;
-const MEDICARE_RATE       = 0.029;
-const SE_ADJUSTMENT       = 0.9235;
-const ADDL_MEDICARE_RATE  = 0.009;
-const ADDL_MEDICARE_THRESHOLD = { single: 200000, married: 250000 };
-
-const BRACKETS_SINGLE = [
-  { min: 0,       max: 11925,   rate: 0.10 },
-  { min: 11925,   max: 48475,   rate: 0.12 },
-  { min: 48475,   max: 103350,  rate: 0.22 },
-  { min: 103350,  max: 197300,  rate: 0.24 },
-  { min: 197300,  max: 250525,  rate: 0.32 },
-  { min: 250525,  max: 626350,  rate: 0.35 },
-  { min: 626350,  max: Infinity, rate: 0.37 },
-];
-const BRACKETS_MARRIED = [
-  { min: 0,       max: 23850,   rate: 0.10 },
-  { min: 23850,   max: 96950,   rate: 0.12 },
-  { min: 96950,   max: 206700,  rate: 0.22 },
-  { min: 206700,  max: 394600,  rate: 0.24 },
-  { min: 394600,  max: 501050,  rate: 0.32 },
-  { min: 501050,  max: 751600,  rate: 0.35 },
-  { min: 751600,  max: Infinity, rate: 0.37 },
-];
-const STD_DEDUCTION = { single: 15000, married: 30000 };
+import {
+  SE_ADJUSTMENT, SS_RATE, SS_WAGE_BASE, MEDICARE_RATE,
+  ADDL_MEDICARE_RATE, ADDL_MEDICARE_THRESHOLD,
+  BRACKETS_SINGLE, BRACKETS_MARRIED, STANDARD_DEDUCTION,
+} from "@/lib/taxConstants2025";
 
 // ── 2025 Quarterly due dates ───────────────────────────────────────────────
 const QUARTERS = [
@@ -106,7 +83,7 @@ export default function QuarterlyTaxScheduler() {
 
     // Federal income tax
     const agi          = gross - seDeduction;
-    const stdDed       = STD_DEDUCTION[filing];
+    const stdDed       = STANDARD_DEDUCTION[filing];
     const taxableIncome = Math.max(0, agi - stdDed);
     const brackets     = filing === "single" ? BRACKETS_SINGLE : BRACKETS_MARRIED;
     const fedTax       = calcFederalTax(taxableIncome, brackets);
@@ -275,6 +252,17 @@ export default function QuarterlyTaxScheduler() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* IRS quarter note */}
+          <div
+            className="rounded-xl px-5 py-3.5 flex gap-2.5 text-[12px]"
+            style={{ background: "rgba(14,165,233,0.07)", border: "1px solid rgba(14,165,233,0.18)" }}
+          >
+            <span className="flex-shrink-0 mt-0.5">ℹ️</span>
+            <p style={{ color: "#5A6178" }}>
+              <strong style={{ color: "#0A0F1E" }}>Note on IRS quarters:</strong> The IRS uses non-standard quarters for estimated taxes — Q1 covers 3 months (Jan–Mar), Q2 covers only 2 months (Apr–May), Q3 covers 3 months (Jun–Aug), and Q4 covers 4 months (Sep–Dec). Payments are based on your total annual estimate split equally across all four quarters, regardless of quarter length.
+            </p>
           </div>
 
           {/* IRS payment tip */}

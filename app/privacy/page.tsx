@@ -13,6 +13,10 @@ export default function PrivacyPage() {
       body: `LancerCalc calculators run entirely in your browser. When you enter income figures, tax rates, invoice amounts, or any other financial information, that data is never transmitted to our servers. We have no database of user inputs. We cannot see what numbers you enter. When you close or refresh the page, your data is gone.`,
     },
     {
+      title: "Email address (optional)",
+      body: `If you choose to subscribe to our newsletter or tax deadline reminders using the email form on our tool pages, we collect your email address. This address is stored in a private Google Sheets spreadsheet owned and controlled by LancerCalc. We use it solely to send you freelance finance tips, quarterly tax deadline reminders, and occasional product updates. We do not sell, rent, or share your email address with third parties. You can unsubscribe at any time by replying to any email we send you or by contacting us via the feedback link in the footer. Email submission is entirely optional — all calculator tools are fully functional without providing your email.`,
+    },
+    {
       title: "Analytics",
       body: `We use Google Analytics 4 (GA4) to understand aggregate traffic patterns — for example, which tools are most used, which countries visitors come from, and which pages are most popular. GA4 may collect anonymised usage data (page views, session duration, general location at country/region level) and sets cookies to distinguish unique visitors. This helps us improve LancerCalc. This data is governed by Google's privacy policy (policies.google.com/privacy). We do not share this data with advertisers or third parties for targeting purposes, and we do not use it to identify individual users.`,
     },
