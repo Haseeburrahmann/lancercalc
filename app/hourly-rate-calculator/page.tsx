@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HourlyRateCalculator from "@/components/calculators/HourlyRateCalculator";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -239,6 +240,14 @@ export default function HourlyRateCalculatorPage() {
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
+
+      {/* ── Email capture ── */}
+      <EmailCapture
+        variant="dark"
+        source="hourly-rate-calculator"
+        heading="Free Freelance Finance Tips — In Your Inbox"
+        subheading="Rate-setting strategies, tax deadlines, and industry benchmarks. Join freelancers using LancerCalc to earn more."
+      />
 
       {/* ── Related Tools ── */}
       <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>

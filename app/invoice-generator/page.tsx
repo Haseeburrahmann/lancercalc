@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import InvoiceGenerator from "@/components/calculators/InvoiceGenerator";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -248,6 +249,14 @@ export default function InvoiceGeneratorPage() {
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
+
+      {/* ── Email capture ── */}
+      <EmailCapture
+        variant="dark"
+        source="invoice-generator"
+        heading="Free Invoice & Tax Tips for Freelancers"
+        subheading="Late payment strategies, tax deadlines, invoicing best practices — straight to your inbox, completely free."
+      />
 
       {/* ── Related tools ── */}
       <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>

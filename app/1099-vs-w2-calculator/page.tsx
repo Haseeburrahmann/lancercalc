@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import W2vsContractCalculator from "@/components/calculators/W2vsContractCalculator";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -270,6 +271,14 @@ export default function ContractVsW2Page() {
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
+
+      {/* ── Email capture ── */}
+      <EmailCapture
+        variant="dark"
+        source="1099-vs-w2-calculator"
+        heading="1099 or W-2 Next Time? Get Our Free Guide"
+        subheading="Negotiation tips, tax strategies, and freelance finance insights — delivered free to your inbox."
+      />
 
       {/* ── Related tools ── */}
       <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>

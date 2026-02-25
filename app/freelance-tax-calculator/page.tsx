@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SETaxCalculator from "@/components/calculators/SETaxCalculator";
 import FAQAccordion from "@/components/FAQAccordion";
+import EmailCapture from "@/components/EmailCapture";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -225,6 +226,14 @@ export default function FreelanceTaxCalculatorPage() {
           <FAQAccordion faqs={faqs} />
         </div>
       </section>
+
+      {/* ── Email capture ── */}
+      <EmailCapture
+        variant="dark"
+        source="tax-calculator"
+        heading="Never Miss a Quarterly Tax Deadline"
+        subheading="Get tax deadline reminders, freelance finance tips, and calculator updates — free, straight to your inbox."
+      />
 
       {/* ── Related tools ── */}
       <section className="relative overflow-hidden py-14 md:py-16" style={{ background: "#0C0A2E" }}>

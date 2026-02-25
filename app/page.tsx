@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./blog/posts";
+import EmailCapture from "@/components/EmailCapture";
 
 export const metadata: Metadata = {
   title: "LancerCalc — Free Financial Calculators for Freelancers",
@@ -477,6 +478,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Email capture ── */}
+      <EmailCapture
+        variant="dark"
+        source="homepage"
+        heading="Free Freelance Tax Deadline Reminders"
+        subheading="Quarterly deadlines, rate-setting tips, and freelance finance guides — straight to your inbox. No spam, ever."
+      />
 
       {/* ── Blog preview ── */}
       <section className="py-20" style={{ background: "#F4F5FF" }}>

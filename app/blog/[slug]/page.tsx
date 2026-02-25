@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { posts, getPost } from '../posts';
+import EmailCapture from '@/components/EmailCapture';
 
 interface BlogPost {
   slug: string;
@@ -1083,6 +1084,16 @@ export default function BlogPostPage({
                   Try the Calculator
                 </Link>
               </div>
+            </div>
+
+            {/* ── Email capture ── */}
+            <div className="mt-14">
+              <EmailCapture
+                variant="light"
+                source="blog"
+                heading="Get Free Freelance Finance Tips"
+                subheading="Quarterly tax reminders, rate strategies, and money guides — delivered straight to your inbox."
+              />
             </div>
 
             {/* Related Articles */}
