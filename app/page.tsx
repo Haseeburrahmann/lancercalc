@@ -46,20 +46,20 @@ const tools = [
     ready: true,
   },
   {
-    href: "#",
+    href: "/quarterly-tax-scheduler",
     emoji: "📅",
     title: "Quarterly Tax Scheduler",
-    description: "Never miss an IRS deadline. Enter your income and we build your quarterly payment calendar with exact due dates and amounts.",
-    tags: ["Coming Soon"],
-    ready: false,
+    description: "Never miss an IRS deadline. Enter your income and get your full quarterly payment calendar with exact due dates and amounts.",
+    tags: ["New"],
+    ready: true,
   },
   {
-    href: "#",
+    href: "/project-pricing-calculator",
     emoji: "💸",
     title: "Project Pricing Calculator",
     description: "Scope, hours, expenses, profit margin — know exactly what to quote before you send that proposal.",
-    tags: ["Coming Soon"],
-    ready: false,
+    tags: ["New"],
+    ready: true,
   },
 ];
 

@@ -4,10 +4,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const tools = [
-  { href: "/freelance-tax-calculator", label: "Tax Calculator" },
-  { href: "/hourly-rate-calculator",   label: "Hourly Rate" },
-  { href: "/1099-vs-w2-calculator",    label: "1099 vs W-2" },
-  { href: "/invoice-generator",        label: "Invoice" },
+  { href: "/freelance-tax-calculator",    label: "Tax Calculator" },
+  { href: "/hourly-rate-calculator",      label: "Hourly Rate" },
+  { href: "/1099-vs-w2-calculator",       label: "1099 vs W-2" },
+  { href: "/invoice-generator",           label: "Invoice" },
+  { href: "/quarterly-tax-scheduler",     label: "Quarterly Tax" },
+  { href: "/project-pricing-calculator",  label: "Project Pricing" },
 ];
 
 export default function Header() {

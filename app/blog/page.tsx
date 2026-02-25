@@ -16,8 +16,22 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://lancercalc.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://lancercalc.com/blog" },
+  ],
+};
+
 export default function BlogPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
     <div className="min-h-screen">
       {/* ── Hero ── */}
       <section className="relative overflow-hidden py-14 md:py-20" style={{ background: "#0C0A2E" }}>
@@ -91,5 +105,6 @@ export default function BlogPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
