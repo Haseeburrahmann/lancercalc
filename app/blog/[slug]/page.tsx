@@ -1133,6 +1133,295 @@ function getContent(slug: string): JSX.Element | null {
         </>
       );
 
+    case 'honeybook-alternatives-freelancers-2025':
+      return (
+        <>
+          <p className="text-lg mb-8" style={{ color: "#5A6178" }}>
+            In early 2025, HoneyBook raised its Starter plan from $19/month to $36/month — an 89% price increase. Their Essentials plan went from $39 to $79/month. For freelancers already watching every dollar, that's a hard pill to swallow. If you&apos;re one of the thousands of freelancers shopping for alternatives, here are 7 options that give you invoicing, contracts, and client management for less — including several that are completely free.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            Why So Many Freelancers Are Leaving HoneyBook
+          </h2>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            HoneyBook built a loyal following by offering an all-in-one client management platform: proposals, contracts, invoices, and payments in one place. But the 2025 pricing changes blindsided users. The original $19 Starter plan was genuinely good value. At $36/month — or $432/year — many freelancers are doing the math and realizing they&apos;re paying for features they don&apos;t use. If you mainly need invoicing and contracts, you don&apos;t need to pay $432/year for it.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            The 7 Best HoneyBook Alternatives in 2025
+          </h2>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            1. Wave — Best Free Alternative for Invoicing
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Wave is completely free for invoicing and accounting. You can send unlimited invoices, connect your bank for automatic expense tracking, and see your income vs. expenses in a clean dashboard — all at $0/month. Wave charges a small payment processing fee (2.9% + $0.60) only when clients pay online, but using it for invoicing and bookkeeping costs nothing.
+          </p>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            <strong>What Wave doesn&apos;t do:</strong> contracts, e-signatures, proposals, or CRM pipeline. If you need those features, keep reading. But if your main pain point was paying $36/month just to send invoices, Wave solves that immediately.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who need invoicing + bookkeeping and don&apos;t need contract management.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            2. LancerCalc Invoice Generator — Best Free Quick Invoice Tool
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            For freelancers who need to send professional invoices instantly — without creating an account, entering a credit card, or signing up for anything — LancerCalc&apos;s free invoice generator is the fastest option. Add your client info, line items, and payment terms, then download or print a PDF. It takes 60 seconds and it&apos;s free forever.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who want to send one-off invoices fast without any platform commitment.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            3. Bonsai — Best Paid Alternative with Full CRM
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Bonsai starts at $15/month and includes contracts with e-signatures, proposals, invoicing, and time tracking. It&apos;s the closest structural comparison to HoneyBook. However, be aware that Bonsai has its own pricing complaints — tax tracking is a paid add-on ($8/month more), and many users report the platform has had very few meaningful updates in recent years.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who want an all-in-one platform and don&apos;t mind $15–25/month.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            4. FreshBooks — Best for Accounting + Invoicing Combined
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            FreshBooks starts at $17/month and gives you professional invoicing, expense tracking, time tracking, and basic reporting. It&apos;s more accounting-focused than HoneyBook — better for freelancers who want to replace their bookkeeper, not their CRM. FreshBooks also has strong integrations with Stripe, PayPal, and Shopify.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who care more about accounting accuracy than proposal/contract workflows.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            5. Dubsado — Best for Service Businesses and Custom Workflows
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Dubsado is a direct HoneyBook competitor with a stronger focus on custom client workflows and automations. The Starter plan is $20/month (billed monthly) or $16/month (billed annually) — meaningfully cheaper than HoneyBook&apos;s new pricing. Dubsado has a steeper learning curve than HoneyBook, but once set up, its automation can run your entire client onboarding on autopilot.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Photographers, designers, consultants, and coaches who want automated client workflows.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            6. 17hats — Best Budget All-in-One
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            17hats starts at around $15/month and covers contracts, invoices, questionnaires, scheduling, and bookkeeping. It&apos;s less polished than HoneyBook but more affordable and has been around since 2014. A solid choice for budget-conscious freelancers who want everything under one roof.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who want the all-in-one experience without paying HoneyBook&apos;s new prices.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            7. Free Combo: Google Docs + DocuSign + Wave
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            The truly free route: use Google Docs to write proposals and contracts, DocuSign&apos;s free tier (3 envelopes/month) for e-signatures, and Wave for invoicing and accounting. It&apos;s more manual than HoneyBook, but if you&apos;re sending fewer than 5 contracts per month, this combination is 100% free.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> New or occasional freelancers who want professional workflows without any subscription cost.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            Quick Comparison: HoneyBook vs Alternatives
+          </h2>
+          <div className="overflow-x-auto mb-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr style={{ backgroundColor: "#F0F0FF" }}>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Tool</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Monthly Cost</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Invoicing</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Contracts</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Accounting</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { tool: "HoneyBook (2025)", cost: "$36–$129", inv: "✅", con: "✅", acc: "❌" },
+                  { tool: "Wave", cost: "Free", inv: "✅", con: "❌", acc: "✅" },
+                  { tool: "LancerCalc (invoices)", cost: "Free", inv: "✅", con: "❌", acc: "❌" },
+                  { tool: "Bonsai", cost: "$15–$25+", inv: "✅", con: "✅", acc: "Add-on" },
+                  { tool: "FreshBooks", cost: "$17–$50", inv: "✅", con: "❌", acc: "✅" },
+                  { tool: "Dubsado", cost: "$16–$20", inv: "✅", con: "✅", acc: "❌" },
+                  { tool: "17hats", cost: "~$15", inv: "✅", con: "✅", acc: "Basic" },
+                ].map((row, i) => (
+                  <tr key={i} style={{ borderBottom: "1px solid #E6E9FF", backgroundColor: i % 2 === 0 ? "#FAFAFE" : "white" }}>
+                    <td className="p-3 font-medium" style={{ color: "#0A0F1E" }}>{row.tool}</td>
+                    <td className="p-3" style={{ color: "#5A6178" }}>{row.cost}</td>
+                    <td className="p-3">{row.inv}</td>
+                    <td className="p-3">{row.con}</td>
+                    <td className="p-3">{row.acc}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            What Should You Do Right Now?
+          </h2>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            If HoneyBook&apos;s price increase has you reconsidering, the first question to ask yourself is: what am I actually using it for? If 90% of your HoneyBook usage is sending invoices and collecting payments, Wave or LancerCalc&apos;s free invoice generator covers that at zero cost. If you rely heavily on contracts and proposals, Dubsado at $16/month is a comparable experience at less than half the price.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            The freelance tools market is competitive, and HoneyBook&apos;s price hike has created a real opening for alternatives. Don&apos;t stay on a platform out of inertia — a few hours of migration can save you $300–$500/year.
+          </p>
+
+          <div className="p-6 rounded-2xl mb-8" style={{ backgroundColor: "#EEF2FF", border: "1.5px solid #C7D2FE" }}>
+            <p className="font-bold mb-2" style={{ color: "#4338CA" }}>💡 Also useful while you transition:</p>
+            <p style={{ color: "#5A6178" }}>
+              While sorting out your invoicing platform, make sure your tax estimates are on point too. HoneyBook doesn&apos;t help with self-employment tax — use LancerCalc&apos;s free tax calculator to make sure you&apos;re setting aside the right quarterly amounts.
+            </p>
+          </div>
+        </>
+      );
+
+    case 'bonsai-alternatives-freelancers-2025':
+      return (
+        <>
+          <p className="text-lg mb-8" style={{ color: "#5A6178" }}>
+            Bonsai started as a beloved freelancer tool — simple contracts, clean invoices, and a reasonable price. But reviews in 2025 tell a different story: prices have increased over 150% in a few years, tax tracking has been stripped out and resold as a separate add-on, and the platform has released only two meaningful new features in five years. Many freelancers paying $500–800/year for Bonsai are realizing they can get the same core functionality for free or much less. Here&apos;s what to switch to.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            What Does Bonsai Actually Cost in 2025?
+          </h2>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Bonsai&apos;s pricing looks simple on the surface, but the real cost adds up:
+          </p>
+          <ul className="list-disc list-inside mb-6 space-y-2" style={{ color: "#5A6178" }}>
+            <li><strong>Starter plan:</strong> $15/month ($180/year)</li>
+            <li><strong>Professional plan:</strong> $25/month ($300/year)</li>
+            <li><strong>Bonsai Tax add-on:</strong> ~$8/month ($96/year) — was included in the original product</li>
+            <li><strong>Payment processing:</strong> 2.9% + $0.30 per transaction</li>
+            <li><strong>Total for a Professional user with tax tracking:</strong> $396+/year before transaction fees</li>
+          </ul>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            One Capterra reviewer noted paying nearly $500/year for basic services and being charged an additional $300 in transaction fees in their first two months alone. That&apos;s real money for a freelancer just getting started.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            The 6 Best Bonsai Alternatives in 2025
+          </h2>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            1. Wave — Best Free Alternative (Invoicing + Accounting)
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Wave replaces most of what freelancers use Bonsai for — invoicing and bookkeeping — completely free. You can send unlimited professional invoices, connect your bank account for automatic income/expense tracking, and run basic financial reports. Wave earns money on payment processing (2.9% + $0.60) and optional payroll add-ons, but its core invoicing and accounting features cost nothing.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>What it lacks vs Bonsai:</strong> contracts, e-signatures, proposals, and a client portal. If those features drive your workflow, keep reading. If you mainly send invoices and track income, Wave saves you $300+/year.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            2. LancerCalc — Best Free Financial Calculator Suite
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            LancerCalc doesn&apos;t replace Bonsai&apos;s CRM features, but it does replace everything Bonsai Tax charges $96/year for: estimating your self-employment tax, calculating quarterly payments, understanding your 1099 vs W-2 situation, and figuring out what to charge clients. All free, no account needed.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            If you were paying for Bonsai Tax specifically to estimate quarterly taxes, LancerCalc&apos;s free quarterly tax calculator and freelance tax calculator cover that exact need at $0.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            3. HoneyBook — Best Paid Alternative for Client Workflows
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Despite HoneyBook raising its own prices in 2025, the Starter plan at $36/month is still comparable to Bonsai Professional + Tax add-on ($33/month) — and HoneyBook gives you a more polished client experience. If you&apos;re a service-based freelancer (photographer, designer, consultant) who relies on proposals and contracts, HoneyBook&apos;s workflow automations are genuinely better than Bonsai&apos;s.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers moving from Bonsai who still want an all-in-one platform and can absorb $36/month.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            4. Dubsado — Best Automation-Focused Alternative
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Dubsado starts at $16/month billed annually and is the most powerful workflow automation tool in this space. You can build canned email sequences, auto-send contracts after a form is submitted, automatically follow up on unpaid invoices, and build a complete client onboarding flow. The learning curve is steeper than Bonsai, but the automation payoff is significant for freelancers with consistent service offerings.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers doing 5+ client engagements per month who want to automate repetitive client communication.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            5. FreshBooks — Best for Accounting-Heavy Freelancers
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            FreshBooks at $17/month gives you stronger accounting features than Bonsai — profit & loss reporting, expense categorization, mileage tracking, and bank reconciliation. FreshBooks is better suited for freelancers who work with an accountant or file their own taxes and need clean, organized financial records. It doesn&apos;t do contracts or proposals, but its invoicing and accounting are excellent.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers who care more about accounting accuracy than contract management.
+          </p>
+
+          <h3 className="text-xl font-bold mt-6 mb-3" style={{ color: "#0A0F1E" }}>
+            6. Free Combo: DocuSign Free + Wave + LancerCalc
+          </h3>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            The zero-cost route that covers all the bases: DocuSign&apos;s free plan (3 envelopes/month) for contracts and e-signatures, Wave for invoicing and bookkeeping, and LancerCalc for tax estimation and quarterly payment calculations. Together these three tools replace 90% of what Bonsai does — at $0/month.
+          </p>
+          <p className="mb-6" style={{ color: "#5A6178" }}>
+            <strong>Best for:</strong> Freelancers sending fewer than 3 contracts per month who want to eliminate their Bonsai subscription entirely.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            Quick Comparison: Bonsai vs Alternatives
+          </h2>
+          <div className="overflow-x-auto mb-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr style={{ backgroundColor: "#F0F0FF" }}>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Tool</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Monthly Cost</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Contracts</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Invoicing</th>
+                  <th className="text-left p-3 font-bold" style={{ color: "#0A0F1E" }}>Tax Help</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { tool: "Bonsai (2025)", cost: "$15–$33+", con: "✅", inv: "✅", tax: "Paid add-on" },
+                  { tool: "Wave", cost: "Free", con: "❌", inv: "✅", tax: "❌" },
+                  { tool: "LancerCalc", cost: "Free", con: "❌", inv: "✅ PDF", tax: "✅ Free" },
+                  { tool: "HoneyBook", cost: "$36–$129", con: "✅", inv: "✅", tax: "❌" },
+                  { tool: "Dubsado", cost: "$16–$20", con: "✅", inv: "✅", tax: "❌" },
+                  { tool: "FreshBooks", cost: "$17–$50", con: "❌", inv: "✅", tax: "Basic" },
+                  { tool: "DocuSign+Wave+LancerCalc", cost: "Free", con: "✅ (3/mo)", inv: "✅", tax: "✅ Free" },
+                ].map((row, i) => (
+                  <tr key={i} style={{ borderBottom: "1px solid #E6E9FF", backgroundColor: i % 2 === 0 ? "#FAFAFE" : "white" }}>
+                    <td className="p-3 font-medium" style={{ color: "#0A0F1E" }}>{row.tool}</td>
+                    <td className="p-3" style={{ color: "#5A6178" }}>{row.cost}</td>
+                    <td className="p-3">{row.con}</td>
+                    <td className="p-3">{row.inv}</td>
+                    <td className="p-3">{row.tax}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: "#0A0F1E" }}>
+            The Bottom Line
+          </h2>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            Bonsai made sense at its original $9/month price point. At $25–33+/month with add-ons, you&apos;re paying premium prices for a platform that reviewers consistently describe as stagnant. The alternatives above offer the same or better core functionality for significantly less.
+          </p>
+          <p className="mb-4" style={{ color: "#5A6178" }}>
+            If contracts are critical, Dubsado at $16/month is a more actively developed platform. If invoicing is your main need, Wave is free. If tax estimation is why you were considering Bonsai Tax, use LancerCalc — it&apos;s completely free and specifically built for freelancers.
+          </p>
+
+          <div className="p-6 rounded-2xl mb-8" style={{ backgroundColor: "#EEF2FF", border: "1.5px solid #C7D2FE" }}>
+            <p className="font-bold mb-2" style={{ color: "#4338CA" }}>💡 Still need to figure out your quarterly taxes?</p>
+            <p style={{ color: "#5A6178" }}>
+              Bonsai Tax charges $96/year to estimate quarterly tax payments. LancerCalc does the same thing for free — including self-employment tax, federal income tax, and state tax — with no account required.
+            </p>
+          </div>
+        </>
+      );
+
     default:
       return null;
   }
