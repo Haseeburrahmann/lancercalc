@@ -43,12 +43,19 @@ function fmt(n: number, sym: string): string {
 }
 
 function today(): string {
-  return new Date().toISOString().split("T")[0];
+  const d = new Date();
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 function addDays(dateStr: string, days: number): string {
-  const d = new Date(dateStr);
-  d.setDate(d.getDate() + days);
-  return d.toISOString().split("T")[0];
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const date = new Date(y, m - 1, d + days);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day2 = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day2}`;
 }
 function fmtDate(dateStr: string): string {
   if (!dateStr) return "";

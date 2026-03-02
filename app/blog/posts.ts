@@ -63,10 +63,11 @@ export const posts: BlogPost[] = [
   {
     slug: "1099-vs-w2-real-difference",
     title: "1099 vs W-2: Why Your $130K Contract Might Pay Less Than a $100K Salary",
-    metaTitle: "1099 vs W-2 Calculator & Comparison 2025 — Which Pays More?",
-    description: "Compare 1099 contractor vs W-2 employee income side-by-side. See the real after-tax difference including SE tax, health insurance, retirement, and benefits with real numbers.",
+    metaTitle: "1099 vs W-2 Calculator 2025 — See the Real After-Tax Difference",
+    description: "That $130K contractor offer might pay less than a $100K salary once SE tax and benefits hit. We show the exact numbers — use our free calculator to compare any two offers in seconds.",
     keywords: [
       "1099 vs w2 calculator",
+      "w2 vs 1099 calculator",
       "1099 vs w2 comparison 2025",
       "freelance vs full time salary",
       "is freelancing worth it financially",
@@ -159,8 +160,8 @@ export const posts: BlogPost[] = [
   {
     slug: "best-accounting-software-freelancers-2025",
     title: "Best Accounting Software for Freelancers in 2025 — Compared",
-    metaTitle: "Best Accounting Software for Freelancers 2025 — Free & Paid Options",
-    description: "Compare the best accounting tools for freelancers in 2025: Wave (free), FreshBooks, QuickBooks Self-Employed, and more. We break down pricing, features, and who each is best for.",
+    metaTitle: "Best Accounting Software for Freelancers 2025 — Wave vs FreshBooks vs HoneyBook",
+    description: "HoneyBook or TurboTax? Wave, FreshBooks, or QuickBooks? We compared every major accounting tool for freelancers — pricing, hidden fees, and which one actually saves you money at tax time. Free options included.",
     keywords: [
       "best accounting software freelancers 2025",
       "free accounting software self employed",
