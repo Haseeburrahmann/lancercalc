@@ -59,8 +59,8 @@ export const posts: BlogPost[] = [
     category: "Pricing",
     relatedTool: { href: "/hourly-rate-calculator", label: "Hourly Rate Calculator", emoji: "⏱️" },
     images: [
-      { src: "https://images.unsplash.com/photo-1553729459-uj4m98d59r0?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Freelancer setting pricing rates on laptop with calculator" },
-      { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Business pricing strategy documents and financial planning" },
+      { src: "https://images.unsplash.com/photo-1554224155-6726e3c61d0f?w=1200&h=500&auto=format&q=75&fit=crop", alt: "Freelancer setting pricing rates on laptop with calculator" },
+      { src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=400&auto=format&q=75&fit=crop", alt: "Business pricing strategy documents and financial planning" },
     ],
   },
   {
