@@ -258,7 +258,7 @@ export default function ProjectPricingCalculator() {
             <span className="text-xl flex-shrink-0 mt-0.5">💡</span>
             <div>
               <p className="text-[13px] font-bold mb-1" style={{ color: "#0A0F1E" }}>Proposal tip</p>
-              <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>
+              <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>
                 Present your quote as a fixed project fee, not hourly — clients focus on value, not time. Define scope clearly in writing and charge extra for out-of-scope requests beyond your {revisions} included revision{parseInt(revisions) !== 1 ? "s" : ""}.
               </p>
             </div>

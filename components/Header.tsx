@@ -102,7 +102,7 @@ export default function Header() {
               Blog
             </Link>
             <button
-              onClick={() => router.push("/freelance-tax-calculator")}
+              onClick={() => router.push("/")}
               className="px-5 py-2.5 text-white text-[13px] font-bold rounded-full transition-all cursor-pointer"
               style={{
                 background: "linear-gradient(135deg, #6B5CE7 0%, #8B7EF8 100%)",
@@ -119,7 +119,7 @@ export default function Header() {
                   "0 4px 14px rgba(107,92,231,0.40)";
               }}
             >
-              Calculate Tax →
+              Try Free Tools →
             </button>
           </div>
 

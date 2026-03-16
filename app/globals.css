@@ -46,7 +46,7 @@
   }
   .result-label {
     @apply text-sm font-medium;
-    color: #5A6178;
+    color: #4B5563;
   }
   .result-value {
     @apply text-sm font-bold;
@@ -73,7 +73,7 @@
   }
   .pill {
     @apply text-xs font-semibold px-4 py-1.5 rounded-full border border-[#E8EAF0] bg-white;
-    color: #5A6178;
+    color: #4B5563;
   }
   .pill-filled {
     @apply text-xs font-semibold px-4 py-1.5 rounded-full bg-purple-50 border-transparent;
@@ -166,7 +166,7 @@
   /* ── Blog article content typography ── */
   .blog-content {
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    color: #5A6178;
+    color: #4B5563;
     font-size: 1rem;
     line-height: 1.75;
   }
@@ -221,7 +221,7 @@
   .blog-content td {
     padding: 0.65rem 1rem;
     border-bottom: 1px solid #F0F1F5;
-    color: #5A6178;
+    color: #4B5563;
   }
 
   /* ── Glass card (on dark bg) ── */

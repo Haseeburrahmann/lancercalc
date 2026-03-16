@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             <span className="text-xl mt-0.5">🔒</span>
             <div>
               <p className="font-semibold mb-1" style={{ color: "#0A0F1E" }}>Short version</p>
-              <p className="text-sm leading-relaxed" style={{ color: "#5A6178" }}>
+              <p className="text-sm leading-relaxed" style={{ color: "#4B5563" }}>
                 Your financial data <strong>never leaves your browser</strong>. We don&apos;t store, sell, or have access to any numbers you enter into our calculators or invoice generator. Ever.
               </p>
             </div>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
             {sections.map((s) => (
               <div key={s.title} className="bg-white rounded-2xl border border-[#E8EAF0] p-6">
                 <h2 className="font-bold text-lg mb-3" style={{ color: "#0A0F1E" }}>{s.title}</h2>
-                <p className="text-sm leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#4B5563" }}>{s.body}</p>
               </div>
             ))}
           </div>

@@ -379,7 +379,7 @@ export default function HomePage() {
               </h2>
               <p
                 className="text-[15px] leading-relaxed mb-10"
-                style={{ color: "rgba(255,255,255,0.50)" }}
+                style={{ color: "rgba(255,255,255,0.70)" }}
               >
                 Unlike generic calculators, every formula here is built around
                 how freelancers actually earn — SE tax, quarterly payments,
@@ -436,7 +436,7 @@ export default function HomePage() {
                     className="flex items-center gap-4 py-3"
                     style={{ borderBottom: i < 5 ? "1px solid rgba(255,255,255,0.06)" : "none" }}
                   >
-                    <span className="text-[13px] font-medium flex-1" style={{ color: "rgba(255,255,255,0.50)" }}>
+                    <span className="text-[13px] font-medium flex-1" style={{ color: "rgba(255,255,255,0.70)" }}>
                       {row.label}
                     </span>
                     <span
@@ -527,7 +527,7 @@ export default function HomePage() {
                 >
                   {post.title}
                 </h3>
-                <p className="text-[13px] leading-relaxed mb-4 line-clamp-2" style={{ color: "#5A6178" }}>
+                <p className="text-[13px] leading-relaxed mb-4 line-clamp-2" style={{ color: "#4B5563" }}>
                   {post.description}
                 </p>
                 <div
@@ -594,7 +594,7 @@ function ToolCard({ tool }: { tool: typeof tools[0] }) {
       >
         {tool.title}
       </h3>
-      <p className="text-[13px] leading-relaxed flex-1" style={{ color: "#5A6178" }}>
+      <p className="text-[13px] leading-relaxed flex-1" style={{ color: "#4B5563" }}>
         {tool.description}
       </p>
       {tool.ready && (

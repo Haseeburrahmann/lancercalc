@@ -74,7 +74,7 @@ const config: Config = {
       },
       textColor: {
         primary:   "#0A0F1E",
-        secondary: "#5A6178",
+        secondary: "#4B5563",
         muted:     "#8B90A0",
       },
       fontFamily: {

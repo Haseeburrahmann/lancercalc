@@ -260,7 +260,7 @@ export default function QuarterlyTaxScheduler() {
             style={{ background: "rgba(14,165,233,0.07)", border: "1px solid rgba(14,165,233,0.18)" }}
           >
             <span className="flex-shrink-0 mt-0.5">ℹ️</span>
-            <p style={{ color: "#5A6178" }}>
+            <p style={{ color: "#4B5563" }}>
               <strong style={{ color: "#0A0F1E" }}>Note on IRS quarters:</strong> The IRS uses non-standard quarters for estimated taxes — Q1 covers 3 months (Jan–Mar), Q2 covers only 2 months (Apr–May), Q3 covers 3 months (Jun–Aug), and Q4 covers 4 months (Sep–Dec). Payments are based on your total annual estimate split equally across all four quarters, regardless of quarter length.
             </p>
           </div>
@@ -275,7 +275,7 @@ export default function QuarterlyTaxScheduler() {
               <p className="text-[13px] font-bold mb-1" style={{ color: "#0A0F1E" }}>
                 How to pay
               </p>
-              <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>
+              <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>
                 Pay online at{" "}
                 <a
                   href="https://www.irs.gov/payments/direct-pay"

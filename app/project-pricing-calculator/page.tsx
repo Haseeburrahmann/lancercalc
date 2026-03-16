@@ -79,9 +79,9 @@ const breadcrumbSchema = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Freelance Project Pricing Calculator 2025",
+  "name": "Free Project Pricing Calculator",
   "url": "https://lancercalc.com/project-pricing-calculator",
-  "description": "Calculate exactly what to charge for your next freelance project. Enter hours, rate, expenses, and profit margin — get a clean quote instantly. Free freelance project pricing tool.",
+  "description": "Calculate fixed-fee project prices based on hours, expenses, and profit margin.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -139,7 +139,7 @@ export default function ProjectPricingCalculatorPage() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> Calculator</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 Know exactly what to quote before you send that proposal. Scope, hours, expenses, profit margin — get a clean project price, floor cost, and effective hourly rate instantly.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -167,10 +167,33 @@ export default function ProjectPricingCalculatorPage() {
               {faqs.map((f) => (
                 <div key={f.q} className="calc-card p-6">
                   <p className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{f.q}</p>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#5A6178" }}>{f.a}</p>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "#4B5563" }}>{f.a}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Related Blog Articles ── */}
+        <section className="max-w-[1220px] mx-auto px-4 sm:px-8 py-12">
+          <p className="section-label">Learn More</p>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0A0F1E" }}>Related Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <Link href="/blog/freelance-hourly-rate-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How Much Should You Charge as a Freelancer? The 2025–2026 Rate Guide</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Calculate your minimum hourly rate as a freelancer. Factor in taxes, health insurance, retirement, vacation, and profit margin to find the real number you need to charge.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
+            <Link href="/blog/1099-vs-w2-real-difference-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>1099 vs W-2: Why Your $130K Contract Might Pay Less Than a $100K Salary</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>That $130K contractor offer might pay less than a $100K salary once SE tax and benefits hit. We show the exact numbers — use our free calculator to compare any two offers in seconds.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
+            <Link href="/blog/freelance-hourly-rate-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How Much Should You Charge as a Freelancer? The 2025–2026 Rate Guide</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Calculate your minimum hourly rate as a freelancer. Factor in taxes, health insurance, retirement, vacation, and profit margin to find the real number you need to charge.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
           </div>
         </section>
 

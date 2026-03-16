@@ -50,7 +50,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
               className="px-6 pb-6 bg-white"
               style={{ borderTop: "1px solid #F0F1FF" }}
             >
-              <p className="text-[14px] leading-relaxed pt-3" style={{ color: "#5A6178" }}>
+              <p className="text-[14px] leading-relaxed pt-3" style={{ color: "#4B5563" }}>
                 {faq.a}
               </p>
             </div>

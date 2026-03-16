@@ -51,7 +51,7 @@ export default function NotFound() {
 
           <p
             className="text-base leading-relaxed mb-10"
-            style={{ color: "rgba(255,255,255,0.50)" }}
+            style={{ color: "rgba(255,255,255,0.70)" }}
           >
             The page you&apos;re looking for doesn&apos;t exist or has moved.
             Head back to the homepage or jump straight to one of our free tools below.
@@ -76,7 +76,7 @@ export default function NotFound() {
       {/* Tools grid */}
       <section className="py-16">
         <div className="max-w-[860px] mx-auto px-4 sm:px-8">
-          <h2 className="text-center text-lg font-bold mb-8" style={{ color: "#5A6178" }}>
+          <h2 className="text-center text-lg font-bold mb-8" style={{ color: "#4B5563" }}>
             Or jump to one of our free tools:
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

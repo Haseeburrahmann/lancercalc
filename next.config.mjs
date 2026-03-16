@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       {
         source: "/freelance-tax-calculatorGuide",
-        destination: "/blog/self-employment-tax-guide-2025",
+        destination: "/blog/self-employment-tax-guide-2026",
         permanent: true, // 301 redirect — preserves SEO value
       },
     ];

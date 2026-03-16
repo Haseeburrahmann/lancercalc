@@ -223,7 +223,7 @@ export default function W2vsContractCalculator() {
                   className={`flex-1 py-2.5 rounded-xl border font-medium text-sm transition-all ${
                     filing === f
                       ? "bg-brand border-brand text-white shadow-sm"
-                      : "bg-white border-[#E8EAF0] text-[#5A6178] hover:border-brand-300"
+                      : "bg-white border-[#E8EAF0] text-[#4B5563] hover:border-brand-300"
                   }`}
                 >
                   {f === "single" ? "Single" : "Married"}
@@ -254,7 +254,7 @@ export default function W2vsContractCalculator() {
         {/* W-2 inputs */}
         <div className="calc-card border-t-4 border-t-[#8B90A0]">
           <div className="flex items-center gap-2 mb-5">
-            <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#5A6178] font-bold text-xs px-2.5 py-1 rounded-full">W-2 JOB</span>
+            <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#4B5563] font-bold text-xs px-2.5 py-1 rounded-full">W-2 JOB</span>
             <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Full-Time Employee Offer</h3>
           </div>
 
@@ -304,7 +304,7 @@ export default function W2vsContractCalculator() {
                     className={`flex-1 py-2 rounded-lg border font-medium text-sm transition-all ${
                       rateType === t
                         ? "bg-brand border-brand text-white"
-                        : "bg-white border-[#E8EAF0] text-[#5A6178] hover:border-brand-300"
+                        : "bg-white border-[#E8EAF0] text-[#4B5563] hover:border-brand-300"
                     }`}
                   >
                     {t === "annual" ? "Annual contract" : "Hourly rate"}
@@ -392,7 +392,7 @@ export default function W2vsContractCalculator() {
             {/* W-2 breakdown */}
             <div className="calc-card">
               <div className="flex items-center gap-2 mb-4">
-                <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#5A6178] font-bold text-xs px-2.5 py-1 rounded-full">W-2</span>
+                <span className="bg-[#F7F8FB] border border-[#E8EAF0] text-[#4B5563] font-bold text-xs px-2.5 py-1 rounded-full">W-2</span>
                 <h3 className="font-bold" style={{ color: "#0A0F1E" }}>Full-Time Employee</h3>
               </div>
               <div className="space-y-0">
@@ -425,18 +425,18 @@ export default function W2vsContractCalculator() {
                   <span className="result-value text-base" style={{ color: "#0A0F1E" }}>{fmt(results.w2TakeHome)}</span>
                 </div>
                 <div className="pt-3 mt-2 border-t border-[#F0F1F5]">
-                  <p className="text-xs font-semibold text-[#5A6178] mb-2">Employer benefits (hidden compensation)</p>
+                  <p className="text-xs font-semibold text-[#4B5563] mb-2">Employer benefits (hidden compensation)</p>
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#5A6178]">Health insurance paid by employer</span>
+                      <span className="text-[#4B5563]">Health insurance paid by employer</span>
                       <span className="text-emerald-600 font-medium">+{fmt((parseFloat(w2Health)||0)*12)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#5A6178]">401(k) match</span>
+                      <span className="text-[#4B5563]">401(k) match</span>
                       <span className="text-emerald-600 font-medium">+{fmt(results.w2Gross * ((parseFloat(w2Retirement)||0)/100))}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#5A6178]">PTO value ({w2PtoDays} days)</span>
+                      <span className="text-[#4B5563]">PTO value ({w2PtoDays} days)</span>
                       <span className="text-emerald-600 font-medium">+{fmt((results.w2Gross/260)*(parseFloat(w2PtoDays)||0))}</span>
                     </div>
                   </div>
@@ -447,7 +447,7 @@ export default function W2vsContractCalculator() {
                 </div>
                 <div className="flex justify-between items-center pt-1">
                   <p className="text-xs text-[#8B90A0]">Effective tax rate</p>
-                  <p className="text-xs font-semibold text-[#5A6178]">{pct(results.w2EffectiveRate)}</p>
+                  <p className="text-xs font-semibold text-[#4B5563]">{pct(results.w2EffectiveRate)}</p>
                 </div>
               </div>
             </div>
@@ -492,14 +492,14 @@ export default function W2vsContractCalculator() {
                   <span className="result-value text-base" style={{ color: "#0A0F1E" }}>{fmt(results.contractTakeHome)}</span>
                 </div>
                 <div className="pt-3 mt-2 border-t border-[#F0F1F5]">
-                  <p className="text-xs font-semibold text-[#5A6178] mb-2">Self-funded benefits (your cost)</p>
+                  <p className="text-xs font-semibold text-[#4B5563] mb-2">Self-funded benefits (your cost)</p>
                   <div className="space-y-1">
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#5A6178]">Health insurance (self-pay)</span>
+                      <span className="text-[#4B5563]">Health insurance (self-pay)</span>
                       <span className="text-red-500 font-medium">-{fmt((parseFloat(contractHealth)||0)*12)}</span>
                     </div>
                     <div className="flex justify-between text-xs">
-                      <span className="text-[#5A6178]">Retirement savings ({contractRetire}%)</span>
+                      <span className="text-[#4B5563]">Retirement savings ({contractRetire}%)</span>
                       <span className="text-red-500 font-medium">-{fmt(results.contractGross * ((parseFloat(contractRetire)||0)/100))}</span>
                     </div>
                   </div>
@@ -512,7 +512,7 @@ export default function W2vsContractCalculator() {
                 </div>
                 <div className="flex justify-between items-center pt-1">
                   <p className="text-xs text-[#8B90A0]">Effective tax rate</p>
-                  <p className="text-xs font-semibold text-[#5A6178]">{pct(results.contractEffectiveRate)}</p>
+                  <p className="text-xs font-semibold text-[#4B5563]">{pct(results.contractEffectiveRate)}</p>
                 </div>
               </div>
             </div>
@@ -547,7 +547,7 @@ export default function W2vsContractCalculator() {
           <div className="bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl p-5 flex gap-3">
             <div className="w-9 h-9 bg-white border border-[#E8EAF0] rounded-lg flex items-center justify-center text-sm flex-shrink-0">ℹ️</div>
             <div>
-              <p className="text-xs font-bold text-[#5A6178] mb-1">What this calculator includes — and what it doesn&apos;t</p>
+              <p className="text-xs font-bold text-[#4B5563] mb-1">What this calculator includes — and what it doesn&apos;t</p>
               <p className="text-xs text-[#8B90A0] leading-relaxed">
                 <strong>Included:</strong> SE tax (both employer/employee FICA shares), 50% SE tax deduction, 2025 federal income tax brackets, state income tax (all 50 states + DC), employer vs self-funded health insurance and retirement.{" "}
                 <strong>Not included:</strong> Local city/county taxes, business expense deductions beyond retirement, pre-tax 401(k) contribution effects, contractor&apos;s non-billable time, unpaid time between contracts, or professional liability insurance.{" "}
@@ -565,7 +565,7 @@ export default function W2vsContractCalculator() {
       ) : calculated ? (
         <div className="calc-card flex flex-col items-center justify-center text-center py-12">
           <div className="w-16 h-16 bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl flex items-center justify-center text-3xl mb-5">⚠️</div>
-          <p className="font-medium" style={{ color: "#5A6178" }}>Please enter both a W-2 salary and a contract rate to compare.</p>
+          <p className="font-medium" style={{ color: "#4B5563" }}>Please enter both a W-2 salary and a contract rate to compare.</p>
         </div>
       ) : (
         <div className="calc-card flex flex-col items-center justify-center text-center py-14 min-h-[200px]">

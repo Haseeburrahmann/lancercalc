@@ -76,9 +76,9 @@ const breadcrumbSchema = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Free Invoice Generator — No Sign-Up, No Watermark",
+  "name": "Free Invoice Generator — No Watermark",
   "url": "https://lancercalc.com/invoice-generator",
-  "description": "Create and download a professional invoice PDF for free. No watermark, no sign-up. Add logo, custom tax (VAT/GST), discount, and PAID stamp. Free freelance invoice template.",
+  "description": "Create professional invoices with logo, custom tax, and discount. Download as PDF with no watermark or sign-up.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -127,7 +127,7 @@ export default function InvoiceGeneratorPage() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> No Sign-Up, No Watermark</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 Fill in your details, add line items, and download a professional
                 PDF invoice — in under 60 seconds. Free forever.
               </p>
@@ -186,7 +186,7 @@ export default function InvoiceGeneratorPage() {
                   ].map(([desc, amt]) => (
                     <div key={desc} className="flex justify-between items-center py-1.5"
                       style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                      <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.50)" }}>{desc}</span>
+                      <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.70)" }}>{desc}</span>
                       <span className="text-[10px] font-semibold" style={{ color: "rgba(255,255,255,0.75)" }}>{amt}</span>
                     </div>
                   ))}
@@ -225,10 +225,10 @@ export default function InvoiceGeneratorPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: "#EEF0FF", borderBottom: "1px solid #E6E9FF" }}>
-                  <th className="text-left px-5 py-4 font-semibold" style={{ color: "#5A6178" }}>Feature</th>
+                  <th className="text-left px-5 py-4 font-semibold" style={{ color: "#4B5563" }}>Feature</th>
                   <th className="text-center px-5 py-4 font-semibold" style={{ color: "#6B5CE7" }}>LancerCalc</th>
-                  <th className="text-center px-5 py-4 font-semibold" style={{ color: "#5A6178" }}>InvoiceSimple Free</th>
-                  <th className="text-center px-5 py-4 font-semibold" style={{ color: "#5A6178" }}>invoice-generator.com</th>
+                  <th className="text-center px-5 py-4 font-semibold" style={{ color: "#4B5563" }}>InvoiceSimple Free</th>
+                  <th className="text-center px-5 py-4 font-semibold" style={{ color: "#4B5563" }}>invoice-generator.com</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-[#F0F1F5]">
@@ -247,8 +247,8 @@ export default function InvoiceGeneratorPage() {
                   <tr key={feat}>
                     <td className="px-5 py-3.5 font-medium" style={{ color: "#0A0F1E" }}>{feat}</td>
                     <td className="px-5 py-3.5 text-center font-semibold text-emerald-600">{lc}</td>
-                    <td className="px-5 py-3.5 text-center" style={{ color: "#5A6178" }}>{is}</td>
-                    <td className="px-5 py-3.5 text-center" style={{ color: "#5A6178" }}>{ig}</td>
+                    <td className="px-5 py-3.5 text-center" style={{ color: "#4B5563" }}>{is}</td>
+                    <td className="px-5 py-3.5 text-center" style={{ color: "#4B5563" }}>{ig}</td>
                   </tr>
                 ))}
               </tbody>
@@ -262,7 +262,7 @@ export default function InvoiceGeneratorPage() {
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Free Invoice Template</div>
           <h2 className="section-title">Free Freelance Invoice Template — Download as PDF Instantly</h2>
-          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#4B5563" }}>
             Looking for a freelance invoice template you can download as a PDF? You found it. Fill in your details above and click Download PDF — your browser generates a clean, print-quality PDF file on the spot. No file uploads, no servers, no watermarks. Works as an invoice template for designers, developers, consultants, writers, and any other freelancer.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -275,7 +275,7 @@ export default function InvoiceGeneratorPage() {
               <div key={item.title} className="step-card">
                 <div className="text-2xl mb-3">{item.icon}</div>
                 <h3 className="font-bold text-[14px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>{item.body}</p>
               </div>
             ))}
           </div>
@@ -288,6 +288,29 @@ export default function InvoiceGeneratorPage() {
           <div className="section-label">FAQ</div>
           <h2 className="section-title">Frequently asked questions</h2>
           <FAQAccordion faqs={faqs} />
+        </div>
+      </section>
+
+      {/* ── Related Blog Articles ── */}
+      <section className="max-w-[1220px] mx-auto px-4 sm:px-8 py-12">
+        <p className="section-label">Learn More</p>
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "#0A0F1E" }}>Related Articles</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <Link href="/blog/best-accounting-software-freelancers-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>Best Accounting Software for Freelancers in 2026 — Compared</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>HoneyBook or TurboTax? Wave, FreshBooks, or QuickBooks? We compared every major accounting tool for freelancers — pricing, hidden fees, and which one actually saves you money at tax time. Free options included.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/honeybook-alternatives-freelancers-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>HoneyBook Just Raised Prices 89% — 7 Free & Cheaper Alternatives for Freelancers</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>HoneyBook raised its Starter plan from $19 to $36/month in 2025 — an 89% jump. Here are 7 free and cheaper alternatives for freelancers who need invoicing, contracts, and client management without the sticker shock.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/bonsai-alternatives-freelancers-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>Bonsai Is Expensive — 6 Better Alternatives for Freelancers in 2026</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Bonsai raised prices over 150% in a few years. Add Bonsai Tax as an extra $100/year and payment fees of 2.9% + $0.30, and some freelancers pay $800+ annually. Here are 6 better alternatives — including completely free ones.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
         </div>
       </section>
 

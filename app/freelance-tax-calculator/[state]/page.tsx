@@ -140,7 +140,7 @@ export default function StateTaxCalculatorPage({ params }: { params: { state: st
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> Calculator 2025</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 {s.blurb} Enter your income below for a complete breakdown of SE tax, federal income tax, and state tax — plus your exact quarterly payment amounts.
               </p>
 
@@ -183,30 +183,30 @@ export default function StateTaxCalculatorPage({ params }: { params: { state: st
                 <p className="text-[26px] font-extrabold" style={{ color: s.noTax ? "#10B981" : "#6B5CE7" }}>
                   {s.noTax ? "0%" : `${(s.stateTaxRate * 100).toFixed(1)}%`}
                 </p>
-                <p className="text-[13px] mt-1" style={{ color: "#5A6178" }}>
+                <p className="text-[13px] mt-1" style={{ color: "#4B5563" }}>
                   {s.noTax ? "No state income tax" : "Effective rate on SE income"}
                 </p>
               </div>
               <div className="calc-card p-5">
                 <p className="text-[11px] font-bold mb-1 uppercase tracking-wide" style={{ color: "#8B90A0" }}>SE Tax Rate (Federal)</p>
                 <p className="text-[26px] font-extrabold" style={{ color: "#6B5CE7" }}>15.3%</p>
-                <p className="text-[13px] mt-1" style={{ color: "#5A6178" }}>Same in every state (SS + Medicare)</p>
+                <p className="text-[13px] mt-1" style={{ color: "#4B5563" }}>Same in every state (SS + Medicare)</p>
               </div>
               <div className="calc-card p-5">
                 <p className="text-[11px] font-bold mb-1 uppercase tracking-wide" style={{ color: "#8B90A0" }}>Largest Freelance City</p>
                 <p className="text-[22px] font-extrabold" style={{ color: "#0A0F1E" }}>{s.topCity}</p>
-                <p className="text-[13px] mt-1" style={{ color: "#5A6178" }}>{s.name}&apos;s top freelance hub</p>
+                <p className="text-[13px] mt-1" style={{ color: "#4B5563" }}>{s.name}&apos;s top freelance hub</p>
               </div>
               <div className="calc-card p-5">
                 <p className="text-[11px] font-bold mb-1 uppercase tracking-wide" style={{ color: "#8B90A0" }}>Recommended Set-aside</p>
                 <p className="text-[26px] font-extrabold" style={{ color: "#F59E0B" }}>
                   {s.noTax ? "25–30%" : "30–35%"}
                 </p>
-                <p className="text-[13px] mt-1" style={{ color: "#5A6178" }}>Of gross income for taxes</p>
+                <p className="text-[13px] mt-1" style={{ color: "#4B5563" }}>Of gross income for taxes</p>
               </div>
             </div>
 
-            <p className="text-[14px] leading-relaxed" style={{ color: "#5A6178" }}>
+            <p className="text-[14px] leading-relaxed" style={{ color: "#4B5563" }}>
               Freelancers in {s.name} are subject to the federal self-employment tax of 15.3% on 92.35% of net earnings — this covers Social Security (12.4% up to $176,100) and Medicare (2.9% with no cap). On top of that, you&apos;ll pay federal income tax using 2025 brackets, {s.noTax
                 ? `but pay zero ${s.name} state income tax — a significant advantage.`
                 : `plus ${s.name} state income tax at up to ${(s.stateTaxRate * 100).toFixed(1)}%.`
@@ -224,7 +224,7 @@ export default function StateTaxCalculatorPage({ params }: { params: { state: st
               {faqSchema.mainEntity.map((item) => (
                 <div key={item.name} className="calc-card p-6">
                   <p className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{item.name}</p>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#5A6178" }}>{item.acceptedAnswer.text}</p>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "#4B5563" }}>{item.acceptedAnswer.text}</p>
                 </div>
               ))}
             </div>

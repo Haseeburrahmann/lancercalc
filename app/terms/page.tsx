@@ -75,7 +75,7 @@ export default function TermsPage() {
             {sections.map((s) => (
               <div key={s.title} className="bg-white rounded-2xl border border-[#E8EAF0] p-6">
                 <h2 className="font-bold text-lg mb-3" style={{ color: "#0A0F1E" }}>{s.title}</h2>
-                <p className="text-sm leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#4B5563" }}>{s.body}</p>
               </div>
             ))}
           </div>

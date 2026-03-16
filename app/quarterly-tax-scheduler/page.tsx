@@ -79,9 +79,9 @@ const breadcrumbSchema = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Quarterly Tax Scheduler 2025",
+  "name": "Free Quarterly Tax Scheduler 2026",
   "url": "https://lancercalc.com/quarterly-tax-scheduler",
-  "description": "Free quarterly estimated tax scheduler for freelancers. Get your 2025 IRS payment calendar, exact due dates, amounts, and safe harbor guidance. No sign-up required.",
+  "description": "Calculate quarterly estimated tax payments with IRS due dates for freelancers and self-employed workers.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -139,7 +139,7 @@ export default function QuarterlyTaxSchedulerPage() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> 2025</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 Never miss an IRS deadline again. Enter your estimated income and get your exact quarterly payment calendar — due dates, amounts, and safe harbor guidance.
               </p>
               <div className="flex flex-wrap gap-2">
@@ -167,10 +167,33 @@ export default function QuarterlyTaxSchedulerPage() {
               {faqs.map((f) => (
                 <div key={f.q} className="calc-card p-6">
                   <p className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{f.q}</p>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#5A6178" }}>{f.a}</p>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "#4B5563" }}>{f.a}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── Related Blog Articles ── */}
+        <section className="max-w-[1220px] mx-auto px-4 sm:px-8 py-12">
+          <p className="section-label">Learn More</p>
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "#0A0F1E" }}>Related Articles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <Link href="/blog/quarterly-taxes-freelancer-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How to Calculate & Pay Quarterly Estimated Taxes as a Freelancer in 2025–2026</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Learn when quarterly estimated taxes are due in 2025–2026, how to calculate payments using Form 1040-ES, avoid IRS penalties, and use our free calculator to determine your exact amounts.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
+            <Link href="/blog/freelance-tax-filing-deadlines-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>Every Freelance Tax Deadline in 2026 — The Complete Calendar</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Every tax deadline freelancers need in 2026: quarterly estimated payment dates, annual filing deadline, extension deadlines, and how to avoid penalties. Printable calendar included.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
+            <Link href="/blog/how-to-pay-estimated-taxes-online-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+              <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How to Pay Estimated Taxes Online in 2026 — Step-by-Step Guide</h3>
+              <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Step-by-step guide to paying quarterly estimated taxes online using IRS Direct Pay — free, fast, and no IRS account needed. Includes EFTPS setup, payment confirmation tips, and common mistakes.</p>
+              <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+            </Link>
           </div>
         </section>
 

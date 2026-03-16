@@ -74,9 +74,9 @@ const breadcrumbSchema = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "1099 vs W-2 Calculator 2025",
+  "name": "Free 1099 vs W-2 Calculator 2026",
   "url": "https://lancercalc.com/1099-vs-w2-calculator",
-  "description": "Compare 1099 contractor vs W-2 employee income side by side. See real after-tax take-home including SE tax, health insurance, and benefits. Free contract vs salary calculator.",
+  "description": "Compare 1099 contractor vs W-2 employee compensation after taxes and benefits.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -125,7 +125,7 @@ export default function ContractVsW2Page() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> 2025</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 A $130K contract isn&apos;t the same as a $130K salary. Enter both offers — see
                 the real after-tax, after-benefits comparison in seconds.
               </p>
@@ -228,7 +228,7 @@ export default function ContractVsW2Page() {
                 </div>
                 <div className="text-xs font-bold uppercase tracking-[0.08em] mb-2" style={{ color: "#6B5CE7" }}>Step {s.step}</div>
                 <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>{s.body}</p>
               </div>
             ))}
           </div>
@@ -246,8 +246,8 @@ export default function ContractVsW2Page() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ background: "#EEF0FF", borderBottom: "1px solid #E6E9FF" }}>
-                  <th className="text-left px-6 py-4 font-semibold" style={{ color: "#5A6178" }}>Cost</th>
-                  <th className="text-right px-6 py-4 font-semibold" style={{ color: "#5A6178" }}>W-2 ($100K)</th>
+                  <th className="text-left px-6 py-4 font-semibold" style={{ color: "#4B5563" }}>Cost</th>
+                  <th className="text-right px-6 py-4 font-semibold" style={{ color: "#4B5563" }}>W-2 ($100K)</th>
                   <th className="text-right px-6 py-4 font-semibold" style={{ color: "#6B5CE7" }}>1099 ($100K)</th>
                 </tr>
               </thead>
@@ -264,10 +264,10 @@ export default function ContractVsW2Page() {
                 ].map(([label, w2, c1099], i) => (
                   <tr key={label} className={i === 7 ? "font-semibold" : ""}
                     style={i === 7 ? { background: "#F4F5FF" } : {}}>
-                    <td className="px-6 py-3.5" style={{ color: "#5A6178" }}>{label}</td>
-                    <td className="px-6 py-3.5 text-right" style={{ color: "#5A6178" }}>{w2}</td>
+                    <td className="px-6 py-3.5" style={{ color: "#4B5563" }}>{label}</td>
+                    <td className="px-6 py-3.5 text-right" style={{ color: "#4B5563" }}>{w2}</td>
                     <td className={`px-6 py-3.5 text-right font-medium ${i === 7 ? "text-red-500" : ""}`}
-                      style={i !== 7 ? { color: "#5A6178" } : {}}>{c1099}</td>
+                      style={i !== 7 ? { color: "#4B5563" } : {}}>{c1099}</td>
                   </tr>
                 ))}
               </tbody>
@@ -284,7 +284,7 @@ export default function ContractVsW2Page() {
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Also Use As</div>
           <h2 className="section-title">Contract vs Salary Calculator — Which Offer Actually Pays More?</h2>
-          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#4B5563" }}>
             This tool doubles as a contract vs salary calculator. Enter a W-2 salary offer on one side and a contract rate on the other — and see which one puts more money in your pocket after every tax and benefit is factored in. Stop guessing. Negotiate from real numbers.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[860px]">
@@ -297,7 +297,7 @@ export default function ContractVsW2Page() {
               <div key={item.title} className="step-card">
                 <div className="text-2xl mb-3">{item.icon}</div>
                 <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>{item.body}</p>
               </div>
             ))}
           </div>
@@ -310,6 +310,29 @@ export default function ContractVsW2Page() {
           <div className="section-label">FAQ</div>
           <h2 className="section-title">Frequently asked questions</h2>
           <FAQAccordion faqs={faqs} />
+        </div>
+      </section>
+
+      {/* ── Related Blog Articles ── */}
+      <section className="max-w-[1220px] mx-auto px-4 sm:px-8 py-12">
+        <p className="section-label">Learn More</p>
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "#0A0F1E" }}>Related Articles</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <Link href="/blog/1099-vs-w2-real-difference-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>1099 vs W-2: Why Your $130K Contract Might Pay Less Than a $100K Salary</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>That $130K contractor offer might pay less than a $100K salary once SE tax and benefits hit. We show the exact numbers — use our free calculator to compare any two offers in seconds.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/freelance-hourly-rate-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How Much Should You Charge as a Freelancer? The 2025–2026 Rate Guide</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Calculate your minimum hourly rate as a freelancer. Factor in taxes, health insurance, retirement, vacation, and profit margin to find the real number you need to charge.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/1099-vs-w2-real-difference-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>1099 vs W-2: Why Your $130K Contract Might Pay Less Than a $100K Salary</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>That $130K contractor offer might pay less than a $100K salary once SE tax and benefits hit. We show the exact numbers — use our free calculator to compare any two offers in seconds.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
         </div>
       </section>
 

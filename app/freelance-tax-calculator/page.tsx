@@ -74,9 +74,9 @@ const breadcrumbSchema = {
 const webAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Freelance Tax Calculator 2025",
+  "name": "Free Freelance Tax Calculator 2026",
   "url": "https://lancercalc.com/freelance-tax-calculator",
-  "description": "Free self-employment tax calculator for freelancers. Calculate federal tax, SE tax, state tax, and quarterly estimates instantly. No sign-up required.",
+  "description": "Calculate federal income tax, self-employment tax, and state taxes for freelancers. 2026 IRS brackets, all 50 states.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
@@ -125,7 +125,7 @@ export default function FreelanceTaxCalculatorPage() {
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}> 2025–2026</span>
               </h1>
-              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p className="text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)" }}>
                 Enter your income, state, and filing status — instantly see your complete
                 tax breakdown, quarterly payment amounts, and exactly how much to set aside.
               </p>
@@ -227,7 +227,7 @@ export default function FreelanceTaxCalculatorPage() {
                 </div>
                 <div className="text-xs font-bold uppercase tracking-[0.08em] mb-2" style={{ color: "#6B5CE7" }}>Step {s.step}</div>
                 <h3 className="font-bold text-base mb-2.5 tracking-tight" style={{ color: "#0A0F1E" }}>{s.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{s.body}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>{s.body}</p>
               </div>
             ))}
           </div>
@@ -239,7 +239,7 @@ export default function FreelanceTaxCalculatorPage() {
         <div className="max-w-[1220px] mx-auto px-4 sm:px-8">
           <div className="section-label">Also Known As</div>
           <h2 className="section-title">Self-Employed Tax Calculator — Same Tool, Exact Numbers</h2>
-          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#5A6178" }}>
+          <p className="text-[15px] leading-relaxed mb-8 max-w-[720px]" style={{ color: "#4B5563" }}>
             Whether you call it a freelance tax calculator or a self-employed tax calculator, this tool handles both. If you receive 1099 income, run a sole proprietorship, or work as an independent contractor, your tax situation is identical — and this calculator covers it all.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -251,7 +251,7 @@ export default function FreelanceTaxCalculatorPage() {
               <div key={item.title} className="step-card">
                 <div className="text-2xl mb-3">{item.icon}</div>
                 <h3 className="font-bold text-[15px] mb-2" style={{ color: "#0A0F1E" }}>{item.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: "#5A6178" }}>{item.body}</p>
+                <p className="text-[13px] leading-relaxed" style={{ color: "#4B5563" }}>{item.body}</p>
               </div>
             ))}
           </div>
@@ -264,6 +264,29 @@ export default function FreelanceTaxCalculatorPage() {
           <div className="section-label">FAQ</div>
           <h2 className="section-title">Frequently asked questions</h2>
           <FAQAccordion faqs={faqs} />
+        </div>
+      </section>
+
+      {/* ── Related Blog Articles ── */}
+      <section className="max-w-[1220px] mx-auto px-4 sm:px-8 py-12">
+        <p className="section-label">Learn More</p>
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "#0A0F1E" }}>Related Articles</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <Link href="/blog/quarterly-taxes-freelancer-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>How to Calculate & Pay Quarterly Estimated Taxes as a Freelancer in 2025–2026</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Learn when quarterly estimated taxes are due in 2025–2026, how to calculate payments using Form 1040-ES, avoid IRS penalties, and use our free calculator to determine your exact amounts.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/self-employment-tax-guide-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>Self-Employment Tax Explained: The Complete 2025–2026 Guide for Freelancers</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>Understand the 15.3% self-employment tax: how it works, why freelancers pay double FICA, the Social Security cap at $184,500, and how to reduce your bill with deductions.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
+          <Link href="/blog/freelancer-tax-deductions-2026" className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ border: "1.5px solid #E6E9FF" }}>
+            <h3 className="text-[15px] font-bold mb-2 group-hover:text-[#6B5CE7] transition-colors" style={{ color: "#0A0F1E" }}>25 Tax Deductions Every Freelancer Should Claim in 2025–2026</h3>
+            <p className="text-[13px] line-clamp-2 mb-3" style={{ color: "#4B5563" }}>The complete checklist of tax deductions for freelancers: home office, health insurance, equipment, software, mileage, retirement contributions, and 19 more you might be missing.</p>
+            <span className="text-[13px] font-bold" style={{ color: "#6B5CE7" }}>Read article →</span>
+          </Link>
         </div>
       </section>
 

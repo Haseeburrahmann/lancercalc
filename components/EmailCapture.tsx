@@ -81,7 +81,7 @@ export default function EmailCapture({
 
           <p
             className="text-[15px] leading-relaxed mb-8"
-            style={{ color: "rgba(255,255,255,0.50)" }}
+            style={{ color: "rgba(255,255,255,0.70)" }}
           >
             {subheading}
           </p>
@@ -174,7 +174,7 @@ export default function EmailCapture({
       </h2>
       <p
         className="text-[15px] leading-relaxed mb-6 max-w-[480px] mx-auto"
-        style={{ color: "#5A6178" }}
+        style={{ color: "#4B5563" }}
       >
         {subheading}
       </p>

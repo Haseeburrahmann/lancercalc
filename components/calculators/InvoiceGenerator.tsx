@@ -435,7 +435,7 @@ export default function InvoiceGenerator() {
               className={`flex items-center gap-2 font-semibold px-5 py-3 rounded-xl border transition-all text-sm ${
                 paid
                   ? "bg-emerald-50 border-emerald-400 text-emerald-700 hover:bg-emerald-100"
-                  : "bg-white border-[#E8EAF0] text-[#5A6178] hover:border-[#C8CAD4]"
+                  : "bg-white border-[#E8EAF0] text-[#4B5563] hover:border-[#C8CAD4]"
               }`}
             >
               {paid ? "✓ Remove PAID stamp" : "✓ Mark as PAID"}
@@ -491,20 +491,20 @@ export default function InvoiceGenerator() {
                     </div>
                 }
                 <div className="text-sm font-bold" style={{ color: "#0A0F1E" }}>{fromName || "Your Name"}</div>
-                {fromEmail && <div className="text-xs" style={{ color: "#5A6178" }}>{fromEmail}</div>}
-                {fromPhone && <div className="text-xs" style={{ color: "#5A6178" }}>{fromPhone}</div>}
+                {fromEmail && <div className="text-xs" style={{ color: "#4B5563" }}>{fromEmail}</div>}
+                {fromPhone && <div className="text-xs" style={{ color: "#4B5563" }}>{fromPhone}</div>}
                 {fromAddress && (
-                  <div className="text-xs whitespace-pre-line mt-0.5" style={{ color: "#5A6178" }}>{fromAddress}</div>
+                  <div className="text-xs whitespace-pre-line mt-0.5" style={{ color: "#4B5563" }}>{fromAddress}</div>
                 )}
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold" style={{ color: "#0A0F1E" }}>INVOICE</div>
                 <div className="text-sm font-semibold text-brand mt-1">{invoiceNo}</div>
-                <div className="text-xs mt-2" style={{ color: "#5A6178" }}>
+                <div className="text-xs mt-2" style={{ color: "#4B5563" }}>
                   <span style={{ color: "#8B90A0" }}>Date: </span>{fmtDate(invoiceDate)}
                 </div>
                 {dueDate && (
-                  <div className="text-xs" style={{ color: "#5A6178" }}>
+                  <div className="text-xs" style={{ color: "#4B5563" }}>
                     <span style={{ color: "#8B90A0" }}>Due: </span>
                     <span className={new Date(dueDate) < new Date() && !paid ? "text-red-500 font-semibold" : ""}>
                       {fmtDate(dueDate)}
@@ -518,18 +518,18 @@ export default function InvoiceGenerator() {
             <div className="bg-[#F7F8FB] rounded-xl px-5 py-4 mb-6">
               <div className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "#8B90A0" }}>Bill To</div>
               <div className="font-bold text-sm" style={{ color: "#0A0F1E" }}>{toName || "Client Name"}</div>
-              {toEmail && <div className="text-xs" style={{ color: "#5A6178" }}>{toEmail}</div>}
-              {toAddress && <div className="text-xs whitespace-pre-line mt-0.5" style={{ color: "#5A6178" }}>{toAddress}</div>}
+              {toEmail && <div className="text-xs" style={{ color: "#4B5563" }}>{toEmail}</div>}
+              {toAddress && <div className="text-xs whitespace-pre-line mt-0.5" style={{ color: "#4B5563" }}>{toAddress}</div>}
             </div>
 
             {/* Line items table */}
             <table className="w-full text-sm mb-4">
               <thead>
                 <tr className="border-b-2 border-[#E8EAF0]">
-                  <th className="text-left pb-2 text-xs font-semibold uppercase tracking-wide" style={{ color: "#5A6178" }}>Description</th>
-                  <th className="text-center pb-2 text-xs font-semibold uppercase tracking-wide w-12" style={{ color: "#5A6178" }}>Qty</th>
-                  <th className="text-right pb-2 text-xs font-semibold uppercase tracking-wide w-20" style={{ color: "#5A6178" }}>Rate</th>
-                  <th className="text-right pb-2 text-xs font-semibold uppercase tracking-wide w-24" style={{ color: "#5A6178" }}>Amount</th>
+                  <th className="text-left pb-2 text-xs font-semibold uppercase tracking-wide" style={{ color: "#4B5563" }}>Description</th>
+                  <th className="text-center pb-2 text-xs font-semibold uppercase tracking-wide w-12" style={{ color: "#4B5563" }}>Qty</th>
+                  <th className="text-right pb-2 text-xs font-semibold uppercase tracking-wide w-20" style={{ color: "#4B5563" }}>Rate</th>
+                  <th className="text-right pb-2 text-xs font-semibold uppercase tracking-wide w-24" style={{ color: "#4B5563" }}>Amount</th>
                 </tr>
               </thead>
               <tbody>
@@ -540,8 +540,8 @@ export default function InvoiceGenerator() {
                   return (
                     <tr key={item.id} className="border-b border-[#F0F1F5]">
                       <td className="py-2.5 pr-4" style={{ color: "#0A0F1E" }}>{item.description || <span className="italic" style={{ color: "#8B90A0" }}>Description</span>}</td>
-                      <td className="py-2.5 text-center" style={{ color: "#5A6178" }}>{item.qty}</td>
-                      <td className="py-2.5 text-right" style={{ color: "#5A6178" }}>{fmt(r, sym)}</td>
+                      <td className="py-2.5 text-center" style={{ color: "#4B5563" }}>{item.qty}</td>
+                      <td className="py-2.5 text-right" style={{ color: "#4B5563" }}>{fmt(r, sym)}</td>
                       <td className="py-2.5 text-right font-medium" style={{ color: "#0A0F1E" }}>{fmt(amt, sym)}</td>
                     </tr>
                   );
@@ -552,12 +552,12 @@ export default function InvoiceGenerator() {
             {/* Totals */}
             <div className="ml-auto w-64 space-y-1.5 mb-6">
               <div className="flex justify-between text-sm">
-                <span style={{ color: "#5A6178" }}>Subtotal</span>
+                <span style={{ color: "#4B5563" }}>Subtotal</span>
                 <span className="font-medium" style={{ color: "#0A0F1E" }}>{fmt(subtotal, sym)}</span>
               </div>
               {discountType !== "none" && discountAmt > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span style={{ color: "#5A6178" }}>
+                  <span style={{ color: "#4B5563" }}>
                     Discount {discountType === "pct" ? `(${discountVal}%)` : ""}
                   </span>
                   <span className="text-red-500">−{fmt(discountAmt, sym)}</span>
@@ -565,7 +565,7 @@ export default function InvoiceGenerator() {
               )}
               {taxEnabled && parseFloat(taxRate) > 0 && (
                 <div className="flex justify-between text-sm">
-                  <span style={{ color: "#5A6178" }}>{taxLabel || "Tax"} ({taxRate}%)</span>
+                  <span style={{ color: "#4B5563" }}>{taxLabel || "Tax"} ({taxRate}%)</span>
                   <span style={{ color: "#0A0F1E" }}>{fmt(taxAmt, sym)}</span>
                 </div>
               )}
@@ -579,7 +579,7 @@ export default function InvoiceGenerator() {
             {notes && (
               <div className="border-t border-[#F0F1F5] pt-4">
                 <div className="text-xs font-semibold uppercase tracking-widest mb-1" style={{ color: "#8B90A0" }}>Notes</div>
-                <p className="text-xs leading-relaxed whitespace-pre-line" style={{ color: "#5A6178" }}>{notes}</p>
+                <p className="text-xs leading-relaxed whitespace-pre-line" style={{ color: "#4B5563" }}>{notes}</p>
               </div>
             )}
 

@@ -256,7 +256,7 @@ export default function SETaxCalculator({ defaultState = "TX" }: { defaultState?
                   <p className="text-2xl font-extrabold tracking-tight" style={{ color: "#0A0F1E" }}>{fmt(results.totalTax)}</p>
                 </div>
                 <div className="flex justify-between items-center pt-3">
-                  <p className="font-semibold" style={{ color: "#5A6178" }}>Take-home pay</p>
+                  <p className="font-semibold" style={{ color: "#4B5563" }}>Take-home pay</p>
                   <p className="text-xl font-extrabold text-emerald-600">
                     {fmt(results.gross - results.totalTax)}
                   </p>
@@ -279,7 +279,7 @@ export default function SETaxCalculator({ defaultState = "TX" }: { defaultState?
             <div className="bg-[#F7F8FB] border border-[#E8EAF0] rounded-2xl p-5 flex gap-3">
               <div className="w-9 h-9 bg-white border border-[#E8EAF0] rounded-lg flex items-center justify-center text-sm flex-shrink-0">ℹ️</div>
               <div>
-                <p className="text-xs font-bold text-[#5A6178] mb-1">Accuracy & Sources</p>
+                <p className="text-xs font-bold text-[#4B5563] mb-1">Accuracy & Sources</p>
                 <p className="text-xs text-[#8B90A0] leading-relaxed">
                   Federal brackets and SE tax rates sourced from{" "}
                   <a href="https://www.irs.gov/pub/irs-drop/rp-24-40.pdf" target="_blank" rel="noopener noreferrer" className="text-brand underline hover:text-brand-dark">IRS Rev. Proc. 2024-40</a>
