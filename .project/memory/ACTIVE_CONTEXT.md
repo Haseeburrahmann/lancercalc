@@ -108,9 +108,23 @@ When building form components in Stage 2:
 
 ---
 
+## Git Branch Strategy
+
+```
+main                    ← LIVE production (do NOT push 2.0 work here)
+ └── lancercalc-2.0     ← All 2.0 development (current working branch)
+      └── feature/*      ← Feature branches merge back to lancercalc-2.0
+```
+
+- Always verify you're on `lancercalc-2.0` (or a feature branch off it) before working.
+- Only touch `main` for critical hotfixes on the live 1.0 site.
+- Use GitHub account `Haseeburrahmann` for pushes.
+
+---
+
 ## Blockers
 
-None. Ready to open VS Code and start Stage 1.
+None. Ready to start Stage 1 on `lancercalc-2.0` branch.
 
 ---
 

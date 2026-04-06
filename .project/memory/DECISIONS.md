@@ -142,6 +142,17 @@
 
 ---
 
+## ADR-012 | April 2026 | ✅ Accepted
+**Decision:** Use `lancercalc-2.0` branch for all 2.0 development, feature branches off it, merge to `main` only when fully ready
+**Context:** 2.0 is a full redesign (homepage, header, footer, all calculators, new pages). Half-done work can't go live — Vercel auto-deploys from `main`.
+**Options considered:**
+1. Work directly on `main` with feature branches (simpler, but broken UI goes live)
+2. `lancercalc-2.0` staging branch → feature branches → merge to `main` when ready (chosen)
+**Outcome:** Option 2. Keeps live site stable while 2.0 is built incrementally. Hotfixes to 1.0 can still go directly to `main`.
+**Trade-off:** Slightly more git overhead. Possible merge conflicts if `main` diverges significantly (unlikely — no major 1.0 work planned).
+
+---
+
 ## Template for New Decisions
 
 ```

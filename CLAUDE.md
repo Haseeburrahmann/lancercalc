@@ -370,12 +370,38 @@ lancercalc/
 
 ---
 
-## Git Workflow Notes
+## Git Workflow — Branch Strategy (2.0)
 
-- **macOS mounted volume**: `.git/index.lock` files get stuck frequently
-- **Fix**: Run `rm .git/index.lock` from the user's terminal before committing
-- **The VM cannot push**: User must run `git push` from their own terminal
-- **Auto-deploy**: Vercel auto-deploys on every push to `main`
+### Branch Structure
+```
+main                    ← LIVE production (lancercalc.com auto-deploys from here)
+ └── lancercalc-2.0     ← 2.0 development branch (all Stage 1–4 work happens here)
+      ├── feature/new-homepage
+      ├── feature/reskin-calculators
+      ├── feature/pricing-page
+      └── ... (merge each back to lancercalc-2.0)
+```
+
+### Hard Rules
+- **`main` = live site.** Only push to `main` for critical hotfixes on the current live site.
+- **`lancercalc-2.0` = 2.0 staging.** All 2.0 work merges here first.
+- **Feature branches** branch off `lancercalc-2.0`, NOT `main`.
+- **Naming:** `feature/description`, `fix/description`, `refactor/description`
+- **When 2.0 is fully ready and tested** → merge `lancercalc-2.0` into `main` → goes live.
+- **Never force push** to `main` or `lancercalc-2.0`.
+- **GitHub account:** Use `Haseeburrahmann` (not `growthmasala`) for this repo.
+
+### Workflow
+1. `git checkout lancercalc-2.0`
+2. `git checkout -b feature/my-feature`
+3. Do the work, commit
+4. `git checkout lancercalc-2.0 && git merge feature/my-feature`
+5. Push `lancercalc-2.0` to remote
+6. When ALL of 2.0 is done → merge `lancercalc-2.0` into `main`
+
+### Notes
+- **macOS mounted volume**: `.git/index.lock` files get stuck frequently — run `rm .git/index.lock`
+- **Auto-deploy**: Vercel auto-deploys on every push to `main` (not `lancercalc-2.0`)
 
 ---
 
