@@ -5,6 +5,44 @@
 
 ---
 
+## ⚡ Operating Instructions (Read First, Every Session)
+
+### Step 1 — Orient yourself
+Before writing any code or making any decision, read these files in order:
+1. `.project/memory/ACTIVE_CONTEXT.md` — what phase we're in, what's in progress right now
+2. `.project/memory/KNOWN_ISSUES.md` — what's broken or risky
+3. `.project/memory/DECISIONS.md` — what has already been decided (don't re-debate closed ADRs)
+
+### Step 2 — When acting as a specific role
+If asked to "Act as the [Agent]", read the corresponding file first:
+- Product Owner → `.project/agents/product-owner.md`
+- Architect → `.project/agents/architect.md`
+- Frontend Developer → `.project/agents/frontend.md`
+- Backend Developer → `.project/agents/backend.md`
+- Analyst → `.project/agents/analyst.md`
+- Security Reviewer → `.project/agents/security.md`
+- Tester → `.project/agents/tester.md`
+
+### Step 3 — Before making an architecture decision
+Check `.project/memory/DECISIONS.md` first. If an ADR already covers this, follow it. If not, document the new decision there after making it.
+
+### Step 4 — After completing a task
+Update these files before ending the session:
+- `.project/memory/ACTIVE_CONTEXT.md` — what was done, what's next
+- `.project/memory/CHANGE_TRACKER.md` — log what changed and why
+- `.project/memory/KNOWN_ISSUES.md` — log any bugs or risks found
+
+### Non-negotiable rules
+- No `any` types — run `npx tsc --noEmit` to verify
+- `"use client"` on all interactive components; page files are server components
+- Mobile first — test at 375px before shipping any UI
+- RLS on every Supabase table — no exceptions
+- Never commit secrets — `.env.local` is gitignored
+
+---
+
+---
+
 ## What Is LancerCalc?
 
 A **free, fast financial toolkit built exclusively for freelancers** — no sign-up, no paywalls,
@@ -22,34 +60,57 @@ We sit in the middle: free, focused, fast.
 
 ---
 
-## Business Model
+## Business Model (2.0)
 
 | Phase | Timeline | Revenue Source | Est. Monthly |
 |-------|----------|---------------|--------------|
 | 1 | Month 1–5 | Google AdSense (finance CPM: $15–40 RPM) | $50–$500 |
-| 2 | Month 6–12 | AdSense scale + freemium tier ($5–8/mo) | $500–$2,000 |
+| 2 | Month 6–12 | AdSense + Pro subscriptions ($15/mo) | $500–$2,000 |
 | 3 | Month 12–24 | Ads + subscriptions + affiliate partnerships | $2,000–$5,000+ |
 
-**Freemium tier (planned):** Save invoices, recurring templates, quarterly tax calendar, dashboard.
-**Affiliates (planned):** Banking (Relay, Mercury), accounting (Wave, FreshBooks), tax filing (TaxAct).
+### Pricing Tiers (2.0)
+| Tier | Price | Key Features |
+|------|-------|-------------|
+| **Free** | $0 | All calculators, 3 invoices/mo, no save |
+| **Pro** | $15/mo | Unlimited invoices, save history, tax calendar, dashboard |
+| **Agency** | $29/mo | Everything in Pro + multi-client, team seats, white-label PDF |
+
+**Free gate:** 3 invoices/month, no history saved, no recurring templates.
+**Stripe Product IDs:** See `.project/agents/backend.md` for price IDs.
+**Affiliates (planned):** Banking (Relay, Mercury), accounting (Wave, FreshBooks), tax (TaxAct).
 
 ---
 
 ## Tech Stack
 
+### 1.0 (Live Now)
+| Layer | Choice |
+|-------|--------|
+| Framework | Next.js 14 (App Router) |
+| Styling | Tailwind CSS 3.4 |
+| Language | TypeScript (strict) |
+| Hosting | Vercel (free tier) |
+| PDF | Browser `window.print()` |
+| Analytics | Google Analytics 4 (G-C9E0KPBWME) |
+| Domain | lancercalc.com (Namecheap → Vercel) |
+
+### 2.0 (Target Stack — ADR-005 through ADR-010)
 | Layer | Choice | Why |
 |-------|--------|-----|
-| Framework | Next.js 14 (App Router) | Static generation = fast SEO pages |
-| Styling | Tailwind CSS | Rapid UI, no CSS files to manage |
-| Language | TypeScript (strict) | Type safety for tax calculation logic |
-| Hosting | Vercel (free tier) | Auto-deploy from GitHub, global CDN |
-| PDF | Browser `window.print()` | No library needed for invoice generation |
-| Analytics | Google Analytics 4 (G-C9E0KPBWME) | Full traffic analytics |
-| Search Console | Verified (SC4nTGns8dCZ...) | Sitemap submitted |
-| Domain | lancercalc.com (Namecheap) | A: 216.198.79.1, CNAME: vercel-dns |
-| Favicon | Custom LC icon (indigo #4f46e5) | ico + png + apple-touch-icon |
+| Framework | Next.js 15 (App Router) | Latest stable, improved caching |
+| Styling | Tailwind CSS 4 + shadcn/ui | Component system, design tokens |
+| Language | TypeScript strict | No `any` — non-negotiable |
+| Database | Supabase (Postgres + RLS) | Auth + DB + Storage in one |
+| Auth | Supabase Auth (magic link + Google) | No password friction |
+| Payments | Stripe Checkout + Webhooks | Subscriptions + one-off |
+| PDF | React-PDF (server-side) | Pixel-perfect, no browser quirks |
+| Email | Resend + React Email | Transactional email |
+| Rate limiting | Upstash Redis | API protection |
+| Analytics | Plausible + PostHog | Privacy-first + product analytics |
+| Hosting | Vercel (Pro when revenue hits) | Same pipeline, more limits |
 
-**Key principle:** No database, no auth, no backend. Everything runs in the browser.
+**Key principle (2.0):** Free tools stay browser-only. Auth/paid features go through Supabase.
+RLS on every table — no exceptions. See `.project/agents/backend.md` for full schema.
 
 ---
 
@@ -68,16 +129,25 @@ We sit in the middle: free, focused, fast.
 
 ---
 
-## Brand & Design
+## Brand & Design (2.0 — Updated April 2026)
 
-- **Primary color:** Indigo (`#4f46e5` / `brand-600`) — professional, trustworthy
+- **Primary color:** Deep Navy `#200B56` — professional, premium SaaS feel (from Sasico CRM design system)
+- **Primary hover:** `#180840` (darker navy for button states)
+- **Primary accent:** `#4B2D8C` (lighter purple for secondary elements)
+- **Primary light tint:** `#EDE8F5` (backgrounds, badges, highlights)
 - **Success/money color:** Emerald (`#10B981`)
 - **Warning/highlight:** Amber (`#F59E0B`)
-- **Font:** Inter (Google Fonts)
-- **Design language:** Clean white cards, soft shadows, large result numbers, no dark patterns
-- **Logo:** "LC" monogram in indigo rounded square + "Lancer**Calc**" wordmark
-- **Favicon:** LC icon in indigo square (16/32/48/64/128/180/192/256/512px sizes)
-- **Theme color:** `#4f46e5` (matches mobile browser chrome)
+- **Text primary:** `#0A0F1E` (near-black)
+- **Text secondary:** `#4B5563`
+- **Text muted:** `#8B90A0`
+- **Surface bg:** `#F7F8FB`
+- **Border:** `#E8EAF0`
+- **Font headings:** Plus Jakarta Sans (700–800) — loaded via Google Fonts
+- **Font body:** Inter (400–600) — loaded via Google Fonts
+- **Design language:** Clean white cards, soft shadows, navy primary CTA, no dark patterns
+- **Logo:** "A + swoosh" mark in `#200B56` + "LancerCalc" wordmark (finalized April 2026)
+- **Favicon:** Logo icon exported at 16/32/180/192/512px
+- **Theme color:** `#200B56` (matches mobile browser chrome)
 
 ---
 
@@ -195,17 +265,108 @@ lancercalc/
 
 ---
 
-## Planned Next Steps
+## 2.0 Build Plan — 4 Stages (Frontend-First)
 
-| Priority | Task | Status |
-|----------|------|--------|
-| 🔴 High | Build Quarterly Tax Scheduler tool | Not started |
-| 🔴 High | Build Project Pricing Calculator tool | Not started |
-| 🟡 Medium | Email capture (quarterly tax deadline reminders) | Not started |
-| 🟡 Medium | Product Hunt launch | Waiting for 5+ tools |
-| 🟡 Medium | Apply for Google AdSense (~1K visits/month) | Waiting for traffic |
-| 🟢 Later | UK/India/Canada tax calculators | Not started |
-| 🟢 Later | Late Fee Calculator | Not started |
+> Strategy: Build and perfect the UI first. Wire up backend (Supabase + Stripe + auth) last.
+> This way we see the full product early and avoid backend complexity blocking UI work.
+> See ADR-011 in `.project/memory/DECISIONS.md` for full rationale.
+
+---
+
+### Stage 1 — Redesign Public Site 🔴 IN PROGRESS
+**Goal:** lancercalc.com looks like a 2.0 product. New brand throughout. No new features yet.
+
+| Task | Status |
+|------|--------|
+| Logo finalized (A + swoosh) | ✅ Done |
+| Brand colors updated (`#200B56`) | ✅ Done |
+| tailwind.config.ts + globals.css updated | ✅ Done |
+| Update layout.tsx (theme-color, Google Fonts — Inter + Plus Jakarta Sans) | ⬜ |
+| Favicon exports saved to `/public/` (16, 32, 180, 192, 512px) | ⬜ |
+| New homepage — hero, tools grid, features section, pricing preview, footer | ⬜ |
+| Header — new brand, nav links for all tools + "Sign in" placeholder | ⬜ |
+| Footer — updated with all tool links + new brand | ⬜ |
+| Reskin: Freelance Tax Calculator | ⬜ |
+| Reskin: Hourly Rate Calculator | ⬜ |
+| Reskin: 1099 vs W-2 Calculator | ⬜ |
+| Reskin: Invoice Generator (basic) | ⬜ |
+| Reskin: Quarterly Tax Scheduler | ⬜ |
+| Reskin: Project Pricing Calculator | ⬜ |
+| Pricing page (static — no Stripe yet) | ⬜ |
+| Blog index + post pages reskinned | ⬜ |
+
+---
+
+### Stage 2 — Build the 6 New Features (Browser-Only, No Auth)
+**Goal:** All 6 features exist, work, and generate PDFs. No save, no login required yet.
+**Key rule:** Design form data structures to match the future Supabase schema — swap in Stage 4 is just replacing local state with a DB insert.
+
+| Task | Status |
+|------|--------|
+| **NDA Generator** — mutual/one-way, 6 jurisdictions, download PDF | ⬜ |
+| **Proposal Builder** — 6 industry templates, multi-step form, PDF download | ⬜ |
+| **Contract Generator** — 8-question wizard, 4 contract types, PDF download | ⬜ |
+| **Invoice 2.0** — multi-currency, line items, download PDF (no Stripe link yet) | ⬜ |
+| **Project Handover Builder** — 7 sections, credentials masked, PDF + mock public URL | ⬜ |
+| **Dashboard shell** — static layout with mock data showing what Pro looks like | ⬜ |
+| Internal funnel links: Pricing Calc → Proposal → Contract → Invoice → Handover | ⬜ |
+
+---
+
+### Stage 3 — Test Everything
+**Goal:** Every flow works perfectly before any backend complexity is added.
+
+| Task | Status |
+|------|--------|
+| All forms validate correctly (required fields, number ranges) | ⬜ |
+| Every PDF generates + downloads cleanly | ⬜ |
+| All pages work on mobile at 375px | ⬜ |
+| Funnel links work end-to-end (calc → proposal pre-fills price) | ⬜ |
+| No TypeScript errors (`npx tsc --noEmit` passes clean) | ⬜ |
+| No ESLint errors (`npx next lint` passes clean) | ⬜ |
+| Core Web Vitals — LCP under 2.5s, no layout shift | ⬜ |
+| Cross-browser: Chrome, Safari, Firefox | ⬜ |
+| SEO — metadata, canonical tags, JSON-LD on all new pages | ⬜ |
+
+---
+
+### Stage 4 — Wire Up the Backend
+**Goal:** Real SaaS. Users can sign up, save work, and pay for Pro.
+
+| Task | Status |
+|------|--------|
+| Next.js 15 upgrade | ⬜ |
+| shadcn/ui installed | ⬜ |
+| Supabase project created | ⬜ |
+| SQL migrations: users, subscriptions, clients, documents, handovers, usage_events, templates | ⬜ |
+| RLS policies on every table | ⬜ |
+| User sync trigger (handle_new_user) | ⬜ |
+| Supabase TypeScript types generated | ⬜ |
+| Auth middleware protecting `/dashboard/*` | ⬜ |
+| Sign in / sign up pages (email + Google OAuth + magic link) | ⬜ |
+| Stripe products created (Free / Pro $15 / Agency $29) | ⬜ |
+| Stripe Checkout + Portal + Webhook handler | ⬜ |
+| Free tier gates: 1 proposal/mo, 1 contract/mo, 1 handover/mo | ⬜ |
+| Upgrade wall modal (triggered when free limit hit) | ⬜ |
+| Save functionality: documents → Supabase instead of local state | ⬜ |
+| Invoice 2.0: add Stripe payment link + Resend auto-reminders | ⬜ |
+| Handover: real public URL `/handover/[token]` + view tracking | ⬜ |
+| Upstash Redis rate limiting on all `/api/` routes | ⬜ |
+| Resend domain verified + email sequences (welcome, reminders) | ⬜ |
+| Plausible + PostHog analytics | ⬜ |
+| Sentry error tracking | ⬜ |
+
+---
+
+### After Stage 4 — Growth & Scale
+| Task | Status |
+|------|--------|
+| Google AdSense application (~1K visits) | ⬜ Waiting for traffic |
+| Product Hunt launch | ⬜ |
+| Affiliate integrations (Relay, Mercury, Wave, FreshBooks, TaxAct) | ⬜ |
+| UK/Canada tax calculators | ⬜ |
+| Agency tier: multi-client, team seats, white-label PDF | ⬜ |
+| Show HN + Reddit (r/freelance, r/webdev, r/indiehackers) | ⬜ |
 
 ---
 
@@ -231,4 +392,4 @@ lancercalc/
 
 ---
 
-*Last updated: February 2026 — 4 tools live + blog + full SEO + domain configured*
+*Last updated: April 2026 — 2.0 planning complete, brand updated (#200B56), Phase 1 in progress*
